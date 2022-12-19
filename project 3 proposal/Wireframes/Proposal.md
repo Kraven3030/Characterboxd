@@ -48,15 +48,11 @@
 > | HTTP Verb | Model | Path | REST Action | Purpose |
 > | --- | --- | --- | --- | --- |
 > | GET | Title/Review | /title/:id | Index | See reviews on a title |
-> | GET | User | /user/new | New | Return a form to sign up |
 > | PUT | User | /user/signup | Create | Submit new user for to add a user to database |
-> | GET | User | /user/:id/change | Read | Return a form to change username or password, or delete account |
 > | PUT | User | /user/:id/submit | Update | Submit changes to user |
 > | DELETE | User | /user/:id/delete | Destroy | Delete a user account from database |
 > | GET | User/Review | /user/:id | Index | See reviews from a user |
-> | GET | Review/Title | /title/:id/review/ | New | Return a form to submit  a review on a title |
 > | POST | Review/Title | /title/:id/review/:id/add | Create | Submit a new review to the database |
-> | GET | Review/Title | /title/:id/review/:id/edit | Read | Return a form to edit or delete a review |
 > | PUT | Review/Title | /title/:id/review/:id/update | Update | Submit changes from form to review |
 > | DELETE | Review/Title | /title/:id/review/:id/delete | Destroy | Delete a review from the database |
 > 
