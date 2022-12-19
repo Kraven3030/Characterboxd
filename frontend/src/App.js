@@ -3,15 +3,27 @@ import { Routes, Route, Link } from "react-router-dom";
 
 // Imports for components and pages
 import Login from './components/Login/login'
+import Signup from './components/Signup/signup'
 
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello Blake, Rory and Bren</h1>
+    <div className="nav">
+      <nav>
+        <Link to="/">
+          <h1>Home</h1>
+        </Link>
+        <Link to="/Login/login">
+          <h1>Login</h1>
+        </Link>
+        <Link to="/Signup/signup">
+          <h1>Signup</h1>
+        </Link>
+      </nav>
       <main>
         <Routes>
           <Route path="/Login/Login" element={<Login />} />
+          <Route path="/Signup/Signup" element={<Signup />} />
         </Routes>
       </main>
     </div>
