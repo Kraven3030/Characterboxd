@@ -20,7 +20,7 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 // Access to extended express library
 app.use(express.json())
-// method-override allows us to interpret POST requests from the browser as another request
+// Method-override allows us to interpret POST requests from the browser as another request
 app.use(methodOverride('_method'));
 
 
