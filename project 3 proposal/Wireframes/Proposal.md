@@ -65,34 +65,39 @@
 > - “As a designer, I think the design of their website is clean and streamlined. They delivered a straightforward and easy-to-use user interface that has powerful functionality for reviewing movies and TV shows.”
 > 
 > **7. Wire Frames:**
-> 
-> ![Home Page](Product%20Spec%20for%20Characterboxd%203b8a62a7f9fa432fb676283cac517140/Screen_Shot_2022-12-19_at_12.03.44_PM.png)
-> 
 > Home Page
 > 
-> ![Index of reviews by title](Product%20Spec%20for%20Characterboxd%203b8a62a7f9fa432fb676283cac517140/Screen_Shot_2022-12-19_at_12.39.35_PM.png)
+> <img width="463" alt="Screen Shot 2022-12-19 at 12 03 44 PM" src="https://user-images.githubusercontent.com/115426977/208535674-c8758e89-32d2-4ee3-8c81-bdc75930bebc.png">
 > 
 > Index of reviews by title
 > 
-> ![Index of reviews by a user](Product%20Spec%20for%20Characterboxd%203b8a62a7f9fa432fb676283cac517140/Screen_Shot_2022-12-19_at_12.50.57_PM.png)
+<img width="412" alt="Screen Shot 2022-12-19 at 12 39 35 PM" src="https://user-images.githubusercontent.com/115426977/208536174-3a47bab9-6a4c-40a6-85b6-ecd4b28411fe.png">
+
 > 
 > Index of reviews by a user
 > 
-> ![User sign in](Product%20Spec%20for%20Characterboxd%203b8a62a7f9fa432fb676283cac517140/Screen_Shot_2022-12-19_at_12.59.34_PM.png)
-> 
+> <img width="399" alt="Screen Shot 2022-12-19 at 12 50 57 PM" src="https://user-images.githubusercontent.com/115426977/208536309-e0a338b1-5170-4fe7-920d-52ae9e88bdf2.png">
+
 > User sign in
 > 
-> ![User sign up](Product%20Spec%20for%20Characterboxd%203b8a62a7f9fa432fb676283cac517140/Screen_Shot_2022-12-19_at_1.02.28_PM.png)
+<img width="400" alt="Screen Shot 2022-12-19 at 12 59 34 PM" src="https://user-images.githubusercontent.com/115426977/208536727-0980b0a3-6835-4565-9644-a5fbb5606016.png">
+
 > 
 > User sign up
 > 
-> ![Add a new review](Product%20Spec%20for%20Characterboxd%203b8a62a7f9fa432fb676283cac517140/Screen_Shot_2022-12-19_at_1.17.52_PM.png)
+<img width="323" alt="Screen Shot 2022-12-19 at 1 02 28 PM" src="https://user-images.githubusercontent.com/115426977/208536814-b361c5e0-37ef-4908-a041-62641e4e6e58.png">
+
 > 
 > Add a new review
 > 
-> ![Edit/delete review](Product%20Spec%20for%20Characterboxd%203b8a62a7f9fa432fb676283cac517140/Screen_Shot_2022-12-19_at_1.19.29_PM.png)
+<img width="363" alt="Screen Shot 2022-12-19 at 1 17 52 PM" src="https://user-images.githubusercontent.com/115426977/208536911-d807466c-79ee-43b5-86d4-e93188967d4e.png">
+
 > 
 > Edit/delete review
-> 
+
+<img width="299" alt="Screen Shot 2022-12-19 at 1 19 29 PM" src="https://user-images.githubusercontent.com/115426977/208536977-41505029-c024-4676-a33a-675d00c119fe.png">
+
+
+
 > 💡, 🎥, 🎬*It’s show time!*
 >
