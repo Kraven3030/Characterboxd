@@ -3,7 +3,7 @@ import './styles.css'
 function Home() {
     return(
         <div>
-            <Nav />
+            {/* <Nav /> */}
             <h2>Track films you've watched.</h2>
             <h2>Save those you want to see.</h2>
             <h2>Tell your friends what's good.</h2>

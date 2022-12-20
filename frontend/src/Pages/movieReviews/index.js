@@ -1,7 +1,8 @@
 function movieReviews() {
     return(
         <div>
-            <Nav />
+            {/* <Nav /> */}
+            
         </div>
     );
     
