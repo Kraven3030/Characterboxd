@@ -1,5 +1,9 @@
 function editReview() {
-
+return(
+    <div>
+        <Nav />
+    </div>
+);
 
 }
 
