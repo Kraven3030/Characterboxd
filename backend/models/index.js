@@ -37,6 +37,6 @@ mongoose.connection.on('error', (error) => {
 //  ACCESS MODELS
 //=================
 
-module.exports.Item = require("./item.js");
+module.exports.Media = require("./media.js");
 module.exports.User = require("./user.js");
 module.exports.Review = require("./review.js");
