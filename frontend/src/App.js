@@ -5,7 +5,14 @@ import { useState } from 'react'
 // Imports for components and pages
 import Login from './components/Login/login'
 import Signup from './components/Signup/signup'
+
 import SearchBar from './components/SearchBar/SearchBar';
+import MovieReviews from './Pages/MovieReviews';
+import UsersReviews from './Pages/UsersReviews';
+import NewReview from './Pages/NewReview';
+import EditReview from './Pages/EditReview';
+import Home from './Pages/Home';
+
 
 
 function App() {
@@ -13,6 +20,11 @@ function App() {
 
   return (
     <div className="nav">
+
+      
+      <main>
+        <Routes>
+          {/* Component Routes */}
       <nav>
         <Link to="/">
           <h1>Home</h1>
@@ -29,8 +41,16 @@ function App() {
       </nav>
       <main>
         <Routes>
+
           <Route path="/Login/login" element={<Login />} />
           <Route path="/Signup/Signup" element={<Signup />} />
+          {/* Page Routes  */}
+          <Route path="/" element={<Home />} />
+          <Route path="/MovieReviews/index" element={<MovieReviews />} />
+          <Route path="/UsersReviews/index" element={<UsersReviews />} />
+          <Route path="/NewReview/index" element={<NewReview />} />
+          <Route path="/EditReview/index" element={<EditReview />} />
+
         </Routes>
       </main>
     </div>
