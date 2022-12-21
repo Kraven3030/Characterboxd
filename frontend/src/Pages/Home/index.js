@@ -9,7 +9,7 @@ function Home() {
     
     useEffect(() => {
         const getMedia = async () => {
-            
+
         }
     }, []);
 
@@ -17,7 +17,7 @@ function Home() {
     return(
         <div>
             {/* <Nav /> */}
-            <section>
+            {/* <section>
                 <h2>Track films you've watched.</h2>
                 <h2>Save those you want to see.</h2>
                 <h2>Tell your friends what's good.</h2>
@@ -29,8 +29,9 @@ function Home() {
                         <h2>{media.title}</h2>
                         <h5>{media.genre}</h5>
                     </>
-            
-                })}
+           
+
+                })} */}
 
         </div>
     );
