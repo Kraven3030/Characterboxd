@@ -30,8 +30,21 @@ const reviewSchema = new Schema(
     }
 );
 
+
+=======
+//=============================
+//   MODEL USING ITEM SCHEMA  
+//=============================
+
+const Review = mongoose.model('Review', reviewSchema);
+
+
 //===================
 //   EXPORT MODEL  
 //===================
 
+
 module.exports = reviewSchema;
+=======
+module.exports = Review
+

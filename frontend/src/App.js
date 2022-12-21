@@ -18,10 +18,25 @@ function App() {
 
   return (
     <div className="nav">
+
       
       <main>
         <Routes>
           {/* Component Routes */}
+      <nav>
+        <Link to="/">
+          <h1>Home</h1>
+        </Link>
+        <Link className='loginLink' to="/Login/login">
+          <h1>Login</h1>
+        </Link>
+        <Link to="/Signup/signup">
+          <h1 className='signupLink'>Signup</h1>
+        </Link>
+      </nav>
+      <main>
+        <Routes>
+
           <Route path="/Login/login" element={<Login />} />
           <Route path="/Signup/Signup" element={<Signup />} />
           {/* Page Routes  */}
