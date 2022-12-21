@@ -4,9 +4,9 @@
 const express = require('express')
 const app = express()
 require('dotenv').config()
-const port = process.env.PORT
+const PORT = process.env.PORT
 const methodOverride = require('method-override');
-
+const cors = require('cors')
 
 
 

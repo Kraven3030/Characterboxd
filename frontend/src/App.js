@@ -5,6 +5,8 @@ import { useState } from 'react'
 // Imports for components and pages
 import Login from './components/Login/login'
 import Signup from './components/Signup/signup'
+
+import SearchBar from './components/SearchBar/SearchBar';
 import MovieReviews from './Pages/MovieReviews';
 import UsersReviews from './Pages/UsersReviews';
 import NewReview from './Pages/NewReview';
@@ -33,6 +35,9 @@ function App() {
         <Link to="/Signup/signup">
           <h1 className='signupLink'>Signup</h1>
         </Link>
+
+        <SearchBar />
+       
       </nav>
       <main>
         <Routes>
