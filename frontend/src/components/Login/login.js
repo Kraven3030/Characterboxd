@@ -1,7 +1,9 @@
+// Import dependncies
 import { useState } from 'react'
-import "./login.css"
 import { Link } from "react-router-dom";
 import { loginToAccount } from '../../utils/api'
+// Import Styles
+import "./login.css"
 
 
 
@@ -20,7 +22,7 @@ function Login(props) {
 
 
     const handleSubmit = (event) => {
-        // Prevents webpage from reloading
+        // Prevents webpage from reloading when user logs in
         event.preventDefault()
         // Grabs data from backend via axios in the api utils file
         loginToAccount(loginForm)
@@ -33,9 +35,9 @@ function Login(props) {
         <figure>
             <div className='loginModal'>
                 <div className='modalContent'>
-                    <Link to="/"><span>&times;</span></Link>
-                    <form className='loginForm' onSubmit={() => props.handleSubmit(loginForm)}>
+                    <form className='loginForm'>
                         <div className='loginDiv'>
+                            <Link className='modalCloseBtn' to="/"><span>&times;</span></Link>
                             <label htmlFor='Email'>Email:</label>
                             <input onChange={handleChange} type='text' name='email' placeholder='Email' value={loginForm.email}></input>
                             <label htmlFor="password">Password:</label>

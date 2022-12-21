@@ -6,25 +6,9 @@ import { useState } from 'react'
 import Login from './components/Login/login'
 import Signup from './components/Signup/signup'
 
-// const API_URL = "http://localhost:9000/user/login"
 
 function App() {
 
-  // const handleSubmit = async (loginForm) => {
-  //   try {
-  //     const response = await fetch(API_URL, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-type': 'Application/json'
-  //       },
-  //       body: JSON.stringify(loginForm)
-  //     });
-  //     const data = await response.json();
-  //     console.log(data) // set state after confirming it works
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // };
 
   return (
     <div className="nav">

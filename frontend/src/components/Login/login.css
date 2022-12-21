@@ -47,6 +47,7 @@ input[type=password] {
     color:white;
     float: right;
     font-size: 20px;
+    text-decoration: none;
 }
 
 .modalCloseBtn:hover {
