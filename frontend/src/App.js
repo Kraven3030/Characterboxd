@@ -5,6 +5,12 @@ import { useState } from 'react'
 // Imports for components and pages
 import Login from './components/Login/login'
 import Signup from './components/Signup/signup'
+import MovieReviews from './Pages/MovieReviews';
+import UsersReviews from './Pages/UsersReviews';
+import NewReview from './Pages/NewReview';
+import EditReview from './Pages/EditReview';
+import Home from './Pages/Home';
+
 
 
 function App() {
@@ -25,8 +31,16 @@ function App() {
       </nav>
       <main>
         <Routes>
+          {/* Component Routes */}
           <Route path="/Login/login" element={<Login />} />
           <Route path="/Signup/Signup" element={<Signup />} />
+          {/* Page Routes  */}
+          <Route path="/" element={<Home />} />
+          <Route path="/MovieReviews/index" element={<MovieReviews />} />
+          <Route path="/UsersReviews/index" element={<UsersReviews />} />
+          <Route path="/NewReview/index" element={<NewReview />} />
+          <Route path="/EditReview/index" element={<EditReview />} />
+
         </Routes>
       </main>
     </div>

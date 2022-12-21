@@ -1,4 +1,4 @@
-function newReview() {
+function NewReview() {
     return(
         <div>
            {/* <Nav />  */}
@@ -15,4 +15,4 @@ function newReview() {
     
     }
     
-    export default newReview
+    export default NewReview

@@ -1,4 +1,4 @@
-function usersReviews() {
+function UsersReviews() {
     return(
         <div>
             {/* <Nav /> */}
@@ -19,4 +19,4 @@ function usersReviews() {
     
     }
     
-    export default usersReviews
+    export default UsersReviews

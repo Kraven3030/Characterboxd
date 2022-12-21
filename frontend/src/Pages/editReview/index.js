@@ -1,4 +1,4 @@
-function editReview() {
+function EditReview() {
 return(
     <div>
         {/* <Nav /> */}
@@ -16,4 +16,4 @@ return(
 
 }
 
-export default editReview
+export default EditReview
