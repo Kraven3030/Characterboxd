@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import SearchResults from '../SearchResults/SearchResults';
 
 function SearchBar() {
     const [mediaResults, setMediaResults] = useState([]);
