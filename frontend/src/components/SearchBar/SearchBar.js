@@ -12,6 +12,7 @@ function SearchBar() {
         api: 'https://api.themoviedb.org/3/search',
         endpoint: `/${mediaType}`
     };
+
     function handleChange(event) {
         setSearchString(event.target.value)
         if (searchString !== '') {
@@ -32,6 +33,7 @@ function SearchBar() {
             }
             )
     }
+
     return (
         <div>
             <form className="searchBar">
