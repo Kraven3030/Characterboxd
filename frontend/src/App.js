@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
-
+import axios from 'axios'
 // Imports for components and pages
 import Nav from './components/Nav/nav'
 import Login from './components/Login/login'
@@ -13,12 +13,7 @@ import EditReview from './Pages/EditReview/index';
 import Home from './Pages/Home';
 import SearchBar from './components/SearchBar/SearchBar';
 
-
-
 function App() {
-
-
-
   return (
     <div className="main_page">
       <div>
@@ -38,7 +33,7 @@ function App() {
           <Route path="/EditReview/index" element={<EditReview />} />
         </Routes>
       </main>
-    </div >
+    </div>
   );
 }
 
