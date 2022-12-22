@@ -4,13 +4,13 @@ import axios from 'axios'
 
 function UsersReviews() {
 
-    const [user, setUser] = useState([]);
+    // const [user, setUser] = useState([]);
     
     useEffect(() => {
-        async function grabUser() {
-            const data = await axios.get(`http://localhost:9000/user/${user._id}`)
-            setUser(data)
-        }
+        // async function grabUser() {
+        //     const data = await axios.get(`http://localhost:9000/user/${user._id}`)
+        //     setUser(data)
+        // }
     },[])
 
     return(

@@ -5,11 +5,11 @@ import axios from "axios";
 
 function MovieReviews() {
 
-    const [movieReview, setMovieReview] = useState([]);
+    // const [mediaReview, setMediaReview] = useState([]);
     
     // useEffect(() => {
     //     async function grabMedia() {
-    //         const data = await axios.get(`http://localhost:9001/media/${movie._id}`)
+    //         const data = await axios.get(`http://localhost:9001/media/${media.id}`)
     //         setMedia(data)
     //     }
     // },[])
