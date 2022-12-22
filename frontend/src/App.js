@@ -11,6 +11,7 @@ import UsersReviews from './Pages/UsersReviews/index';
 import NewReview from './Pages/NewReview/index';
 import EditReview from './Pages/EditReview/index';
 import Home from './Pages/Home';
+import SearchBar from './components/SearchBar/SearchBar';
 
 
 
@@ -20,7 +21,11 @@ function App() {
 
   return (
     <div className="main_page">
-      <Nav />
+      <div>
+        <Nav />
+        <SearchBar />
+      </div>
+      
       <main>
         <Routes>
           <Route path="/Login/login" element={<Login />} />
