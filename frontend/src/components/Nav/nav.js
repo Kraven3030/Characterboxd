@@ -1,10 +1,14 @@
+import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 
 import './nav.css'
 
 
-function Nav() {
+function Nav(props) {
+
+
+
   return (
     <div>
       <header className="nav">
