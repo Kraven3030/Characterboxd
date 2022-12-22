@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import axios from 'axios'
+
 
 function UsersReviews() {
 
@@ -6,7 +8,7 @@ function UsersReviews() {
     
     useEffect(() => {
         async function grabUser() {
-            const data = await axios.get(`http://localhost:9000/user/${._id}`)
+            const data = await axios.get(`http://localhost:9000/user/${user._id}`)
             setUser(data)
         }
     },[])

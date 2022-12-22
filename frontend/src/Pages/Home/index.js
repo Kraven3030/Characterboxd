@@ -9,8 +9,6 @@ function Home() {
         axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
         .then((response) => {
           setMedia(response.data.results)
-          console.log(response.data.results)
-          console.log(media)
         })
     }
     

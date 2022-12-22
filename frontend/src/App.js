@@ -19,7 +19,6 @@ function App() {
       <div>
         <Nav />
       </div>
-      
       <main>
         <Routes>
           <Route path="/Login/login" element={<Login />} />

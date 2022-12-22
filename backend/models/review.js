@@ -11,6 +11,11 @@ const Schema = mongoose.Schema
 
 const reviewSchema = new Schema(
     {
+        associated: {
+            type: String,
+            required: true,
+            unique: true,
+        },
         title: {
             type: String,
             required: true
@@ -31,7 +36,6 @@ const reviewSchema = new Schema(
 );
 
 
-// =======
 //=============================
 //   MODEL USING ITEM SCHEMA  
 //=============================
@@ -44,7 +48,6 @@ const Review = mongoose.model('Review', reviewSchema);
 //===================
 
 
-module.exports = reviewSchema;
-// =======
+
 module.exports = Review
 
