@@ -4,6 +4,7 @@ import './styles.css'
 
 function Home() {
     const [media, setMedia] = useState([]);
+    
     const getMedia = () => {
         axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
         .then((response) => {

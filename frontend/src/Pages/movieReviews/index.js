@@ -1,4 +1,15 @@
 function MovieReviews() {
+
+    const [movieReview, setMovieReview] = useState([]);
+    
+    useEffect(() => {
+        async function grabMedia() {
+            const data = await axios.get(`http://localhost:9000/media/${._id}`)
+            setMedia(data)
+        }
+    },[])
+
+
     return(
         <div>
             {/* <Nav /> */}
