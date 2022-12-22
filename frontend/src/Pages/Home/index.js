@@ -4,18 +4,32 @@ import './styles.css'
 
 function Home() {
     const [media, setMedia] = useState([]);
+    // const [mediaReview, setMediaReview] = useState([]);
+    // const [user, setUser] = useState([]);
+
+    
     const getMedia = () => {
         axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
         .then((response) => {
           setMedia(response.data.results)
-          console.log(response.data.results)
-          console.log(media)
         })
     }
+
+    // async function grabMedia() {
+    //         const data = await axios.get(`http://localhost:9001/media/${media.id}`)
+    //         setMediaReview(data)
+    //         }
+
+    // async function grabUser() {
+    //     const data = await axios.get(`http://localhost:9000/user/${user._id}`)
+    //     setUser(data)
+    // }
     
-    useEffect(() => {
-        getMedia()
-    }, []);
+    // useEffect(() => {
+    //     getMedia(),
+    //     grabUser(),
+    //     grabMedia()
+    // }, []);
 
     return(
         <div>

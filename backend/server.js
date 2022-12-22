@@ -1,13 +1,14 @@
 // +-+-+-+-+-+-+-+-+-+-+-+-+
 // |D|E|P|E|N|D|E|N|C|I|E|S|
 // +-+-+-+-+-+-+-+-+-+-+-+-+
-const express = require('express')
-const app = express()
-require('dotenv').config()
-const PORT = process.env.PORT
+const express = require('express');
+const app = express();
+require('dotenv').config();
+const PORT = process.env.PORT;
 const methodOverride = require('method-override');
-const cors = require('cors')
-
+const cors = require('cors');
+const userCtrl = require('./controllers/users');
+const reviewCtrl = require('./controllers/reviews');
 
 
 
@@ -22,6 +23,9 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 // Method-override allows us to interpret POST requests from the browser as another request
 app.use(methodOverride('_method'));
+//Controllers
+app.use('/user', userCtrl);
+app.use('/review', reviewCtrl);
 
 
 

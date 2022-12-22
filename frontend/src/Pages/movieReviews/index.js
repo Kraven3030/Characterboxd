@@ -1,4 +1,20 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+
+
 function MovieReviews() {
+
+    // const [mediaReview, setMediaReview] = useState([]);
+    
+    // useEffect(() => {
+    //     async function grabMedia() {
+    //         const data = await axios.get(`http://localhost:9001/media/${media.id}`)
+    //         setMedia(data)
+    //     }
+    // },[])
+
+
     return(
         <div>
             {/* <Nav /> */}
