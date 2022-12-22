@@ -131,7 +131,7 @@ function ContentResults({ mediaResults }) {
                         })}
                         <h5>{media.release_date}{media.first_air_date}</h5>
                         <p>{media.overview}</p>
-                        <img src={baseUrl + media.poster_path} alt={"something"} />
+                        <img src={baseUrl + media.poster_path} alt={media.title || media.name} />
                         
                     </div>
             )
