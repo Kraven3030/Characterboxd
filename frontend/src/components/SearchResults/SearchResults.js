@@ -7,7 +7,7 @@ const SearchResults = ({ mediaResults }) => {
       return <h2>No Images Found!</h2>
   }
   return (
-      <ContentResults mediaResults={mediaResults} />
+      <ContentResults mediaResults={mediaResults}/>
   )
 }
 export default SearchResults;
