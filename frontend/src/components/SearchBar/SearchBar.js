@@ -5,12 +5,12 @@ import SearchResults from '../SearchResults/SearchResults';
 function SearchBar() {
     const [mediaResults, setMediaResults] = useState([]);
     const [searchString, setSearchString] = useState('');
-    const [mediatType, setMediaType] = useState("movie")
+    const [mediaType, setMediaType] = useState("movie")
 
     const queryOptions = {
         api_key: process.env.REACT_APP_MOVIEDB_API_KEY,
         api: 'https://api.themoviedb.org/3/search',
-        endpoint: `/${mediatType}`
+        endpoint: `/${mediaType}`
     };
     function handleChange(event) {
         setSearchString(event.target.value)
@@ -52,7 +52,7 @@ function SearchBar() {
                     name="media" 
                     value="Movie" 
                     onChange={setMediaRadio} 
-                    checked={mediatType === "movie"} required
+                    checked={mediaType === "movie"} required
                 >
                 </input>
                 <label htmlFor='movie'>Movies</label>
@@ -68,7 +68,8 @@ function SearchBar() {
                 </input>
                 <label htmlFor='tvShow'>TV</label>
             </form>
-            <SearchResults mediaResults={mediaResults} />
+            <SearchResults mediaResults={mediaResults}
+                 mediaType={mediaType} />
         </div>
     )
 }
