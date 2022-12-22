@@ -1,16 +1,27 @@
+import { Link } from "react-router-dom";
+import SearchBar from "../SearchBar/SearchBar";
+
+import './nav.css'
+
+
 function Nav() {
-    return (
+  return (
     <div>
-        <Link to="/">
-          <h1>Home</h1>
-        </Link>
-        <Link className='loginLink' to="/Login/login">
-          <h1>Login</h1>
-        </Link>
-        <Link to="/Signup/signup">
-          <h1 className='signupLink'>Signup</h1>
-        </Link>
+      <header className="nav">
+        <div className="title">CharacterBoxd</div>
+
+        <div><Link className="nav-item" to="/">Home
+        </Link></div>
+
+        <div><Link className="nav-item" to="/Login/login">Login
+        </Link></div>
+
+        <div><Link className="nav-item" to="/Signup/signup">Create Account
+        </Link></div>
+
+        <SearchBar />
+      </header>
     </div>
-    );
+  );
 }
 export default Nav
