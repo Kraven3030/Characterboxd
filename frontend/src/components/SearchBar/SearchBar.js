@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import SearchResults from '../SearchResults/SearchResults';
 
 function SearchBar() {
@@ -13,11 +12,7 @@ function SearchBar() {
         api: 'https://api.themoviedb.org/3/search',
         endpoint: `/${mediatType}`
     };
-    useEffect(() => {
-        //getMedia(searchString)
-    })
     function handleChange(event) {
-        console.log(event.target.value)
         setSearchString(event.target.value)
         if (searchString !== '') {
             getMedia(searchString)
@@ -34,7 +29,6 @@ function SearchBar() {
             .then((response) => response.json())
             .then((response) => {
                 setMediaResults(response);
-                console.log(response);
             }
             )
     }
@@ -48,12 +42,33 @@ function SearchBar() {
                     placeholder="Search for a Movie or TV Show"
                     onChange={handleChange}
                     value={searchString}
-                ></input>
-                <input className='radioBtn' type="radio" id="movie" name="media" value="Movie" onChange={setMediaRadio} checked={mediatType === "movie"} required></input>
+                >
+
+                </input>
+                <input 
+                    className='radioBtn' 
+                    type="radio" 
+                    id="movie" 
+                    name="media" 
+                    value="Movie" 
+                    onChange={setMediaRadio} 
+                    checked={mediatType === "movie"} required
+                >
+                </input>
                 <label htmlFor='movie'>Movies</label>
-                <input className='radioBtn' type="radio" id="tv" name="media" value="TV" onChange={setMediaRadio} required></input>
+                <input 
+                    className='radioBtn' 
+                    type="radio" 
+                    id="tv" 
+                    name="media" 
+                    value="TV" 
+                    onChange={setMediaRadio} 
+                    required
+                >
+                </input>
                 <label htmlFor='tvShow'>TV</label>
             </form>
+            <SearchResults mediaResults={mediaResults} />
         </div>
     )
 }
