@@ -17,14 +17,14 @@ function UsersReviews() {
         <div>
             {/* <Nav /> */}
             <figure>
-                <img src={user.img} class="rounded-circle" alt="" />
+                <img src="#" class="rounded-circle" alt="" />
                     <figcaption>
-                        <h3>{ user.username }</h3>
+                        <h3>nmae</h3>
                     </figcaption>
             </figure>
             <figure>
                 <figcaption>
-                    <h2>Reviews by:{ user.username }</h2>
+                    <h2>Reviews by:name</h2>
                 </figcaption>
                 <form>
                     {/* Reviews Here Using For Loop*/}
