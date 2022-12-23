@@ -24,10 +24,6 @@ router.delete('/:id', (req, res) => {
 //   SIGN UP ROUTE / CREATE USER
 //=================================
 router.post('/signup', async (req, res) => {
-    
-   // const newUser = db.User({name: req.body.username, password: hashPassword})
-    
-    
     if (req.body.username && req.body.password) {
         const hashPassword = await bcrypt.hash(req.body.password, saltRounds)
         let newUser = {
@@ -61,4 +57,36 @@ router.post('/signup', async (req, res) => {
     }
 })
 
+//==================================
+//   LOG IN ROUTE / FIND ONE USER
+//==================================
+
+router.post('/login', (req, res) => { 
+     if (req.body.username && req.body.password) {
+         User.findOne({ username: req.body.username }, async (err, user) => {
+            if (err || user == null) {
+                res.sendStatus(404)
+            } 
+            const match = await bcrypt.compare(req.body.password, user.password)
+            if (match === true) {
+                const payload = {id: user._id, username: user.username}
+                const token = jwt.encode(payload, config.jwtSecret)
+                res.json({
+                    token: token
+                })
+            } else {
+                res.sendStatus(401)
+                
+            }
+        })
+    } else {
+        res.sendStatus(401)
+    }
+});
+
+
+            
+            
+            
 module.exports = router
+

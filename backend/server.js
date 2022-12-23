@@ -28,6 +28,7 @@ app.use(methodOverride('_method'));
 //Controllers
 app.use('/users', userCtrl);
 //app.use('/reviews', reviewCtrl);
+//Token validation
 
 
 
