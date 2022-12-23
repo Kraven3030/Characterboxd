@@ -1,15 +1,15 @@
 //==================
 //   DEPENDENCIES  
 //==================
-const express = require('express');
-const router = express.Router();
-const db = require('../models');
-const User = db.User;
-const jwt = require('jwt-simple')
-const passport = require('../config/passport')
-const config = require('../config/config')
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+    const express = require('express');
+    const router = express.Router();
+    const db = require('../models');
+    const User = db.User;
+    const jwt = require('jwt-simple')
+    const passport = require('../config/passport')
+    const config = require('../config/config')
+    const bcrypt = require('bcrypt');
+    const saltRounds = 10;
 
 function isAuthenticated(req, res, next) {
     if (req.headers.authorization) {
@@ -20,99 +20,88 @@ function isAuthenticated(req, res, next) {
 }
 
 //==================
-//   DELETE ROUTE
+//     ROUTES
 //==================
-router.delete('/:id', (req, res) => {
-    db.User.findByIdAndDelete(req.params.id, (err, user) => {
-        res.redirect('/')
-    })
-});
 
-//=================================
-//   SIGN UP ROUTE / CREATE USER
-//=================================
-router.post('/signup', async (req, res) => {
-    // Verify the request body has an email and password
-    if (req.body.username && req.body.password) {
-        const hashPassword = await bcrypt.hash(req.body.password, saltRounds)
-        // Make a newUser object with the request body and password
-        let newUser = {
-            username: req.body.username,
-            password: hashPassword
-        }
-        // Check if a user exists with the same username and password
-        User.findOne({ username: req.body.username })
-            .then((user) => {
-                if (!user) {
-                    User.create(newUser)
-                        .then(user => {
-                            // If the database creates a user successfully, assign a JWT to the user and send the JWT as the response
-                            if (user) {
-                                const payload = {
-                                    id: newUser.id,
-                                    username: newUser.username
-                                }
-                                const token = jwt.encode(payload, config.jwtSecret)
-                                res.json({
-                                    token: token
-                                })
-                                // Send an error if the database fails to create a user
-                            } else {
-                                res.sendStatus(401)
-                            }
-                        })
-                    // Send an error if the user already exists
-                } else {
-                    res.sendStatus(401)
+
+    //=================================
+    //   SIGN UP ROUTE / CREATE USER
+    //=================================
+        router.post('/signup', async (req, res) => {
+            if (req.body.username && req.body.password) {
+                const hashPassword = await bcrypt.hash(req.body.password, saltRounds)
+                let newUser = {
+                    username: req.body.username,
+                    password: hashPassword
                 }
-            })
-        // Send an error if the request body does not have an username and password
-    } else {
-        res.sendStatus(401)
-    }
-})
-
-//==================================
-//   LOG IN ROUTE / FIND ONE USER
-//==================================
-
-router.post('/login', (req, res) => {
-    if (req.body.username && req.body.password) {
-        User.findOne({ username: req.body.username }, async (err, user) => {
-            if (err || user == null) {
-                res.sendStatus(404)
+                User.findOne({ username: req.body.username })
+                    .then((user) => {
+                        if (!user) {
+                            User.create(newUser)
+                                .then(user => {
+                                    if (user) {
+                                        const payload = {
+                                            id: newUser.id,
+                                            username: newUser.username
+                                        }
+                                        const token = jwt.encode(payload, config.jwtSecret)
+                                        res.json({
+                                            token: token
+                                        })
+                                    } else {
+                                        res.sendStatus(401)
+                                    }
+                                })
+                        } else {
+                            res.sendStatus(401)
+                        }
+                    })
+            } else {
+                res.sendStatus(401)
             }
-            const match = await bcrypt.compare(req.body.password, user.password)
-            if (match === true) {
-                const payload = { id: user._id, username: user.username }
-                const token = jwt.encode(payload, config.jwtSecret)
-                res.json({
-                    token: token
+        })
+
+    //==================================
+    //   LOG IN ROUTE / FIND ONE USER
+    //==================================
+        router.post('/login', (req, res) => { 
+            if (req.body.username && req.body.password) {
+                User.findOne({ username: req.body.username }, async (err, user) => {
+                    if (err || user == null) {
+                        res.sendStatus(404)
+                    } 
+                    const match = await bcrypt.compare(req.body.password, user.password)
+                    if (match === true) {
+                        const payload = {id: user._id, username: user.username}
+                        const token = jwt.encode(payload, config.jwtSecret)
+                        res.json({
+                            token: token
+                        })
+                    } else {
+                        res.sendStatus(401)
+                    }
                 })
             } else {
                 res.sendStatus(401)
-
             }
-        })
-    } else {
-        res.sendStatus(401)
-    }
-});
+        });
+
+    //==================
+    //   UPDATE ROUTE
+    //==================
 
 
-// Token show
-router.get('/token', isAuthenticated, async (req, res) => {
-    const token = req.headers.authorization
-    const decoded = jwt.decode(token, config.jwtSecret)
-    const foundUser = await db.User.findById(decoded.id)
-    const userPosts = await db.Post.find({ user: foundUser._id })
-    res.json({
-        user: foundUser,
-        posts: userPosts
-    })
-})
-
-
+    //==================
+    //   DELETE ROUTE
+    //==================
+        router.delete('/:id', (req, res) => {
+            db.User.findByIdAndDelete(req.params.id, (err, user) => {
+                res.redirect('/')
+            })
+        });
+            
+            
+            
 
 module.exports = router
 
