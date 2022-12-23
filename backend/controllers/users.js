@@ -11,6 +11,14 @@ const config = require('../config/config')
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+function isAuthenticated(req, res, next) {
+    if (req.headers.authorization) {
+        next()
+    } else {
+        res.sendStatus(401)
+    }
+}
+
 //==================
 //   DELETE ROUTE
 //==================
@@ -24,17 +32,21 @@ router.delete('/:id', (req, res) => {
 //   SIGN UP ROUTE / CREATE USER
 //=================================
 router.post('/signup', async (req, res) => {
+    // Verify the request body has an email and password
     if (req.body.username && req.body.password) {
         const hashPassword = await bcrypt.hash(req.body.password, saltRounds)
+        // Make a newUser object with the request body and password
         let newUser = {
             username: req.body.username,
             password: hashPassword
         }
+        // Check if a user exists with the same username and password
         User.findOne({ username: req.body.username })
             .then((user) => {
                 if (!user) {
                     User.create(newUser)
                         .then(user => {
+                            // If the database creates a user successfully, assign a JWT to the user and send the JWT as the response
                             if (user) {
                                 const payload = {
                                     id: newUser.id,
@@ -44,14 +56,17 @@ router.post('/signup', async (req, res) => {
                                 res.json({
                                     token: token
                                 })
+                                // Send an error if the database fails to create a user
                             } else {
                                 res.sendStatus(401)
                             }
                         })
+                    // Send an error if the user already exists
                 } else {
                     res.sendStatus(401)
                 }
             })
+        // Send an error if the request body does not have an username and password
     } else {
         res.sendStatus(401)
     }
@@ -61,22 +76,22 @@ router.post('/signup', async (req, res) => {
 //   LOG IN ROUTE / FIND ONE USER
 //==================================
 
-router.post('/login', (req, res) => { 
-     if (req.body.username && req.body.password) {
-         User.findOne({ username: req.body.username }, async (err, user) => {
+router.post('/login', (req, res) => {
+    if (req.body.username && req.body.password) {
+        User.findOne({ username: req.body.username }, async (err, user) => {
             if (err || user == null) {
                 res.sendStatus(404)
-            } 
+            }
             const match = await bcrypt.compare(req.body.password, user.password)
             if (match === true) {
-                const payload = {id: user._id, username: user.username}
+                const payload = { id: user._id, username: user.username }
                 const token = jwt.encode(payload, config.jwtSecret)
                 res.json({
                     token: token
                 })
             } else {
                 res.sendStatus(401)
-                
+
             }
         })
     } else {
@@ -85,8 +100,19 @@ router.post('/login', (req, res) => {
 });
 
 
-            
-            
-            
+// Token show
+router.get('/token', isAuthenticated, async (req, res) => {
+    const token = req.headers.authorization
+    const decoded = jwt.decode(token, config.jwtSecret)
+    const foundUser = await db.User.findById(decoded.id)
+    const userPosts = await db.Post.find({ user: foundUser._id })
+    res.json({
+        user: foundUser,
+        posts: userPosts
+    })
+})
+
+
+
 module.exports = router
 

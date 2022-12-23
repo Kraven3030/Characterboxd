@@ -1,7 +1,9 @@
 // Import dependncies
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import { loginToAccount } from '../../utils/api'
+import SearchBar from "../SearchBar/SearchBar"
+
 // Import Styles
 import "./login.css"
 
@@ -28,26 +30,30 @@ function Login(props) {
         loginToAccount(loginForm)
             // Then token will be stored in local storage
             .then((data) => localStorage.token = data.token)
+        // props.setLogInStatus(true)
     }
 
 
+
     return (
-        <figure>
-            <div className='loginModal'>
-                <div className='modalContent'>
-                    <form className='loginForm'>
-                        <div className='loginDiv'>
-                            <Link className='modalCloseBtn' to="/"><span>&times;</span></Link>
-                            <label htmlFor='Email'>Email:</label>
-                            <input onChange={handleChange} type='text' name='email' placeholder='Email' value={loginForm.email}></input>
-                            <label htmlFor="password">Password:</label>
-                            <input onChange={handleChange} type="password" name="password" placeholder="Password" value={loginForm.password}></input>
-                            <button onClick={(e) => props.handleSubmit(e, loginForm)} className='submitLoginBtn' type="submit">Login</button>
-                        </div>
-                    </form>
+        <div>
+            <figure>
+                <div className='loginModal'>
+                    <div className='modalContent'>
+                        <form className='loginForm'>
+                            <div className='loginDiv'>
+                                <Link className='modalCloseBtn' to="/"><span>&times;</span></Link>
+                                <label htmlFor='Email'>Email:</label>
+                                <input onChange={handleChange} type='text' name='email' placeholder='Email' value={loginForm.email}></input>
+                                <label htmlFor="password">Password:</label>
+                                <input onChange={handleChange} type="password" name="password" placeholder="Password" value={loginForm.password}></input>
+                                <button onClick={(e) => props.handleSubmit(e, loginForm)} className='submitLoginBtn' type="submit">Login</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </figure>
+            </figure>
+        </div>
     )
 }
 
