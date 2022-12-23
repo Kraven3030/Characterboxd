@@ -17,6 +17,26 @@ import SearchBar from './components/SearchBar/SearchBar';
 function App() {
 
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [showform, setShowForm] = useState({})
+
+  const handleSubmit = async (e, formData) => {
+    e.preventDefault()
+    const { data } = await axios.post(`http://localhost:9000/user/${formData.endpoint}`, {
+      username: formData.username,
+      password: formData.password
+    })
+    localStorage.token = data.token
+    setIsLoggedIn(true)
+  }
+
+  //LOGOUT BUTTON FUNCTION
+  const handleLogOut = () => {
+    localStorage.clear()
+    setIsLoggedIn(false)
+  }
+
+
 
   return (
     <div className="main_page">
