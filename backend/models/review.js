@@ -11,10 +11,9 @@ const Schema = mongoose.Schema
 
 const reviewSchema = new Schema(
     {
-        associated: {
-            type: String,
-            required: true,
-            unique: true,
+        mediaId: {
+            type: Number,
+            required: true
         },
         title: {
             type: String,
