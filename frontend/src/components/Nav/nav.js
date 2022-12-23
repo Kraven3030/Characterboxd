@@ -8,7 +8,6 @@ import './nav.css'
 function Nav(props) {
 
 
-
   return (
     <div>
       <header className="nav">

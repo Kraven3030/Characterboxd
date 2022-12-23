@@ -11,9 +11,18 @@
     const bcrypt = require('bcrypt');
     const saltRounds = 10;
 
+function isAuthenticated(req, res, next) {
+    if (req.headers.authorization) {
+        next()
+    } else {
+        res.sendStatus(401)
+    }
+}
+
 //==================
 //     ROUTES
 //==================
+
 
     //=================================
     //   SIGN UP ROUTE / CREATE USER
@@ -93,5 +102,6 @@
             
             
             
+
 module.exports = router
 
