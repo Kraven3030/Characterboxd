@@ -72,7 +72,7 @@ function SearchBar() {
             </form>
             <SearchResults mediaResults={mediaResults}
                 mediaType={mediaType} />
-        </div>
+        </div >
     )
 }
 

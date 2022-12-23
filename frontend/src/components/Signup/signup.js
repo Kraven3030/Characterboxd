@@ -25,7 +25,6 @@ function Signup(props) {
         createAccount(signupForm)
             // Then token will be stored in local storage
             .then((data) => localStorage.token = data.token)
-
     }
 
 

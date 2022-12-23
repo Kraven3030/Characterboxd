@@ -42,7 +42,7 @@ function Login(props) {
                             <input onChange={handleChange} type='text' name='email' placeholder='Email' value={loginForm.email}></input>
                             <label htmlFor="password">Password:</label>
                             <input onChange={handleChange} type="password" name="password" placeholder="Password" value={loginForm.password}></input>
-                            <button onClick={handleSubmit} className='submitLoginBtn' type="submit">Login</button>
+                            <button onClick={(e) => props.handleSubmit(e, loginForm)} className='submitLoginBtn' type="submit">Login</button>
                         </div>
                     </form>
                 </div>

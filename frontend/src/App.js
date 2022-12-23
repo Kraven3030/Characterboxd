@@ -1,7 +1,10 @@
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
+import { createAccount, loginToAccount } from './utils/api'
 import axios from 'axios'
+
+
 // Imports for components and pages
 import Nav from './components/Nav/nav'
 import Login from './components/Login/login'
@@ -14,6 +17,19 @@ import Home from './Pages/Home';
 import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
+
+  // const handleSubmit = async (e, formData) => {
+  //   e.preventDefault();
+  //   createAccount(formData)
+  //     .then(data => {
+  //       localStorage.token = data.token
+  //       localStorage.userId = data.user._id
+  //       loginToAccount(localStorage.userId)
+  //         .then(data => console.log("Hello!"))
+  //     })
+  // }
+
+
   return (
     <div className="main_page">
       <div>
