@@ -10,19 +10,11 @@ function Nav(props) {
 
   return (
     <div>
-      <header className="nav">
+      <nav className="nav">
         <div className="title">CharacterBoxd</div>
-
-        <div><Link className="nav-item" to="/">Home
-        </Link></div>
-
-        <div><Link className="nav-item" to="/Login/login">Login
-        </Link></div>
-
-        <div><Link className="nav-item" to="/Signup/signup">Create Account
-        </Link></div>
-
-      </header>
+        <Link to='/Login/login'>Login</Link>
+        <Link to='/Signup/signup'>Create Account</Link>
+      </nav>
       <SearchBar />
     </div>
   );

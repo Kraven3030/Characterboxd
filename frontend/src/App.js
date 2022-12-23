@@ -1,6 +1,5 @@
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
-import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
@@ -16,6 +15,7 @@ import Home from './Pages/Home';
 import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
+
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [showform, setShowForm] = useState({})
@@ -37,16 +37,17 @@ function App() {
   }
 
 
+
   return (
     <div className="main_page">
       <div>
-        <Nav isLoggedIn={isLoggedIn} setLogInStatus={setIsLoggedIn} />
+        <Nav />
       </div>
       <main>
         <Routes>
-          <Route path="/Login/login" element={<Login handleSubmit={handleSubmit} />} />
-          <Route path="/Signup/Signup" element={<Signup handleSubmit={handleSubmit} />} />
-          {/* Page Routes  */}
+          <Route path="/Login/login" element={<Login />} />
+          <Route path="/Signup/Signup" element={<Signup />} />
+          {/* { Page Routes  } */}
           <Route path="/" element={<Home />} />
           <Route path="/movieReviews/index" element={<MovieReviews />} />
           <Route path="/usersReviews/index" element={<UsersReviews />} />
