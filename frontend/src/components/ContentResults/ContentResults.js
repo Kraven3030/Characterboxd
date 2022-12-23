@@ -129,7 +129,7 @@ function ContentResults({ mediaResults }) {
         <div className="list">
             {mediaResults.results.map(media => (
                 <div className="card">
-                    <div className="card-body">
+                    <div className="card-body" >
                         <h1 className="card-title">{media.title}{media.name}</h1>
                         {media.genre_ids.map((genre_id) => {
                             return (<h3>{getGenreName(genre_id)}</h3>)

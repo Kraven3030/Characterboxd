@@ -9,7 +9,7 @@ import "./signup.css"
 function Signup(props) {
     // State the declarations
     const [signupForm, setSignupForm] = useState({
-        email: '',
+        username: '',
         password: ''
     })
 
@@ -25,6 +25,7 @@ function Signup(props) {
         createAccount(signupForm)
             // Then token will be stored in local storage
             .then((data) => localStorage.token = data.token)
+
     }
 
 
@@ -37,11 +38,11 @@ function Signup(props) {
                     <form className='signupForm'>
                         <div className='signupDiv'>
                             <Link className='modalCloseBtn' to="/"><span>&times;</span></Link>
-                            <label htmlFor='Email'>Email:</label>
-                            <input type='text' name='email' placeholder='Email' value={signupForm.email} onChange={handleChange} required></input>
+                            <label htmlFor='username'>Username:</label>
+                            <input type='text' name='username' placeholder='username' value={signupForm.username} onChange={handleChange} required></input>
                             <label htmlFor="password">Password:</label>
                             <input type="password" name="password" placeholder="Password" value={signupForm.password} onChange={handleChange} required></input>
-                            <button onClick={handleSubmit} className='submitSignupBtn' type="submit">Signup</button>
+                            <button onClick={(e) => props.handleSubmit(e, signupForm)} className='submitSignupBtn' type="submit">Signup</button>
                         </div>
                     </form>
                 </div>
