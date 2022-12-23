@@ -24,12 +24,15 @@ router.delete('/:id', (req, res) => {
 //   SIGN UP ROUTE / CREATE USER
 //=================================
 router.post('/signup', async (req, res) => {
-    const hashPassword = await bcrypt.hash(req.body.password, saltRounds)
-    const newUser = db.User({name: req.body.username, password: hashPassword})
+    
+   // const newUser = db.User({name: req.body.username, password: hashPassword})
+    
+    
     if (req.body.username && req.body.password) {
+        const hashPassword = await bcrypt.hash(req.body.password, saltRounds)
         let newUser = {
             username: req.body.username,
-            password: req.body.password
+            password: hashPassword
         }
         User.findOne({ username: req.body.username })
             .then((user) => {
@@ -38,7 +41,8 @@ router.post('/signup', async (req, res) => {
                         .then(user => {
                             if (user) {
                                 const payload = {
-                                    id: newUser.id
+                                    id: newUser.id,
+                                    username: newUser.username
                                 }
                                 const token = jwt.encode(payload, config.jwtSecret)
                                 res.json({
@@ -56,3 +60,5 @@ router.post('/signup', async (req, res) => {
         res.sendStatus(401)
     }
 })
+
+module.exports = router
