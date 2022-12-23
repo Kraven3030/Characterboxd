@@ -1,7 +1,6 @@
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
-import { createAccount, loginToAccount } from './utils/api'
 import axios from 'axios'
 
 
@@ -18,37 +17,39 @@ import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
 
-  const [isLoggedIn, setLogInStatus] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [showform, setShowForm] = useState({
 
-  useEffect(() => {
-    if (localStorage.token) {
-      setLogInStatus(true)
-    }
-  }, [])
+  })
 
-  const handleSubmit = async (e, signupForm) => {
-    e.preventDefault();
-    createAccount(signupForm)
-      .then(data => {
-        localStorage.token = data.token
-        //localStorage.userId = data.user._id
-        //loginToAccount(localStorage.userId)
-        //.then(data => console.log("Hello!"))
-      })
+  const handleSubmit = async (e, formData) => {
+    e.preventDefault()
+    const { data } = await axios.post(`http://localhost:9000/user/${formData.endpoint}`, {
+      username: formData.username,
+      password: formData.password
+    })
+    localStorage.token = data.token
+    setIsLoggedIn(true)
+  }
+
+  //LOGOUT BUTTON FUNCTION
+  const handleLogOut = () => {
+    localStorage.clear()
+    setIsLoggedIn(false)
   }
 
 
   return (
     <div className="main_page">
       <div>
-        <Nav isLoggedIn={isLoggedIn} setLogInStatus={setLogInStatus} />
+        <Nav isLoggedIn={isLoggedIn} setLogInStatus={setIsLoggedIn} />
       </div>
       <main>
         <Routes>
-          <Route path="/Login/login" element={<Login />} />
+          <Route path="/Login/login" element={<Login handleSubmit={handleSubmit} />} />
           <Route path="/Signup/Signup" element={<Signup handleSubmit={handleSubmit} />} />
           {/* Page Routes  */}
-          <Route path="/" element={<Home isLoggedIn={isLoggedIn} setLogInStatus={setLogInStatus} />} />
+          <Route path="/" element={<Home />} />
           <Route path="/movieReviews/index" element={<MovieReviews />} />
           <Route path="/usersReviews/index" element={<UsersReviews />} />
           <Route path="/newReview/index" element={<NewReview />} />
