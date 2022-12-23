@@ -1,4 +1,5 @@
 // Import dependncies
+import axios from 'axios';
 import { useState } from 'react'
 import { Link } from "react-router-dom";
 
@@ -11,8 +12,16 @@ function Login(props) {
     const [loginForm, setLoginForm] = useState({
         username: '',
         password: '',
-        endpoint: 'login'
     })
+
+    const handleSubmit = async (event, loginForm) => {
+        event.preventDefault()
+        const { data } = await axios.post(`http://localhost:9000/users/login`, {
+            username: loginForm.username,
+            password: loginForm.password
+        })
+        localStorage.token = data.token
+    }
 
     // Will keep track of what's inputted into the form
     const handleChange = (event) => {
@@ -32,7 +41,7 @@ function Login(props) {
                                 <input onChange={handleChange} type='text' name='username' placeholder='username' value={loginForm.username}></input>
                                 <label htmlFor="password">Password:</label>
                                 <input onChange={handleChange} type="password" name="password" placeholder="Password" value={loginForm.password}></input>
-                                <button onClick={(event) => props.handleSubmit(event, loginForm)} className='submitLoginBtn' type="submit">Login</button>
+                                <button onClick={(event) => handleSubmit(event, loginForm)} className='submitLoginBtn' type="submit">Login</button>
                             </div>
                         </form>
                     </div>

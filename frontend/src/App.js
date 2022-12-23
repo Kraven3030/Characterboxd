@@ -1,6 +1,5 @@
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
-import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
@@ -17,38 +16,18 @@ import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [showform, setShowForm] = useState({
-
-  })
-
-  const handleSubmit = async (e, formData) => {
-    e.preventDefault()
-    const { data } = await axios.post(`http://localhost:9000/user/${formData.endpoint}`, {
-      username: formData.username,
-      password: formData.password
-    })
-    localStorage.token = data.token
-    setIsLoggedIn(true)
-  }
-
-  //LOGOUT BUTTON FUNCTION
-  const handleLogOut = () => {
-    localStorage.clear()
-    setIsLoggedIn(false)
-  }
 
 
   return (
     <div className="main_page">
       <div>
-        <Nav isLoggedIn={isLoggedIn} setLogInStatus={setIsLoggedIn} />
+        <Nav />
       </div>
       <main>
         <Routes>
-          <Route path="/Login/login" element={<Login handleSubmit={handleSubmit} />} />
-          <Route path="/Signup/Signup" element={<Signup handleSubmit={handleSubmit} />} />
-          {/* Page Routes  */}
+          <Route path="/Login/login" element={<Login />} />
+          <Route path="/Signup/Signup" element={<Signup />} />
+          {/* { Page Routes  } */}
           <Route path="/" element={<Home />} />
           <Route path="/movieReviews/index" element={<MovieReviews />} />
           <Route path="/usersReviews/index" element={<UsersReviews />} />

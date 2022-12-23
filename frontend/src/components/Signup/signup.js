@@ -1,6 +1,8 @@
 // Import Dependencies
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
+import axios from 'axios'
+
 // Import Styles
 import "./signup.css"
 
@@ -10,7 +12,7 @@ function Signup(props) {
     const [signupForm, setSignupForm] = useState({
         username: '',
         password: '',
-        endpoint: 'signup'
+        submitted: false
     })
 
     // Will keep track of what's inputted into the form
@@ -18,28 +20,40 @@ function Signup(props) {
         setSignupForm({ ...signupForm, [event.target.name]: event.target.value })
     }
 
-    // const handleSubmit = (event) => {
-    //     // Prevents webpage from reloading once user signs up
-    //     event.preventDefault()
-    //     // Grabs data from backend via axios in the api utils file
-    //     createAccount(signupForm)
-    //         // Then token will be stored in local storage
-    //         .then((data) => localStorage.token = data.token)
-    // }
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [showForm, setShowForm] = useState(false)
+
+    // check if logged in when component mounts
+    useEffect(() => {
+        if (localStorage.token) {
+            setIsLoggedIn(true)
+        }
+    }, [])
+
+    const handleSubmit = async (event, signupForm) => {
+        event.preventDefault()
+        const { data } = await axios.post(`http://localhost:9000/users/signup`, {
+            username: signupForm.username,
+            password: signupForm.password
+        })
+        localStorage.token = data.token
+        setIsLoggedIn(true)
+        setShowForm(false)
+    }
 
 
     return (
         <figure>
             <div className='signupModal'>
                 <div className='modalContent'>
-                    <form className='signupForm'>
+                    <form onSubmit={handleSubmit} className='signupForm'>
                         <div className='signupDiv'>
                             <Link className='modalCloseBtn' to="/"><span>&times;</span></Link>
                             <label htmlFor='username'>Username:</label>
                             <input type='text' name='username' placeholder='username' value={signupForm.username} onChange={handleChange} required></input>
                             <label htmlFor="password">Password:</label>
                             <input type="password" name="password" placeholder="Password" value={signupForm.password} onChange={handleChange} required></input>
-                            <button onClick={(e) => props.handleSubmit(e, signupForm)} className='submitSignupBtn' type="submit">Signup</button>
+                            <button onClick={(e) => handleSubmit(e, signupForm)} className='submitSignupBtn' type="submit">Signup</button>
                         </div>
                     </form>
                 </div>
