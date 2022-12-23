@@ -52,7 +52,7 @@
 > | PUT | User | /user/:id/submit | Update | Submit changes to user |
 > | DELETE | User | /user/:id/delete | Destroy | Delete a user account from database |
 > | GET | User/Review | /user/:id | Index | See reviews from a user |
-> | POST | Review/Title | /title/:id/review/:id/add | Create | Submit a new review to the database |
+> | POST | Review/Title | /title/:id/review/add | Create | Submit a new review to the database |
 > | PUT | Review/Title | /title/:id/review/:id/update | Update | Submit changes from form to review |
 > | DELETE | Review/Title | /title/:id/review/:id/delete | Destroy | Delete a review from the database |
 > 
