@@ -18,9 +18,7 @@ import SearchBar from './components/SearchBar/SearchBar';
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [showform, setShowForm] = useState({
-
-  })
+  const [showform, setShowForm] = useState({})
 
   const handleSubmit = async (e, formData) => {
     e.preventDefault()

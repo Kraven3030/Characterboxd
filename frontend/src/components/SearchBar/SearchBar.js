@@ -13,15 +13,22 @@ function SearchBar() {
         endpoint: `/${mediaType}`
     };
 
-    function handleChange(event) {
-        setSearchString(event.target.value)
-        if (searchString !== '') {
-            getMedia(searchString)
+    const handleChange = async (event) => {
+        console.log(event.target.value);
+         setSearchString(event.target.value)
+        console.log(searchString);
+        if (event.target.value !== '') {
+         getMedia(event.target.value)
+        } else {
+            console.log("attempt to clear array")
+            setMediaResults([]);
+
         }
     }
 
-    function setMediaRadio(event) {
-        setMediaType(event.target.id)
+    function setMediaRadio(event) {       
+        setMediaType(event.target.id);
+        getMedia(searchString);
     }
 
     function getMedia(searchString) {
