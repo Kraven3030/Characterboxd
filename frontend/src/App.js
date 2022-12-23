@@ -18,16 +18,16 @@ import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
 
-  // const handleSubmit = async (e, formData) => {
-  //   e.preventDefault();
-  //   createAccount(formData)
-  //     .then(data => {
-  //       localStorage.token = data.token
-  //       localStorage.userId = data.user._id
-  //       loginToAccount(localStorage.userId)
-  //         .then(data => console.log("Hello!"))
-  //     })
-  // }
+  const handleSubmit = async (e, signupForm) => {
+    e.preventDefault();
+    createAccount(signupForm)
+      .then(data => {
+        localStorage.token = data.token
+        //localStorage.userId = data.user._id
+        //loginToAccount(localStorage.userId)
+          //.then(data => console.log("Hello!"))
+      })
+  }
 
 
   return (
@@ -38,7 +38,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/Login/login" element={<Login />} />
-          <Route path="/Signup/Signup" element={<Signup />} />
+          <Route path="/Signup/Signup" element={<Signup handleSubmit={handleSubmit} />} />
           {/* Page Routes  */}
           <Route path="/" element={<Home />} />
           <Route path="/movieReviews/index" element={<MovieReviews />} />
