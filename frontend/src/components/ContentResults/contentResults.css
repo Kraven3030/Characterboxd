@@ -1,0 +1,12 @@
+.card {
+    align-items: center;
+    text-align: center;
+    width: 50vw;
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+}
+
+.list {
+    margin-top: 15px;;
+}

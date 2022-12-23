@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
+import "./contentResults.css"
+
+
 function ContentResults({ mediaResults }) {
     const baseUrl = "https://image.tmdb.org/t/p/original"
 
     const media_genres = [
         {
-        "id": 10759,
-        "name": "Action & Adventure"
-        }, 
+            "id": 10759,
+            "name": "Action & Adventure"
+        },
         {
             "id": 28,
             "name": "Action"
@@ -74,7 +78,7 @@ function ContentResults({ mediaResults }) {
             "id": 10764,
             "name": "Reality"
         },
-    
+
         {
             "id": 10766,
             "name": "Soap"
@@ -113,27 +117,29 @@ function ContentResults({ mediaResults }) {
         }
     ]
     function getGenreName(genre_id) {
-        for (var i = 0; i<media_genres.length; i++) {
+        for (var i = 0; i < media_genres.length; i++) {
             if (media_genres[i].id === genre_id) {
                 return (media_genres[i].name);
             }
-    }
+        }
     }
 
 
     return (
         <div className="list">
             {mediaResults.results.map(media => (
-                    <div className="resultCard">
-                        <h3>{media.title}{media.name}</h3>
-                        {media.genre_ids.map((genre_id) =>{
-                            return (<h4>{getGenreName(genre_id)}</h4>)
+                <div className="card">
+                    <div className="card-body">
+                        <h1 className="card-title">{media.title}{media.name}</h1>
+                        {media.genre_ids.map((genre_id) => {
+                            return (<h3>{getGenreName(genre_id)}</h3>)
                         })}
-                        <h5>{media.release_date}{media.first_air_date}</h5>
-                        <p>{media.overview}</p>
-                        <img src={baseUrl + media.poster_path} alt={media.title || media.name} />
-                        
+                        <h5 className="card-text">{media.release_date}{media.first_air_date}</h5>
+                        <img className="card-img-bottom" src={baseUrl + media.poster_path} width="250" alt={"something"} />
                     </div>
+                    <p>{media.overview}</p>
+                    <button className="btn btn-secondary btn-lg btn-block">Review This Movie</button>
+                </div>
             )
             )}
         </div>

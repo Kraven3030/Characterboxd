@@ -23,8 +23,8 @@ function Nav(props) {
         <div><Link className="nav-item" to="/Signup/signup">Create Account
         </Link></div>
 
-        <SearchBar />
       </header>
+      <SearchBar />
     </div>
   );
 }

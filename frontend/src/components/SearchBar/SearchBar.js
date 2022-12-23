@@ -47,31 +47,31 @@ function SearchBar() {
                 >
 
                 </input>
-                <input 
-                    className='radioBtn' 
-                    type="radio" 
-                    id="movie" 
-                    name="media" 
-                    value="Movie" 
-                    onChange={setMediaRadio} 
+                <input
+                    className='radioBtn'
+                    type="radio"
+                    id="movie"
+                    name="media"
+                    value="Movie"
+                    onChange={setMediaRadio}
                     checked={mediaType === "movie"} required
                 >
                 </input>
                 <label htmlFor='movie'>Movies</label>
-                <input 
-                    className='radioBtn' 
-                    type="radio" 
-                    id="tv" 
-                    name="media" 
-                    value="TV" 
-                    onChange={setMediaRadio} 
+                <input
+                    className='radioBtn'
+                    type="radio"
+                    id="tv"
+                    name="media"
+                    value="TV"
+                    onChange={setMediaRadio}
                     required
                 >
                 </input>
                 <label htmlFor='tvShow'>TV</label>
             </form>
             <SearchResults mediaResults={mediaResults}
-                 mediaType={mediaType} />
+                mediaType={mediaType} />
         </div>
     )
 }
