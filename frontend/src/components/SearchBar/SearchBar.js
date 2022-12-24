@@ -1,11 +1,20 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchResults from '../SearchResults/SearchResults';
 
 function SearchBar() {
     const [mediaResults, setMediaResults] = useState([]);
     const [searchString, setSearchString] = useState('');
-    const [mediaType, setMediaType] = useState("movie")
+    const [mediaType, setMediaType] = useState("movie");
+
+    useEffect(() => { 
+       if (searchString !== '') {
+         getMedia(searchString)
+        } else {
+            setMediaResults([]);
+        }
+    }, [searchString, mediaType]
+    );
 
     const queryOptions = {
         api_key: process.env.REACT_APP_MOVIEDB_API_KEY,
@@ -14,16 +23,7 @@ function SearchBar() {
     };
 
     const handleChange = async (event) => {
-        console.log(event.target.value);
          setSearchString(event.target.value)
-        console.log(searchString);
-        if (event.target.value !== '') {
-         getMedia(event.target.value)
-        } else {
-            console.log("attempt to clear array")
-            setMediaResults([]);
-
-        }
     }
 
     function setMediaRadio(event) {       

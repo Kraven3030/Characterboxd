@@ -48,8 +48,8 @@ router.post('/create', async (req, res) => {
 //   REVIEWS BY MEDIA ID
 //==========================
 router.get('/:id', async (req, res) => {
-    const viewMedia = await db.Review.find(
-        { "mediaId": req.body.id },
+    Review.find(
+        { "mediaId": req.params.id },
         { title: true, body: true, reviewer: true },
         (err, result) => {
             res.json(result)
