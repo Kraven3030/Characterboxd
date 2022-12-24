@@ -27,7 +27,7 @@ function isAuthenticated(req, res, next) {
 //=================================
 //   SIGN UP ROUTE / CREATE USER
 //=================================
-router.post('/signup', isAuthenticated, async (req, res) => {
+router.post('/signup', async (req, res) => {
     // Verify the request body has an username and password
     if (req.body.username && req.body.password) {
         const hashPassword = await bcrypt.hash(req.body.password, saltRounds)
@@ -74,7 +74,7 @@ router.post('/signup', isAuthenticated, async (req, res) => {
 //==================================
 //   LOG IN ROUTE / FIND ONE USER
 //==================================
-router.post('/login', isAuthenticated, (req, res) => {
+router.post('/login', (req, res) => {
     // Attempt to find the user by their username in the database
     if (req.body.username && req.body.password) {
         User.findOne({ username: req.body.username }, async (err, user) => {

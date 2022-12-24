@@ -134,7 +134,7 @@ function ContentResults({ mediaResults }) {
                             return (<h3>{getGenreName(genre_id)}</h3>)
                         })}
                         <h5 className="card-text">{media.release_date}{media.first_air_date}</h5>
-                        <img className="card-img-bottom" src={baseUrl + media.poster_path} width="250" alt={"something"} />
+                        <img className="card-img-bottom" src={baseUrl + media.poster_path} width="250" alt={media.title} />
                     </div>
                     <p>{media.overview}</p>
                     <button className="btn btn-secondary btn-lg btn-block">Review This Movie</button>
