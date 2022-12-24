@@ -110,6 +110,20 @@ router.delete('/:id', isAuthenticated, (req, res) => {
     })
 });
 
+//=======================================
+//   GET USER DATA (IF USER IS LOGGED IN)
+//=======================================
+
+router.get('/:id', async (req, res) => {
+    const foundUser = await User.findById(req.params.id)
+    if (foundUser) {
+        res.json(foundUser)
+    } else {
+        res.sendStatus(404)
+    }
+})
+
+
 
 
 // Token show

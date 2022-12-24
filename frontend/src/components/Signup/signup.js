@@ -11,8 +11,7 @@ function Signup(props) {
     // State the declarations
     const [signupForm, setSignupForm] = useState({
         username: '',
-        password: '',
-        submitted: false
+        password: ''
     })
 
     // Will keep track of what's inputted into the form
@@ -41,24 +40,34 @@ function Signup(props) {
         setShowForm(false)
     }
 
+    // Function to control closing of the signup form when the X is clicked
+    const closeForm = () => {
+        setShowForm(false)
+    }
+
 
     return (
-        <figure>
-            <div className='signupModal'>
-                <div className='modalContent'>
-                    <form onSubmit={handleSubmit} className='signupForm'>
-                        <div className='signupDiv'>
-                            <Link className='modalCloseBtn' to="/"><span>&times;</span></Link>
-                            <label htmlFor='username'>Username:</label>
-                            <input type='text' name='username' placeholder='username' value={signupForm.username} onChange={handleChange} required></input>
-                            <label htmlFor="password">Password:</label>
-                            <input type="password" name="password" placeholder="Password" value={signupForm.password} onChange={handleChange} required></input>
-                            <button onClick={(e) => handleSubmit(e, signupForm)} className='submitSignupBtn' type="submit">Signup</button>
+        <nav>
+            <figure>
+                <button onClick={setShowForm} type="submit">Signup</button>
+                {showForm ? (
+                    <div className='signupModal'>
+                        <div className='modalContent'>
+                            <form onSubmit={handleSubmit} className='signupForm'>
+                                <div className='signupDiv'>
+                                    <Link onClick={closeForm} className='modalCloseBtn' to="/"><span>&times;</span></Link>
+                                    <label htmlFor='username'>Username:</label>
+                                    <input type='text' name='username' placeholder='username' value={signupForm.username} onChange={handleChange} required></input>
+                                    <label htmlFor="password">Password:</label>
+                                    <input type="password" name="password" placeholder="Password" value={signupForm.password} onChange={handleChange} required></input>
+                                    <button onClick={(e) => handleSubmit(e, signupForm)} className='submitSignupBtn' type="submit">Signup</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </figure>
+                    </div>
+                ) : null}
+            </figure>
+        </nav>
     )
 }
 
