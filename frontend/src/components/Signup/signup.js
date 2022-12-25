@@ -1,7 +1,7 @@
 // Import Dependencies
-import { useState, useEffect } from 'react'
-import { Link } from "react-router-dom";
+import { useState } from 'react'
 import axios from 'axios'
+import { createUser } from '../../utils/api'
 
 // Import Styles
 import "./signup.css"
@@ -19,55 +19,40 @@ function Signup(props) {
         setSignupForm({ ...signupForm, [event.target.name]: event.target.value })
     }
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
-    const [showForm, setShowForm] = useState(false)
-
-    // check if logged in when component mounts
-    useEffect(() => {
-        if (localStorage.token) {
-            setIsLoggedIn(true)
-        }
-    }, [])
-
-    const handleSubmit = async (event, signupForm) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
-        const { data } = await axios.post(`http://localhost:9000/users/signup`, {
-            username: signupForm.username,
-            password: signupForm.password
-        })
-        localStorage.token = data.token
-        setIsLoggedIn(true)
-        setShowForm(false)
-    }
-
-    // Function to control closing of the signup form when the X is clicked
-    const closeForm = () => {
-        setShowForm(false)
+        createUser(signupForm)
+            .then((data) => localStorage.token = data.token)
+        props.setIsLoggedIn(true)
     }
 
 
     return (
-        <nav>
-            <figure>
-                <button onClick={setShowForm} type="submit">Signup</button>
-                {showForm ? (
-                    <div className='signupModal'>
-                        <div className='modalContent'>
-                            <form onSubmit={handleSubmit} className='signupForm'>
-                                <div className='signupDiv'>
-                                    <Link onClick={closeForm} className='modalCloseBtn' to="/"><span>&times;</span></Link>
-                                    <label htmlFor='username'>Username:</label>
-                                    <input type='text' name='username' placeholder='username' value={signupForm.username} onChange={handleChange} required></input>
-                                    <label htmlFor="password">Password:</label>
-                                    <input type="password" name="password" placeholder="Password" value={signupForm.password} onChange={handleChange} required></input>
-                                    <button onClick={(e) => handleSubmit(e, signupForm)} className='submitSignupBtn' type="submit">Signup</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                ) : null}
-            </figure>
-        </nav>
+        <div className='container'>
+            <h2>Signup</h2>
+
+            <form>
+                <div className='input-text'>
+                    <label htmlFor='username'>Username</label>
+                    <input
+                        type='text'
+                        name='username'
+                        onChange={handleChange}
+                        value={signupForm.username} />
+                </div>
+
+                <div className='input-text'>
+                    <label htmlFor='password'>Password</label>
+                    <input
+                        type='password'
+                        name='password'
+                        onChange={handleChange}
+                        value={signupForm.password} />
+                </div>
+
+                <button onClick={(event) => handleSubmit(event, signupForm)} className='btn btn-primary' type='submit'>Signup</button>
+            </form>
+        </div>
     )
 }
 

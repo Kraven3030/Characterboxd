@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import axios from 'axios'
 import './styles.css'
 
@@ -7,12 +8,12 @@ function Home() {
     // const [mediaReview, setMediaReview] = useState([]);
     // const [user, setUser] = useState([]);
 
-    
+
     const getMedia = () => {
         axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
-        .then((response) => {
-          setMedia(response.data.results)
-        })
+            .then((response) => {
+                setMedia(response.data.results)
+            })
     }
 
     // async function grabMedia() {
@@ -24,15 +25,19 @@ function Home() {
     //     const data = await axios.get(`http://localhost:9000/user/${user._id}`)
     //     setUser(data)
     // }
-    
+
     // useEffect(() => {
     //     getMedia(),
     //     grabUser(),
     //     grabMedia()
     // }, []);
 
-    return(
+    return (
+
         <div>
+            <nav>
+                <SearchBar />
+            </nav>
             <section>
                 <h2>Track films you've watched.</h2>
                 <h2>Save those you want to see.</h2>
@@ -47,7 +52,7 @@ function Home() {
             </section>
         </div>
     );
-    
-    }
-    
-    export default Home
+
+}
+
+export default Home

@@ -1,7 +1,6 @@
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
-import axios from 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 // Imports for components and pages
@@ -17,23 +16,23 @@ import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-
+  useEffect(() => {
+    if (localStorage.token) {
+      setIsLoggedIn(true)
+    }
+  }, [])
 
   return (
     <div className="main_page">
-      <nav>
-
-        <Login />
-        <Signup />
-        <SearchBar />
-      </nav>
+      <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <main>
         <Routes>
-          <Route path="/Login/login" element={<Login />} />
-          <Route path="/Signup/Signup" element={<Signup />} />
           {/* { Page Routes  } */}
-          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/signup" element={<Signup isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/" element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/movieReviews/index" element={<MovieReviews />} />
           <Route path="/usersReviews/index" element={<UsersReviews />} />
           <Route path="/newReview/index" element={<NewReview />} />
