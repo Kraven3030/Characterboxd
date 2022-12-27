@@ -2,8 +2,16 @@
     text-align: center;
 }
 
+.carousel-item {
+    height: 30rem;
+    border: solid black;
+    color: white;
+    position: relative;
+}
+
 .container {
-    color: aliceblue;
-    font-family: serif;
-    font-size: larger;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 30px;
 }
