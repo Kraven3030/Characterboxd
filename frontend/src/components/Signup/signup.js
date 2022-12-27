@@ -1,6 +1,5 @@
 // Import Dependencies
 import { useState } from 'react'
-import axios from 'axios'
 import { createUser } from '../../utils/api'
 
 // Import Styles
@@ -28,31 +27,50 @@ function Signup(props) {
 
 
     return (
-        <div className='container'>
-            <h2>Signup</h2>
+        <section classname="text-center text-lg-start">
+            <div className='card mb-3'>
+                <div className='row g-0 d-flex align-items-center'>
+                    <div className='col-lg-4 d-none d-lg-flex'>
+                        <img src='https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg' alt='Inception' className='w-100 rounded float-left' />
+                    </div>
+                    <div class="col-lg-8">
+                        <div className='card-body py-5 px-md-5'>
 
-            <form>
-                <div className='input-text'>
-                    <label htmlFor='username'>Username</label>
-                    <input
-                        type='text'
-                        name='username'
-                        onChange={handleChange}
-                        value={signupForm.username} />
+                            <form>
+
+                                <h3 className='fw-normal mb-3 pb-3'>Create Account</h3>
+
+                                <div className='form-outline mb-4'>
+                                    <label className='form-label' htmlFor='username'>Username</label>
+                                    <input
+                                        type='text'
+                                        name='username'
+                                        onChange={handleChange}
+                                        value={signupForm.username}
+                                        placeholder='Username'
+                                        className="form-control" />
+                                </div>
+
+                                <div className='form-outline mb-4'>
+                                    <label className='form-label' htmlFor='password'>Password</label>
+                                    <input
+                                        type='password'
+                                        name='password'
+                                        onChange={handleChange}
+                                        value={signupForm.password}
+                                        placeholder='Password'
+                                        className="form-control" />
+                                </div>
+                                <div className="pt-1 mb-4">
+                                    <button onClick={(event) => handleSubmit(event, signupForm)} className='btn btn-primary btn-block mb-4' type='submit'>Signup</button>
+                                </div>
+                                <p>Already have an account? <a href="/login" class="link-info">Login here</a></p>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-
-                <div className='input-text'>
-                    <label htmlFor='password'>Password</label>
-                    <input
-                        type='password'
-                        name='password'
-                        onChange={handleChange}
-                        value={signupForm.password} />
-                </div>
-
-                <button onClick={(event) => handleSubmit(event, signupForm)} className='btn btn-primary' type='submit'>Signup</button>
-            </form>
-        </div>
+            </div>
+        </section >
     )
 }
 

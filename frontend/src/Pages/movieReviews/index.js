@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Nav from '../../components/Nav/nav'
 
 
 
 function MovieReviews() {
 
     // const [mediaReview, setMediaReview] = useState([]);
-    
+
     // useEffect(() => {
     //     async function grabMedia() {
     //         const data = await axios.get(`http://localhost:9001/media/${media.id}`)
@@ -15,9 +16,9 @@ function MovieReviews() {
     // },[])
 
 
-    return(
+    return (
         <div>
-            {/* <Nav /> */}
+            <Nav />
             <img src="#" class="img-thumbnail" alt="" />
             <div>
                 <section>
@@ -32,7 +33,7 @@ function MovieReviews() {
             </div>
         </div>
     );
-    
-    }
-    
-    export default MovieReviews
+
+}
+
+export default MovieReviews

@@ -11,7 +11,7 @@ import './nav.css'
 
 function Nav(props) {
 
-  const initialState = [<h1  key="1"><Link to="/"><ion-icon name="film-outline"></ion-icon> CharacterBoxd</Link></h1>]
+  const initialState = [<h1 key="1"><Link to="/"><ion-icon name="film-outline"></ion-icon>CharacterBoxd</Link></h1>]
 
   const handleLogOut = () => {
     localStorage.clear()
@@ -27,8 +27,8 @@ function Nav(props) {
       ))
     } else {
       setNavItems(initialState.concat([
-        <li key="3"><Link to='/login'>Login</Link></li>,
-        <li key="4"><Link to='/signup'>Signup</Link></li>
+        <li key="3"><Link className='' to='/login'>Login</Link></li>,
+        <li key="4"><Link className='' to='/signup'>Signup</Link></li>
       ]))
     }
   }, [props.isLoggedIn])

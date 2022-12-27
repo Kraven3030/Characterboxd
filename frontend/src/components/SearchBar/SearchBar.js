@@ -7,9 +7,9 @@ function SearchBar() {
     const [searchString, setSearchString] = useState('');
     const [mediaType, setMediaType] = useState("movie");
 
-    useEffect(() => { 
-       if (searchString !== '') {
-         getMedia(searchString)
+    useEffect(() => {
+        if (searchString !== '') {
+            getMedia(searchString)
         } else {
             setMediaResults([]);
         }
@@ -23,10 +23,10 @@ function SearchBar() {
     };
 
     const handleChange = async (event) => {
-         setSearchString(event.target.value)
+        setSearchString(event.target.value)
     }
 
-    function setMediaRadio(event) {       
+    function setMediaRadio(event) {
         setMediaType(event.target.id);
         getMedia(searchString);
     }
