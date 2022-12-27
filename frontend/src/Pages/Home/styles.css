@@ -3,9 +3,9 @@
 }
 
 .carousel-item {
-    height: 30rem;
-    border: solid black;
-    color: white;
+    height: 35rem;
+    /* border: solid black; */
+    color: black;
     position: relative;
 }
 
@@ -34,4 +34,19 @@
 }
 .devPick {
     color: yellowgreen;
+}
+
+.gif {
+    margin-top: 10%;
+    display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+#gladiator img {
+    width: 30rem;
+}
+
+#fifth img {
+    width: 30rem;
 }
