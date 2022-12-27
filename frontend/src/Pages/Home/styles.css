@@ -14,4 +14,24 @@
     bottom: 0;
     left: 0;
     padding-bottom: 30px;
+    background-color: transparent;
+}
+.container1{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 30px;
+    background-color: transparent;
+
+}
+.container2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 30px;
+    background-color: transparent;
+
+}
+.devPick {
+    color: yellowgreen;
 }
