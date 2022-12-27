@@ -42,3 +42,6 @@ input[type=radio], input[type=checkbox] {
     cursor: pointer;
 }
 
+* {
+    background-image: url("https://www.solidbackgrounds.com/images/2560x1440/2560x1440-gray-solid-color-background.jpg");
+}

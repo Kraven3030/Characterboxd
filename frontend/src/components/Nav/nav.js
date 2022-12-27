@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import Login from '../../components/Login/login'
 import Signup from '../Signup/signup'
+import SearchBar from '../../components/SearchBar/SearchBar';
+
 import { Link } from "react-router-dom";
 
 
@@ -9,7 +11,7 @@ import './nav.css'
 
 function Nav(props) {
 
-  const initialState = [<h1 key="1"><Link to="/">CharacterBoxd</Link></h1>]
+  const initialState = [<h1  key="1"><Link to="/"><ion-icon name="film-outline"></ion-icon> CharacterBoxd</Link></h1>]
 
   const handleLogOut = () => {
     localStorage.clear()
@@ -32,13 +34,18 @@ function Nav(props) {
   }, [props.isLoggedIn])
 
   return (
-    <nav>
-      <div>
-        <ul className='allNavItems'>
-          {navItems}
-        </ul>
-      </div>
-    </nav>
+    <header>
+      <nav className="">
+        <div className=''>
+          <ul className=''>
+            <li className=''>
+              {navItems}
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <SearchBar />
+    </header>
   );
 }
 export default Nav
