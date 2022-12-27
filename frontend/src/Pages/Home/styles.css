@@ -2,9 +2,28 @@
     text-align: center;
 }
 
+.intro {
+    color: whitesmoke;
+    text-align: center;
+    
+}
+
+.getStarted {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    
+}
+#getStarted {
+    margin-top: 15px;
+    width: 60vh;
+    height: 9vh;
+
+}
 .carousel-item {
     height: 35rem;
-    /* border: solid black; */
     color: black;
     position: relative;
 }
@@ -14,14 +33,14 @@
     bottom: 0;
     left: 0;
     padding-bottom: 30px;
-    background-color: transparent;
+    margin-left: 1vh;
 }
 .container1{
     position: absolute;
     bottom: 0;
     left: 0;
     padding-bottom: 30px;
-    background-color: transparent;
+    margin-left: 3vh;
 
 }
 .container2 {
@@ -29,11 +48,18 @@
     bottom: 0;
     left: 0;
     padding-bottom: 30px;
-    background-color: transparent;
+    margin-left: 3vh;
+
 
 }
-.devPick {
-    color: yellowgreen;
+.devPicks {
+    text-align: center;
+    margin-top: 30px;
+    color: orangered;
+}
+
+.devPickBy {
+    color: orangered;
 }
 
 .gif {
@@ -50,3 +76,4 @@
 #fifth img {
     width: 30rem;
 }
+

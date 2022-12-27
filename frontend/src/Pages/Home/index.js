@@ -4,6 +4,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 
 import axios from 'axios'
 import './styles.css'
+import Signup from '../../components/Signup/signup';
 
 function Home() {
     const [media, setMedia] = useState([]);
@@ -35,20 +36,27 @@ function Home() {
     return (
 
         <div>
+
+            <h2 className='intro'>REVIEW FILMS YOU'VE WATCHED.</h2>
+            <h2 className='intro'>TRACK THOSE YOU WANT TO SEE.</h2>
+            <h2 className='intro'>TELL YOUR FRIENDS WHATS GOOD.</h2>
+            <aside className='getStarted'>
+                <a  id='getStarted' className='btn btn-success btn-lg' role='button' href={<Signup />}>GET STARTED</a>
+            </aside>
             <div className="content">
             <div id='theCarousel' className='carousel slide' data-ride='carousel' >
-                <h5>Developer Picks</h5>
                 <div class='carousel-inner'>
                      {/* Blake's Movie */}
                     <div className='carousel-item active'>
+                    <h4 className='devPicks'>Developer Picks</h4>
                         <div className='gif' id='gladiator'>
                             <img className='img-thumbnail' src='https://media1.giphy.com/media/d7mMzaGDYkz4ZBziP6/200w.webp?cid=ecf05e471oqetph8u6muoolr79r0cojqe1pgypr9gdg0vprb&rid=200w.webp&ct=g'/>
                         </div>
                         <div className='container'>
-                            <h1>Gladiator</h1>
+                            <h2>Gladiator</h2>
                             <p>A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.
                                 < br/>
-                            <em className='devPick'>Picked by Blake</em>
+                            <em className='devPickBy'>Picked by Blake</em>
                             </p>
 
                         </div>
@@ -56,30 +64,32 @@ function Home() {
 
                     {/*  Rory's Movie */} 
                     <div className='carousel-item'>
+                    <h4 className='devPicks'>Developer Picks</h4>
                         <div className='gif' id='fifth'>
                             <img className='img-thumbnail' src='https://media4.giphy.com/media/rbmQ6CRJERE3K/giphy.webp?cid=ecf05e47ozppz3803jp5f8w1z31s5a3ec9ods5dyzh8cr469&rid=giphy.webp&ct=g' />
                         </div>
                         <div className='container1'>
-                            <h1>Fifth Element</h1>
+                            <h2>Fifth Element</h2>
                             <p>
                             In the colorful future, a cab driver unwittingly becomes the central figure in the search for a legendary cosmic weapon to keep Evil and Mr. Zorg at bay.
                             < br/>
-                            <em className='devPick'>Picked by Rory</em>
+                            <em className='devPickBy'>Picked by Rory</em>
                             </p>
                         </div>
                     </div>
 
                     {/*  Bren's Movie */} 
                     <div className='carousel-item '>
+                    <h4 className='devPicks'>Developer Picks</h4>
                         <div className='gif' id='rush'>
                             <img className='img-thumbnail' src='https://i.imgur.com/H0mWVY8.gif' />
                         </div>
                         <div className='container2'> 
-                        <h1>Rush Hour</h1>
+                        <h2>Rush Hour</h2>
                         <p>
                         A loyal and dedicated Hong Kong Inspector teams up with a reckless and loudmouthed L.A.P.D. detective.
                         < br/>
-                        <em className='devPick'>Picked by Bren</em>
+                        <em className='devPickBy'>Picked by Bren</em>
                         </p>
                         </div>
                     </div>
@@ -91,11 +101,7 @@ function Home() {
                     <span className='carousel-control-next-icon' aria-hidden='true'></span>
                 </a>
             </div>
-
-                <h2>TRACK FILMS YOU'VE WATCHED.</h2>
-                <h2>SAVE THOSE YOU WANT TO SEE.</h2>
-                <h2>TELL YOUR FRIENDS WHATS GOOD.</h2>
-            </div>
+        </div>
                 {/* {media.map(data => {
                     <div>
                         <img src={data.poster_path} />

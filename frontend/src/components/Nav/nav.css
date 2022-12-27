@@ -42,6 +42,6 @@ input[type=radio], input[type=checkbox] {
     cursor: pointer;
 }
 
-* {
+body {
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSozAGeohB4uJHCkmj2kx0hJpG2GNFZWyd7Ow&usqp=CAU");
 }
