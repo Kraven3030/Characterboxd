@@ -25,8 +25,10 @@ function App() {
   }, [])
 
   return (
-    <div className="main_page">
-      <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+    <body>
+      <header>
+        <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      </header>
       <main>
         <Routes>
           {/* { Page Routes  } */}
@@ -39,7 +41,7 @@ function App() {
           <Route path="/editReview/index" element={<EditReview />} />
         </Routes>
       </main>
-    </div>
+    </body>
   );
 }
 

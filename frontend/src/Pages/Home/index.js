@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import SearchBar from '../../components/SearchBar/SearchBar';
-// import Nav from '../../components/Nav/nav'
 
 import axios from 'axios'
 import './styles.css'
@@ -34,7 +32,6 @@ function Home() {
     }, []);
 
     return (
-
         <div>
 
             <h2 className='intro'>REVIEW FILMS YOU'VE WATCHED.</h2>
@@ -45,12 +42,12 @@ function Home() {
             </aside>
             <div className="content">
                 <div id='theCarousel' className='carousel slide' data-ride='carousel' >
-                    <div class='carousel-inner'>
+                    <div className='carousel-inner'>
                         {/* Blake's Movie */}
                         <div className='carousel-item active'>
                             <h4 className='devPicks'>Developer Picks</h4>
                             <div className='gif' id='gladiator'>
-                                <img className='img-thumbnail' src='https://media1.giphy.com/media/d7mMzaGDYkz4ZBziP6/200w.webp?cid=ecf05e471oqetph8u6muoolr79r0cojqe1pgypr9gdg0vprb&rid=200w.webp&ct=g' />
+                                <img className='img-thumbnail' src='https://media1.giphy.com/media/d7mMzaGDYkz4ZBziP6/200w.webp?cid=ecf05e471oqetph8u6muoolr79r0cojqe1pgypr9gdg0vprb&rid=200w.webp&ct=g' alt='Gladiator' />
                             </div>
                             <div className='container'>
                                 <h2>Gladiator</h2>
@@ -66,7 +63,7 @@ function Home() {
                         <div className='carousel-item'>
                             <h4 className='devPicks'>Developer Picks</h4>
                             <div className='gif' id='fifth'>
-                                <img className='img-thumbnail' src='https://media4.giphy.com/media/rbmQ6CRJERE3K/giphy.webp?cid=ecf05e47ozppz3803jp5f8w1z31s5a3ec9ods5dyzh8cr469&rid=giphy.webp&ct=g' />
+                                <img className='img-thumbnail' src='https://media4.giphy.com/media/rbmQ6CRJERE3K/giphy.webp?cid=ecf05e47ozppz3803jp5f8w1z31s5a3ec9ods5dyzh8cr469&rid=giphy.webp&ct=g' alt='The fifth element' />
                             </div>
                             <div className='container1'>
                                 <h2>Fifth Element</h2>
@@ -82,7 +79,7 @@ function Home() {
                         <div className='carousel-item '>
                             <h4 className='devPicks'>Developer Picks</h4>
                             <div className='gif' id='rush'>
-                                <img className='img-thumbnail' src='https://i.imgur.com/H0mWVY8.gif' />
+                                <img className='img-thumbnail' src='https://i.imgur.com/H0mWVY8.gif' alt='Rush hour' />
                             </div>
                             <div className='container2'>
                                 <h2>Rush Hour</h2>

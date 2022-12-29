@@ -31,13 +31,13 @@ function Login(props) {
 
 
     return (
-        <section classname="text-center text-lg-start">
+        <section className="text-center text-lg-start">
             <div className='card mb-3'>
                 <div className='row g-0 d-flex align-items-center'>
                     <div className='col-lg-4 d-none d-lg-flex'>
                         <img src='https://images.justwatch.com/poster/152823265/s592/gangs-of-new-york' alt='Inception' className='w-100 rounded float-left' />
                     </div>
-                    <div class="col-lg-8">
+                    <div className="col-lg-8">
                         <div className='card-body py-5 px-md-5'>
 
                             <form>
@@ -68,7 +68,7 @@ function Login(props) {
                                 <div className="pt-1 mb-4">
                                     <button onClick={(event) => handleSubmit(event, loginForm)} className='btn btn-primary btn-block mb-4' type='submit'>Login</button>
                                 </div>
-                                <p>Don't have an account? <a href="/signup" class="link-info">Signup here</a></p>
+                                <p>Don't have an account? <a href="/signup" className="link-info">Signup here</a></p>
                             </form>
                         </div>
                     </div>

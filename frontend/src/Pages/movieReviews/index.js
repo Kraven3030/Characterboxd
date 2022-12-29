@@ -19,7 +19,7 @@ function MovieReviews() {
     return (
         <div>
             <Nav />
-            <img src="#" class="img-thumbnail" alt="" />
+            <img src="#" className="img-thumbnail" alt="" />
             <div>
                 <section>
                     <input>Review 1</input>

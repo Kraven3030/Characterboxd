@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import SearchResults from '../SearchResults/SearchResults';
+import './searchbar.css'
 
 function SearchBar() {
     const [mediaResults, setMediaResults] = useState([]);
@@ -42,44 +43,41 @@ function SearchBar() {
     }
 
     return (
-        <div>
-            <form className="searchBar">
-                <input
-                    className='searchInput'
-                    name="searchString"
-                    type="text"
-                    placeholder="Search for a Movie or TV Show"
-                    onChange={handleChange}
-                    value={searchString}
-                >
 
-                </input>
-                <input
-                    className='radioBtn'
-                    type="radio"
-                    id="movie"
-                    name="media"
-                    value="Movie"
-                    onChange={setMediaRadio}
-                    checked={mediaType === "movie"} required
-                >
-                </input>
-                <label htmlFor='movie'>Movies</label>
-                <input
-                    className='radioBtn'
-                    type="radio"
-                    id="tv"
-                    name="media"
-                    value="TV"
-                    onChange={setMediaRadio}
-                    required
-                >
-                </input>
-                <label htmlFor='tvShow'>TV</label>
-            </form>
+        <div className='search-box'>
+            <input
+                className='search-text'
+                name="searchString"
+                type="text"
+                placeholder="Search for a Movie or TV Show"
+                onChange={handleChange}
+                value={searchString}>
+            </input>
+
+
+            <input
+                className='radioBtn'
+                type="radio"
+                id="movie"
+                name="media"
+                value="Movie"
+                onChange={setMediaRadio}
+                checked={mediaType === "movie"} required>
+            </input>
+            <label htmlFor='movie'>Movies</label>
+            <input
+                className='radioBtn'
+                type="radio"
+                id="tv"
+                name="media"
+                value="TV"
+                onChange={setMediaRadio}
+                required>
+            </input>
+            <label htmlFor='tvShow'>TV</label>
             <SearchResults mediaResults={mediaResults}
                 mediaType={mediaType} />
-        </div >
+        </div>
     )
 }
 

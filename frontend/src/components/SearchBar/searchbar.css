@@ -1,0 +1,6 @@
+.search-box {
+    width: 300px;
+    text-align: center;
+    z-index: 1000;
+    color: white;
+}

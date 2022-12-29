@@ -18,10 +18,10 @@ function UsersReviews() {
             {/* <Nav /> */}
             <figure>
 
-                <img src="#" class="rounded-circle" alt="" />
-                    <figcaption>
-                        <h3>nmae</h3>
-                    </figcaption>
+                <img src="#" className="rounded-circle" alt="" />
+                <figcaption>
+                    <h3>nmae</h3>
+                </figcaption>
             </figure>
             <figure>
                 <figcaption>

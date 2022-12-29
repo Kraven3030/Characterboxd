@@ -27,13 +27,13 @@ function Signup(props) {
 
 
     return (
-        <section classname="text-center text-lg-start">
+        <section className="text-center text-lg-start">
             <div className='card mb-3'>
                 <div className='row g-0 d-flex align-items-center'>
                     <div className='col-lg-4 d-none d-lg-flex'>
                         <img src='https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg' alt='Inception' className='w-100 rounded float-left' />
                     </div>
-                    <div class="col-lg-8">
+                    <div className="col-lg-8">
                         <div className='card-body py-5 px-md-5'>
 
                             <form>
@@ -64,7 +64,7 @@ function Signup(props) {
                                 <div className="pt-1 mb-4">
                                     <button onClick={(event) => handleSubmit(event, signupForm)} className='btn btn-primary btn-block mb-4' type='submit'>Signup</button>
                                 </div>
-                                <p>Already have an account? <a href="/login" class="link-info">Login here</a></p>
+                                <p>Already have an account? <a href="/login" className="link-info">Login here</a></p>
                             </form>
                         </div>
                     </div>

@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import Login from '../../components/Login/login'
-import Signup from '../Signup/signup'
 import SearchBar from '../../components/SearchBar/SearchBar';
 
 import { Link } from "react-router-dom";
@@ -11,7 +9,7 @@ import './nav.css'
 
 function Nav(props) {
 
-  const initialState = [<h1 key="1"><Link to="/"><ion-icon name="film-outline"></ion-icon>CharacterBoxd</Link></h1>]
+  const initialState = [<h1 className='' key="1"><Link to="/"><ion-icon name="film-outline"></ion-icon>CharacterBoxd</Link></h1>]
 
   const handleLogOut = () => {
     localStorage.clear()
@@ -27,25 +25,22 @@ function Nav(props) {
       ))
     } else {
       setNavItems(initialState.concat([
-        <li key="3"><Link className='' to='/login'>Login</Link></li>,
-        <li key="4"><Link className='' to='/signup'>Signup</Link></li>
+        <li className='' key="5"><Link to='/'>Homepage</Link></li>,
+        <li className='' key="3"><Link to='/login'>Login</Link></li>,
+        <li className='' key="4"><Link to='/signup'>Signup</Link></li>
       ]))
     }
   }, [props.isLoggedIn])
 
   return (
-    <header>
-      <nav className="">
-        <div className=''>
-          <ul className=''>
-            <li className=''>
-              {navItems}
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <SearchBar />
-    </header>
+    <div>
+      <header className='siteHeader'>
+        <ul className='nav-links'>
+          {navItems}
+        </ul>
+        <SearchBar />
+      </header>
+    </div>
   );
 }
 export default Nav
