@@ -10,28 +10,31 @@ function UsersReviews() {
     });
 
     useEffect(() => {
-        async function fetchReviews() {
+        async function grabReviews() {
             const results = await axios.get('http://localhost:9000/reviews/${reviews.id}');
             setReviews(results.data);   
         }
-        fetchReviews();
+        grabReviews();
     }, [])
 
     const reviewByUser = reviews.filter(review =>
-        review.userId === userId)
+        review.reviewer === userId)
 
 
     return (
         <div>
-            <ul>
-                {reviewByUser.map(review => (
-                    <li key={review.id}>
-                        {review.title}
-                        {review.body}
-                        {review.reviewer}
-                        </li>
-                 ))}
-            </ul>                 
+            <img />
+            <section>
+                <ul>
+                    {reviewByUser.map(review => (
+                        <li key={review.id}>
+                            {review.title}
+                            {review.body}
+                            {review.reviewer}
+                            </li>
+                    ))}
+                </ul>  
+            </section>               
         </div>
     );
 
