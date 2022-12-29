@@ -6,7 +6,7 @@ function NewReview() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        
+
     }
 
     return(
@@ -18,7 +18,6 @@ function NewReview() {
                 id="title"
                 name="title"
                 value={review.title}
-                onChange={handleSubmit}
                 />
                 <br />
                 <label htmlFor="body">Review:</label>
@@ -27,10 +26,9 @@ function NewReview() {
                 id="body"
                 name="body"
                 value={review.body}
-                onChange={handleSubmit}
                 />
                 <br />
-                <button type="submit" className="btn btn-info" >Save Changes</button>
+                <button type="submit" className="btn btn-info" >Submit Review</button>
             </form>
         </div>
     );
