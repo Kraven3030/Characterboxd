@@ -1,5 +1,6 @@
 // Import dependncies
 import { useState } from 'react'
+import { redirect } from 'react-router';
 import { loginToAccount } from '../../utils/api';
 
 
@@ -19,15 +20,13 @@ function Login(props) {
         setLoginForm({ ...loginForm, [event.target.name]: event.target.value })
     }
 
-
-
     const handleSubmit = async (event, loginForm) => {
         event.preventDefault()
         loginToAccount(loginForm)
             .then((data) => localStorage.token = data.token)
         props.setIsLoggedIn(true)
-    }
 
+    }
 
 
     return (
