@@ -7,10 +7,10 @@ import { useState, useEffect } from 'react'
 import Nav from './components/Nav/nav'
 import Login from './components/Login/login'
 import Signup from './components/Signup/signup'
-import MovieReviews from './Pages/MovieReviews/index'
-import UsersReviews from './Pages/UsersReviews/index';
-import NewReview from './Pages/NewReview/index';
-import EditReview from './Pages/EditReview/index';
+import MovieReviews from './Pages/movieReviews/index'
+import UsersReviews from './Pages/usersReviews/index';
+import NewReview from './Pages/newReview/index';
+import EditReview from './Pages/editReview/index';
 import Home from './Pages/Home/index';
 import SearchBar from './components/SearchBar/SearchBar';
 
@@ -35,10 +35,10 @@ function App() {
           <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/signup" element={<Signup isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/" element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/movieReviews/index" element={<MovieReviews />} />
-          <Route path="/usersReviews/index" element={<UsersReviews />} />
+          <Route path="/movieReviews/index/:id" element={<MovieReviews />} />
+          <Route path="/usersReviews/index/:id" element={<UsersReviews />} />
           <Route path="/newReview/index" element={<NewReview />} />
-          <Route path="/editReview/index" element={<EditReview />} />
+          <Route path="/editReview/index/:id" element={<EditReview />} />
         </Routes>
       </main>
     </body>

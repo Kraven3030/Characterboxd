@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
+
 import SearchResults from '../SearchResults/SearchResults';
 import './searchbar.css'
 
@@ -7,6 +9,8 @@ function SearchBar() {
     const [mediaResults, setMediaResults] = useState([]);
     const [searchString, setSearchString] = useState('');
     const [mediaType, setMediaType] = useState("movie");
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         if (searchString !== '') {
@@ -42,39 +46,47 @@ function SearchBar() {
             )
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        navigate.push(`/search-results?query=${searchString}`)
+    }
+
     return (
 
         <div className='search-box'>
-            <input
-                className='search-text'
-                name="searchString"
-                type="text"
-                placeholder="Search for a Movie or TV Show"
-                onChange={handleChange}
-                value={searchString}>
-            </input>
+            <form onSubmit={handleSubmit}>
+                <input
+                    className='search-text'
+                    name="searchString"
+                    type="text"
+                    placeholder="Search for a Movie or TV Show"
+                    onChange={handleChange}
+                    value={searchString}>
+                </input>
 
+                <input
+                    className='radioBtn'
+                    type="radio"
+                    id="movie"
+                    name="media"
+                    value="Movie"
+                    onChange={setMediaRadio}
+                    checked={mediaType === "movie"} required>
+                </input>
+                <label htmlFor='movie'>Movies</label>
 
-            <input
-                className='radioBtn'
-                type="radio"
-                id="movie"
-                name="media"
-                value="Movie"
-                onChange={setMediaRadio}
-                checked={mediaType === "movie"} required>
-            </input>
-            <label htmlFor='movie'>Movies</label>
-            <input
-                className='radioBtn'
-                type="radio"
-                id="tv"
-                name="media"
-                value="TV"
-                onChange={setMediaRadio}
-                required>
-            </input>
-            <label htmlFor='tvShow'>TV</label>
+                <input
+                    className='radioBtn'
+                    type="radio"
+                    id="tv"
+                    name="media"
+                    value="TV"
+                    onChange={setMediaRadio}
+                    required>
+                </input>
+                <label htmlFor='tvShow'>TV</label>
+                <button type='submit'>Search</button>
+            </form>
             <SearchResults mediaResults={mediaResults}
                 mediaType={mediaType} />
         </div>

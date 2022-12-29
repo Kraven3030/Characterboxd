@@ -4,35 +4,34 @@ import axios from 'axios'
 
 function UsersReviews() {
 
-    const [user, setUser] = useState([]);
+    const [reviews, setReviews] = useState([]);
+    const [userId, setUserId] = useState({
+        username: ''
+    });
 
     useEffect(() => {
-        // async function grabUser() {
-        //     const data = await axios.get(`http://localhost:9000/user/${user._id}`)
-        //     setUser(data)
-        // }
+        async function fetchReviews() {
+            const results = await axios.get('http://localhost:9000/reviews/${reviews.id}');
+            setReviews(results.data);   
+        }
+        fetchReviews();
     }, [])
+
+    const reviewByUser = reviews.filter(review =>
+        review.userId === userId)
+
 
     return (
         <div>
-            {/* <Nav /> */}
-            <figure>
-
-                <img src="#" className="rounded-circle" alt="" />
-                <figcaption>
-                    <h3>nmae</h3>
-                </figcaption>
-            </figure>
-            <figure>
-                <figcaption>
-                    <h2>Reviews by:name</h2>
-
-                </figcaption>
-                <form>
-                    {/* Reviews Here Using For Loop*/}
-                </form>
-
-            </figure>
+            <ul>
+                {reviewByUser.map(review => (
+                    <li key={review.id}>
+                        {review.title}
+                        {review.body}
+                        {review.reviewer}
+                        </li>
+                 ))}
+            </ul>                 
         </div>
     );
 
