@@ -12,7 +12,7 @@ function EditReview() {
         grabReview()
     },[])
 
-    const handleeChange = (event) => {
+    const handleChange = (event) => {
         setReview({
             [event.target.name]: event.target.value
         });
@@ -34,7 +34,7 @@ function EditReview() {
                 id="title"
                 name="title"
                 value={review.title}
-                onChange={handleSubmit}
+                onChange={handleChange}
                 />
                 <br />
                 <label htmlFor="body">Review:</label>
@@ -43,7 +43,7 @@ function EditReview() {
                 id="body"
                 name="body"
                 value={review.body}
-                onChange={handleSubmit}
+                onChange={handleChange}
                 />
                 <br />
             <button type="submit" className="btn btn-info" >Save Changes</button>
