@@ -110,6 +110,24 @@ router.delete('/:id', isAuthenticated, (req, res) => {
     })
 });
 
+
+
+
+
+
+// Token show
+router.get('/token', isAuthenticated, async (req, res) => {
+    const tokenString = req.headers.authorization
+    const token = tokenString.replace("Bearer ", "");
+    const decoded = jwt.decode(token, config.jwtSecret)
+    const User = await db.User.findById(decoded.id)
+    const userReviews = await db.Review.find({ reviewer: User._id })
+    res.json({
+        user: User,
+        reviews: userReviews
+    })
+})
+
 //=======================================
 //   GET USER DATA (IF USER IS LOGGED IN)
 //=======================================
@@ -122,23 +140,6 @@ router.get('/:id', async (req, res) => {
         res.sendStatus(404)
     }
 })
-
-
-
-
-// Token show
-router.get('/token', isAuthenticated, async (req, res) => {
-    const token = req.headers.authorization
-    const decoded = jwt.decode(token, config.jwtSecret)
-    const User = await db.User.findById(decoded.id)
-    const userReviews = await db.Review.find({ user: User._id })
-    res.json({
-        user: User,
-        reviews: userReviews
-    })
-})
-
-
 
 module.exports = router
 
