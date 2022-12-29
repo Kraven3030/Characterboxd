@@ -85,7 +85,7 @@ router.get('/user/:id', (req, res) => {
 //==================
 //   UPDATE ROUTE
 //==================
-router.put('/update', async (req, res) => {
+router.put('/update', isAuthenticated, async (req, res) => {
     const updatedReview = await db.Review.findByIdAndUpdate(
         req.body.id,
         { title: req.body.title, body: req.body.body },
@@ -99,7 +99,7 @@ router.put('/update', async (req, res) => {
 //   DELETE ROUTE
 //==================
 
-router.delete('/delete/:id', async (req, res) => {
+router.delete('/delete/:id', isAuthenticated, async (req, res) => {
     Review.findByIdAndRemove(req.params.id)
         .then(result => {
             console.log(result)

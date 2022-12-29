@@ -14,6 +14,7 @@ const params = {
 
 module.exports = function () {
   let strategy = new Strategy(params, (payload, callback) => {
+    console.log(payload)
     let user = db.User.findById(payload.id) || null
     if (user) {
       return callback(null, { id: user.id })
