@@ -59,7 +59,7 @@ function Home() {
             <h2 className='intro'>TRACK THOSE YOU WANT TO SEE.</h2>
             <h2 className='intro'>TELL YOUR FRIENDS WHATS GOOD.</h2>
             <aside className='getStarted'>
-                <a id='getStarted' className='btn btn-success btn-lg' role='button' href={<Signup />}>GET STARTED</a>
+                <a id='getStarted' className='btn btn-success btn-lg' role='button' href='/signup'>GET STARTED</a>
             </aside>
             <div className="content">
                 <div id='theCarousel' className='carousel slide' data-ride='carousel' >
@@ -123,13 +123,6 @@ function Home() {
                     </a>
                 </div>
             </div>
-            {/* {media.map(data => {
-                    <div>
-                        <img src={data.poster_path} />
-                        <h2>{data.title}</h2>
-                        <h5>{data.overview}</h5>
-                    </div>
-                })} */}
         </div>
 
     );

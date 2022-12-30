@@ -6,24 +6,37 @@ import Nav from '../../components/Nav/nav'
 
 function MovieReviews() {
 
-    // const [mediaReview, setMediaReview] = useState([]);
+    const [mediaReview, setMediaReview] = useState([]);
+    const [mediaId, setMediaId] = useState({
 
-    // useEffect(() => {
-    //     async function grabMedia() {
-    //         const data = await axios.get(`http://localhost:9001/media/${media.id}`)
-    //         setMedia(data)
-    //     }
-    // },[])
+    })
+
+    useEffect(() => {
+        async function grabMedia() {
+            const results = await axios.get(`http://localhost:9000/reviews/${media.id}`)
+            setMediaReview(results.data.reviews)
+        }
+        grabMedia()
+    },[])
+
+    const reviewByMedia = mediaReview.filter(review =>
+        review.title === mediaId)
 
 
     return (
         <div>
-            <Nav />
             <img src="#" className="img-thumbnail" alt="" />
-            <div>
-                <section>
-                </section>
-            </div>
+            <section>
+                <ul>
+                    {reviewByMedia.map(review => (
+                        <li key={review.id}>
+                            {review.title}
+                            {review.body}
+                            {review.reviewer}
+                            </li>
+                    ))}
+                </ul>   
+            </section>
         </div>
     );
 

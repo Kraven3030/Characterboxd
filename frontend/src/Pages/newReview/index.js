@@ -3,24 +3,33 @@ function NewReview() {
 
     const [review, setReview] = useState('')
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+
+    }
 
     return(
         <div>
-           {/* <Nav />  */}
-           <h1>New Review</h1>
-        <form>
-            <label>
-
-            </label>
-            <input type="submit"/>
-        </form>
-        {/* <figure class="figure">
-            <img src="#" class="figure-img img-fluid rounded" alt='' />
-            <figcaption class="figure-caption" >
-                <input>Review Here</input>
-            </figcaption>
-        </figure>
-        <button type="submit" class="btn btn-info" >Add Review</button> */}
+           <form onSubmit={handleSubmit}>
+                <label htmlFor="title">Title:</label>
+                <input 
+                type="text"
+                id="title"
+                name="title"
+                value={review.title}
+                />
+                <br />
+                <label htmlFor="body">Review:</label>
+                <input 
+                type="text"
+                id="body"
+                name="body"
+                value={review.body}
+                />
+                <br />
+                <button type="submit" className="btn btn-info" >Submit Review</button>
+            </form>
         </div>
     );
     
