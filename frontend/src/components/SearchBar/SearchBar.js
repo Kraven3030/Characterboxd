@@ -88,7 +88,8 @@ function SearchBar() {
                 <button type='submit'>Search</button>
             </form>
             <SearchResults mediaResults={mediaResults}
-                mediaType={mediaType} />
+                mediaType={mediaType}
+                searchString={searchString} />
         </div>
     )
 }

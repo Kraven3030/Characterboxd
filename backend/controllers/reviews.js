@@ -40,43 +40,31 @@ router.post('/create', async (req, res) => {
         })
 });
 
-//====================
-//    READ ROUTES
-//====================
-
-//==========================
-//   REVIEWS BY MEDIA ID
-//==========================
-router.get('/:id', async (req, res) => {
-    Review.find(
-        { "mediaId": req.params.id },
-        { title: true, body: true, reviewer: true },
-        (err, result) => {
-            res.json(result)
-        })
-})
-
 //==========================
 //    REVIEWS BY USER ID
 //==========================
 router.get('/user/:id', (req, res) => {
     db.User.findById(
-        { "_id": req.params.id },
+        req.params.id,
         (err, user) => {
-            db.Review.find(
-                { 'reviewer': req.params.id },
-                { title: true, body: true, _id: false },
-                (err, review) => {
-                    const result = {
-                        user: user.username,
-                        reviews: []
-                    }
-                    for (let review of reviews) {
-                        result.reviews.push(...review.reviews)
-                    }
-                    res.json(result)
+            if (err) {
+                res.sendStatus(500)
+            } else {
+                if (user) {
+                    db.Review.find(
+                        { 'reviewer': req.params.id },
+                        { title: true, body: true, _id: false },
+                        (err, reviews) => {
+                            console.log(reviews)
+                            const result = {
+                                user: user.username,
+                                reviews: [reviews]
+                            }
+                            res.json(result)
+                        }
+                    )
                 }
-            )
+            }
         }
     )
 })
@@ -107,6 +95,16 @@ router.delete('/delete/:id', isAuthenticated, async (req, res) => {
         })
 });
 
-
+//==========================
+//   REVIEWS BY MEDIA ID
+//==========================
+router.get('/:id', async (req, res) => {
+    Review.find(
+        { "mediaId": req.params.id },
+        { title: true, body: true, reviewer: true },
+        (err, result) => {
+            res.json(result)
+        })
+})
 
 module.exports = router
