@@ -35,10 +35,10 @@ function App() {
           <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/signup" element={<Signup isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/" element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/movieReviews/index" element={<MovieReviews />} />
-          <Route path="/usersReviews/index" element={<UsersReviews />} />
-          <Route path="/newReview/index" element={<NewReview />} />
-          <Route path="/editReview/index" element={<EditReview />} />
+          <Route path="/MovieReviews/index" element={<MovieReviews />} />
+          <Route path="/UsersReviews/index" element={<UsersReviews />} />
+          <Route path="/NewReview/index" element={<NewReview />} />
+          <Route path="/EditReview/index" element={<EditReview />} />
         </Routes>
       </main>
     </body>

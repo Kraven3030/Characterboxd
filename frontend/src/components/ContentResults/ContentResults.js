@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
 import "./contentResults.css"
 
 function ContentResults({ mediaResults }) {
     const baseUrl = "https://image.tmdb.org/t/p/original"
-
+    const [selectedMedia, setSelectedMedia] = useState({}) 
     const media_genres = [
         {
             "id": 10759,
@@ -122,21 +123,24 @@ function ContentResults({ mediaResults }) {
             }
         }
     }
-
+    useEffect(() => {
+        console.log(selectedMedia)},
+        [selectedMedia]
+);
 
     return (
         <div className="list">
             {mediaResults.results.map(media => (
                 <div className="card">
-                    <div className="card-body" >
+                    <Link to="/MovieReviews/index"><div className="card-body">
                         <h1 className="card-title">{media.title}{media.name}</h1>
                         {media.genre_ids.map((genre_id) => {
                             return (<h3>{getGenreName(genre_id)}</h3>)
                         })}
                         <h5 className="card-text">{media.release_date}{media.first_air_date}</h5>
                         <img className="card-img-bottom" src={baseUrl + media.poster_path} width="250" alt={media.title} />
-                    </div>
-                    <p>{media.overview}</p>
+                        <p>{media.overview}</p>
+                    </div></Link>
                     <button className="btn btn-secondary btn-lg btn-block">Review This Movie</button>
                 </div>
             )

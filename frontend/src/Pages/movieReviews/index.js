@@ -22,13 +22,6 @@ function MovieReviews() {
             <img src="#" className="img-thumbnail" alt="" />
             <div>
                 <section>
-                    <input>Review 1</input>
-                </section>
-                <section>
-                    <input>Review 2</input>
-                </section>
-                <section>
-                    <input>Review 3</input>
                 </section>
             </div>
         </div>

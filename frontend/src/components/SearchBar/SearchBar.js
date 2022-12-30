@@ -76,7 +76,8 @@ function SearchBar() {
             </input>
             <label htmlFor='tvShow'>TV</label>
             <SearchResults mediaResults={mediaResults}
-                mediaType={mediaType} />
+                mediaType={mediaType}
+                searchString={searchString} />
         </div>
     )
 }
