@@ -13,6 +13,10 @@ const reviewSchema = new Schema(
     {
         mediaId: {
             type: Number,
+            required: false
+        },
+        movieName: {
+            type: String,
             required: true
         },
         title: {
@@ -24,7 +28,7 @@ const reviewSchema = new Schema(
             required: true
         },
         reviewer: {
-            type: mongoose.ObjectId,
+            type: String,
             ref: 'User',
             required: true
         }

@@ -74,12 +74,15 @@ router.post('/signup', async (req, res) => {
 //   LOG IN ROUTE / FIND ONE USER
 //==================================
 router.post('/login', (req, res) => {
-    // Attempt to find the user by their username in the database
+    // Attempt to find the user by their username and password in the database
     if (req.body.username && req.body.password) {
         User.findOne({ username: req.body.username }, async (err, user) => {
             if (err || user == null) {
                 res.sendStatus(404)
             }
+            // check to:
+            // 1. make sure the user was found in the database
+            // 2. make sure the user entered in the correct password
             const match = await bcrypt.compare(req.body.password, user.password)
             if (match === true) {
                 const payload = { id: user._id, username: user.username }

@@ -24,9 +24,10 @@ function isAuthenticated(req, res, next) {
 //==================
 //   CREATE ROUTE
 //==================
-router.post('/create', async (req, res) => {
+router.post('/create', isAuthenticated, async (req, res) => {
     const newReview = {
         mediaId: req.body.mediaId,
+        movieName: req.body.movieName,
         title: req.body.title,
         body: req.body.body,
         reviewer: req.body.reviewer

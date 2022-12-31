@@ -13,6 +13,12 @@ export async function loginToAccount(formData) {
     return data
 }
 
+// Get user data if user is logged in
+export async function getUserData(userId) {
+    const { data } = await axios.get('http://localhost:9000/users/' + userId)
+    return data
+}
+
 // Axios request that will allow users to create reviews once they are logged in
 export async function createReview(reviewData) {
     const config = {
@@ -20,6 +26,6 @@ export async function createReview(reviewData) {
             'Authorization': localStorage.getItem('token')
         }
     }
-    const { data } = await axios.post('http://localhost:9000/post', reviewData, config)
+    const { data } = await axios.post('http://localhost:9000/reviews/create', reviewData, config)
     return data
 }
