@@ -23,6 +23,10 @@ function Signup(props) {
         createUser(signupForm)
             .then((data) => localStorage.token = data.token)
         props.setIsLoggedIn(true)
+        setSignupForm({
+            username: '',
+            password: ''
+        })
     }
 
 

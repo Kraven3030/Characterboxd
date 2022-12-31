@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 // Axios request to create new user account
 export async function createUser(formData) {
     const { data } = await axios.post('http://localhost:9000/users/signup', formData)

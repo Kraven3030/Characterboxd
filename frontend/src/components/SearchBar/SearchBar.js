@@ -12,6 +12,7 @@ function SearchBar() {
     const navigate = useNavigate();
 
 
+
     useEffect(() => {
         if (searchString !== '') {
             getMedia(searchString)

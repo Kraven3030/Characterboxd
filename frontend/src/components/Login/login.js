@@ -25,7 +25,10 @@ function Login(props) {
         loginToAccount(loginForm)
             .then((data) => localStorage.token = data.token)
         props.setIsLoggedIn(true)
-
+        setLoginForm({
+            username: '',
+            password: ''
+        })
     }
 
 

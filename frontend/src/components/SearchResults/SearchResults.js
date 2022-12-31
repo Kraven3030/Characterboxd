@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom'
 import ContentResults from '../ContentResults/ContentResults';
 
 const SearchResults = ({ mediaResults, searchString }) => {
@@ -6,13 +7,13 @@ const SearchResults = ({ mediaResults, searchString }) => {
   if (mediaResults.results) {
     if (mediaResults.results.length > 0) {
       return (
-      <ContentResults mediaResults={mediaResults} />
+        <ContentResults mediaResults={mediaResults} />
       )
     } else {
       if (searchString.length !== 0) {
         return (
           <h2 className="noResult">No media found!</h2>
-          )
+        )
       }
     }
   }

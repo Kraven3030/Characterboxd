@@ -4,7 +4,8 @@ import "./contentResults.css"
 
 function ContentResults({ mediaResults }) {
     const baseUrl = "https://image.tmdb.org/t/p/original"
-    const [selectedMedia, setSelectedMedia] = useState({}) 
+
+
     const media_genres = [
         {
             "id": 10759,
@@ -123,10 +124,7 @@ function ContentResults({ mediaResults }) {
             }
         }
     }
-    useEffect(() => {
-        console.log(selectedMedia)},
-        [selectedMedia]
-);
+
 
     return (
         <div className="list">
@@ -147,6 +145,11 @@ function ContentResults({ mediaResults }) {
             )}
         </div>
     )
-};
+
+
+}
+
+
+
 
 export default ContentResults;
