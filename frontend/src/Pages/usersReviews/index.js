@@ -1,40 +1,42 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { userReviews } from '../../utils/api';
+
 import axios from 'axios'
 
 
 function UsersReviews() {
 
-    const [reviews, setReviews] = useState([]);
-    const [userId, setUserId] = useState({
-        username: ''
-    });
+    const [personalReviews, setPersonalReviews] = useState([])
+    const { userId } = useParams()
+
 
     useEffect(() => {
-        async function grabReviews() {
-            const results = await axios.get('http://localhost:9000/reviews/${reviews.id}');
-            setReviews(results.data);   
+        const fetchReviews = async () => {
+            const reviewData = { userId: userId }
+            const data = await userReviews(reviewData)
+            setPersonalReviews(data)
         }
-        grabReviews();
-    }, [])
+        fetchReviews()
+    }, [userId])
 
-    const reviewByUser = reviews.filter(review =>
-        review.reviewer === userId)
 
 
     return (
         <div>
-            <img />
-            <section>
-                <ul>
-                    {reviewByUser.map(review => (
-                        <li key={review.id}>
-                            {review.title}
-                            {review.body}
-                            {review.reviewer}
-                            </li>
-                    ))}
-                </ul>  
-            </section>               
+            <h1>Hello World!</h1>
+            <ul>
+                {personalReviews.map(review => (
+                    <li>
+                        {review.movieName}
+                        {review.title}
+                        {review.body}
+                        {review.reviewer}
+
+                    </li>
+
+                ))}
+            </ul>
         </div>
     );
 

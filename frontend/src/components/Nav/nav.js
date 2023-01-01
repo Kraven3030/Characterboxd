@@ -23,7 +23,8 @@ function Nav(props) {
       setNavItems(initialState.concat(
         <li key="2"><button onClick={handleLogOut}>Logout</button></li>,
         <li className='' key="5"><Link to='/'>Homepage</Link></li>,
-        <li className='' key="6"><Link to='/MovieReviews/'>Movie Reviews</Link></li>
+        <li className='' key="6"><Link to='/NewReview/'>Leave a movie review</Link></li>,
+        <li className='' key="7"><Link to='/UsersReviews/'>My Reviews</Link></li>,
       ))
     } else {
       setNavItems(initialState.concat([

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Nav from '../../components/Nav/nav'
 import { createReview } from "../../utils/api"
 
 

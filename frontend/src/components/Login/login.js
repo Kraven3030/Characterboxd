@@ -1,7 +1,7 @@
 // Import dependncies
 import { useState } from 'react'
 import { redirect } from 'react-router';
-import { loginToAccount, getUserData } from '../../utils/api';
+import { loginToAccount } from '../../utils/api';
 
 
 // Import Styles

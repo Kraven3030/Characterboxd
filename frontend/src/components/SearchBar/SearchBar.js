@@ -49,7 +49,7 @@ function SearchBar() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        navigate.push(`/search-results?query=${searchString}`)
+        navigate(`/search-results?query=${searchString}`)
     }
 
     return (

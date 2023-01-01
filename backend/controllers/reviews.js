@@ -50,11 +50,12 @@ router.get('/user/:id', (req, res) => {
         (err, user) => {
             if (err) {
                 res.sendStatus(500)
+                console.log(err)
             } else {
                 if (user) {
                     db.Review.find(
                         { 'reviewer': req.params.id },
-                        { title: true, body: true, _id: false },
+                        { movieName: true, title: true, body: true, _id: false },
                         (err, reviews) => {
                             console.log(reviews)
                             const result = {
@@ -102,7 +103,7 @@ router.delete('/delete/:id', isAuthenticated, async (req, res) => {
 router.get('/:id', async (req, res) => {
     Review.find(
         { "mediaId": req.params.id },
-        { title: true, body: true, reviewer: true },
+        { movieName: true, title: true, body: true, reviewer: true },
         (err, result) => {
             res.json(result)
         })

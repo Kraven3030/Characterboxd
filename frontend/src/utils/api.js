@@ -19,6 +19,12 @@ export async function getUserData(userId) {
     return data
 }
 
+// Get user personal data if user is logged in
+export async function userReviews(reviewData) {
+    const { data } = await axios.get(`http://localhost:9000/users/reviews?user_id=${reviewData.userId}`)
+    return data
+}
+
 // Axios request that will allow users to create reviews once they are logged in
 export async function createReview(reviewData) {
     const config = {
