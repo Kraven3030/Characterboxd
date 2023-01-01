@@ -11,13 +11,14 @@ function UsersReviews() {
     const { userId } = useParams()
 
 
+
     useEffect(() => {
         const fetchReviews = async () => {
-            const reviewData = { userId: userId }
-            const data = await userReviews(reviewData)
-            setPersonalReviews(data)
+            const reviewData = userId
+            const personalReviews = await userReviews(reviewData)
+            setPersonalReviews(personalReviews)
         }
-        fetchReviews()
+        fetchReviews(userId)
     }, [userId])
 
 
