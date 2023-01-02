@@ -2,10 +2,12 @@ import React from 'react';
 import { useParams } from 'react-router-dom'
 import ContentResults from '../ContentResults/ContentResults';
 
-const SearchResults = ({ mediaResults, searchString }) => {
+const SearchResults = ({ mediaResults, searchString, limit }) => {
+
+  const displayedResults = mediaResults.slice(0, limit)
 
   return (
-    <div>
+    <div className='searchResults'>
       {mediaResults && mediaResults.results && mediaResults.results.map(result => (
         <div key={result.id}>
           {/* render result */}

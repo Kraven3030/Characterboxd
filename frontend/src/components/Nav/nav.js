@@ -20,18 +20,38 @@ function Nav(props) {
 
   useEffect(() => {
     if (props.isLoggedIn) {
-      setNavItems(initialState.concat(
-        <li key="2"><button onClick={handleLogOut}>Logout</button></li>,
-        <li className='' key="5"><Link to='/'>Homepage</Link></li>,
-        <li className='' key="6"><Link to='/NewReview/'>Leave a review</Link></li>,
-        <li className='' key="7"><Link to='/UsersReviews/'>My Reviews</Link></li>,
-      ))
+      setNavItems(
+        initialState.concat(
+          <li className="navitem" key="5">
+            <Link to="/">Homepage</Link>
+          </li>,
+          <li className="navitem" key="6">
+            <Link to="/NewReview/">Leave a review</Link>
+          </li>,
+          <li className="navitem" key="7">
+            <Link to="/UsersReviews/">My Reviews</Link>
+          </li>,
+          <li key="2">
+            <button className="logoutButton" onClick={handleLogOut}>
+              Logout
+            </button>
+          </li>
+        )
+      );
     } else {
-      setNavItems(initialState.concat([
-        <li className='' key="5"><Link to='/'>Homepage</Link></li>,
-        <li className='' key="3"><Link to='/login'>Login</Link></li>,
-        <li className='' key="4"><Link to='/signup'>Signup</Link></li>
-      ]))
+      setNavItems(
+        initialState.concat([
+          <li className="navitem" key="5">
+            <Link to="/">Homepage</Link>
+          </li>,
+          <li className="navitem" key="3">
+            <Link to="/login">Login</Link>
+          </li>,
+          <li className="navitem" key="4">
+            <Link to="/signup">Signup</Link>
+          </li>,
+        ])
+      );
     }
   }, [props.isLoggedIn])
 
@@ -41,8 +61,8 @@ function Nav(props) {
         <ul className='nav-links'>
           {navItems}
         </ul>
-        <SearchBar />
       </header>
+
     </div>
   );
 }

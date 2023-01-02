@@ -14,10 +14,11 @@ import Signup from './components/Signup/signup'
 import NewReview from './Pages/NewReview/index';
 import MovieReviews from './Pages/MovieReviews/index'
 import UsersReviews from './Pages/UsersReviews/index';
-import EditReview from './Pages/EditReview/index';
+// import EditReview from './Pages/EditReview/index';
 import SearchResults from './components/SearchResults/SearchResults';
-import ContentResults from './components/ContentResults/ContentResults';
 import SearchBar from './components/SearchBar/SearchBar';
+// import ContentResults from './components/ContentResults/ContentResults';
+// import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
 
@@ -31,10 +32,13 @@ function App() {
 
 
   return (
-    <body>
+    <>
       <header>
         <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </header>
+      <body>
+        <SearchBar className='results' />
+      </body>
       <main>
         <Routes>
           {/* { Page Routes  } */}
@@ -47,7 +51,7 @@ function App() {
           <Route path="/NewReview" element={<NewReview />} />
         </Routes>
       </main>
-    </body>
+    </>
   );
 }
 

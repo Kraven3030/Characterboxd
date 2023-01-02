@@ -31,21 +31,22 @@ function SearchBar() {
     const handleChange = async (event) => {
         setSearchString(event.target.value)
     }
+    function getMedia(searchString) {
+        const url = `${queryOptions.api}${queryOptions.endpoint}?api_key=${queryOptions.api_key}&query=${searchString}`;
+        //    const url2= `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&query=${searchString}`
+        fetch(url)
+            .then((response) => response.json())
+            .then((response) => {
+                setMediaResults(response);
+            });
+    }
 
     function setMediaRadio(event) {
         setMediaType(event.target.id);
         getMedia(searchString);
     }
 
-    function getMedia(searchString) {
-        const url = `${queryOptions.api}${queryOptions.endpoint}?api_key=${queryOptions.api_key}&query=${searchString}`;
-        fetch(url)
-            .then((response) => response.json())
-            .then((response) => {
-                setMediaResults(response);
-            }
-            )
-    }
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -87,9 +88,11 @@ function SearchBar() {
                 </input>
                 <label htmlFor='tvShow'>TV</label>
             </form>
-            {/* <SearchResults mediaResults={mediaResults}
-                mediaType={mediaType}
-                searchString={searchString} /> */}
+            {
+                mediaResults ? (
+                    <SearchResults className='results' mediaResults={mediaResults} searchString={searchString} />
+                ) : (null)
+            }
         </div>
     )
 }

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './styles.css'
 import Signup from '../../components/Signup/signup';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 function Home() {
     const [media, setMedia] = useState([]);
@@ -22,20 +23,23 @@ function Home() {
     }
     const blakePick = () => {
         axios.get(`https://api.themoviedb.org/3/movie/98?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
-           .then((response) => {
-            setBlakeMovie(response.data)})
+            .then((response) => {
+                setBlakeMovie(response.data)
+            })
     }
 
     const brenPick = () => {
         axios.get(`https://api.themoviedb.org/3/movie/2109?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
-           .then((response) => {
-            setBrenMovie(response.data)})
+            .then((response) => {
+                setBrenMovie(response.data)
+            })
     }
 
     const roryPick = () => {
         axios.get(`https://api.themoviedb.org/3/movie/335984?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
-           .then((response) => {
-            setRoryMovie(response.data)})
+            .then((response) => {
+                setRoryMovie(response.data)
+            })
     }
 
     // async function grabMedia() {
@@ -53,8 +57,10 @@ function Home() {
     }, []);
 
     return (
-        <div>
-
+        <div
+            style={{
+                backgroundColor: '#1b1b1b',
+            }}>
             <h2 className='intro'>REVIEW FILMS YOU'VE WATCHED.</h2>
             <h2 className='intro'>TRACK THOSE YOU WANT TO SEE.</h2>
             <h2 className='intro'>TELL YOUR FRIENDS WHATS GOOD.</h2>
@@ -108,7 +114,7 @@ function Home() {
                             <div className='container2'>
                                 <h2>{brenMovie.title}</h2>
                                 <p>
-                                   {brenMovie.overview}
+                                    {brenMovie.overview}
                                     < br />
                                     <em className='devPickBy'>Picked by Bren</em>
                                 </p>
