@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
 import "./contentResults.css"
 
 function ContentResults({ mediaResults }) {
     const baseUrl = "https://image.tmdb.org/t/p/original"
+
+
+
 
     const media_genres = [
         {
@@ -125,24 +129,34 @@ function ContentResults({ mediaResults }) {
 
 
     return (
-        <div className="list">
+        <div className="card">
             {mediaResults.results.map(media => (
-                <div className="card">
-                    <div className="card-body" >
-                        <h1 className="card-title">{media.title}{media.name}</h1>
-                        {media.genre_ids.map((genre_id) => {
-                            return (<h3>{getGenreName(genre_id)}</h3>)
-                        })}
-                        <h5 className="card-text">{media.release_date}{media.first_air_date}</h5>
-                        <img className="card-img-bottom" src={baseUrl + media.poster_path} width="250" alt={media.title} />
+                <div className="card-body" key={media.id}>
+                    <Link to={`/media/${media.id}`}>
+
+                        <img
+                            className="card-img-top"
+                            src={`${baseUrl + media.poster_path}`} alt="" />
+                    </Link>
+                    <div className="">
+                        <h3 className="card-title">{media.title || media.name}</h3>
+                        <span className="media__release">{media.release_date || media.first_air_date}</span>
+                        <div className="media__genres">
+                            {media.genre_ids.map(genre => (
+                                <span className="media__genre" key={genre}>{getGenreName(genre)}</span>
+                            ))}
+                        </div>
                     </div>
-                    <p>{media.overview}</p>
-                    <button className="btn btn-secondary btn-lg btn-block">Review This Movie</button>
                 </div>
-            )
-            )}
+            ))}
+
         </div>
     )
-};
+
+
+}
+
+
+
 
 export default ContentResults;

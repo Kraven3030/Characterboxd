@@ -1,40 +1,75 @@
 import { useState, useEffect } from "react";
-import axios from 'axios'
+import { useParams } from "react-router-dom";
+import { userReviews } from '../../utils/api';
+import './styles.css'
 
 
 function UsersReviews() {
 
-    const [reviews, setReviews] = useState([]);
-    const [userId, setUserId] = useState({
-        username: ''
-    });
+    const [PersonalReviews, setPersonalReviews] = useState([])
+    const userId = localStorage.getItem('user_id')
+
+
 
     useEffect(() => {
-        async function grabReviews() {
-            const results = await axios.get('http://localhost:9000/reviews/${reviews.id}');
-            setReviews(results.data);   
-        }
-        grabReviews();
-    }, [])
+        const fetchReviews = async () => {
 
-    const reviewByUser = reviews.filter(review =>
-        review.reviewer === userId)
+            const reviewData = userId
+            await userReviews(reviewData).then((res) => {
+                setPersonalReviews(res)
+                console.log(res.reviews[0])
+            })
+
+        }
+        fetchReviews(userId)
+    }, [userId])
+
 
 
     return (
         <div>
-            <img />
-            <section>
-                <ul>
-                    {reviewByUser.map(review => (
-                        <li key={review.id}>
-                            {review.title}
-                            {review.body}
-                            {review.reviewer}
-                            </li>
-                    ))}
-                </ul>  
-            </section>               
+            <h2>
+                Personal Reviews
+            </h2>
+            <div>
+                {PersonalReviews?.reviews?.map((review) => (
+                    <div key={
+                        Math.random()
+                    }>
+                        {
+                            review.map((review) => (
+                                <div
+                                    className="review"
+                                    key={
+                                        Math.random()
+
+                                    }>
+                                    <h3
+                                        className="review-title"
+                                    >
+                                        Title:
+                                        {review.title}
+                                    </h3>
+                                    <h4
+                                        className="review-movie"
+                                    >
+                                        Movie:
+                                        {review.movieName}
+                                    </h4>
+                                    <p
+                                        className="review-body"
+                                    >
+                                        Review:
+                                        {review.body}
+                                    </p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                ))}
+            </div>
+
+
         </div>
     );
 

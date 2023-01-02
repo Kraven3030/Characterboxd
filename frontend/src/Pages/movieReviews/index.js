@@ -1,42 +1,52 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Nav from '../../components/Nav/nav'
+import { createReview } from "../../utils/api"
 
 
 
 function MovieReviews() {
 
-    const [mediaReview, setMediaReview] = useState([]);
-    const [mediaId, setMediaId] = useState({
-
+    const [reviewData, setReviewData] = useState({
+        movieName: '',
+        title: '',
+        body: '',
+        reviewer: ''
     })
 
-    useEffect(() => {
-        async function grabMedia() {
-            const results = await axios.get(`http://localhost:9000/reviews/${media.id}`)
-            setMediaReview(results.data.reviews)
-        }
-        grabMedia()
-    },[])
+    function handleChange(event) {
+        setReviewData({ ...reviewData, [event.target.name]: event.target.value })
+    }
 
-    const reviewByMedia = mediaReview.filter(review =>
-        review.title === mediaId)
+    function handleSubmit(event) {
+        event.preventDefault();
+        createReview(reviewData)
+            .then((data) => console.log(data))
+        setReviewData({
+            movieName: '',
+            title: '',
+            body: '',
+            reviewer: ''
+        })
+    }
 
 
     return (
-        <div>
-            <img src="#" className="img-thumbnail" alt="" />
-            <section>
-                <ul>
-                    {reviewByMedia.map(review => (
-                        <li key={review.id}>
-                            {review.title}
-                            {review.body}
-                            {review.reviewer}
-                            </li>
-                    ))}
-                </ul>   
-            </section>
+        <div className="container">
+            <form>
+                <h1>Leave A Review</h1>
+                <label htmlFor="movieName">Movie Name</label>
+                <input placeholder="Movie Name" type="text" name="movieName" value={reviewData.movieName} onChange={handleChange} />
+
+                <label htmlFor="title">Review Title:</label>
+                <input placeholder="Review Title" type="text" name="title" value={reviewData.title} onChange={handleChange} />
+
+                <label htmlFor="body">Review</label>
+                <input placeholder="Review" type="text" name="body" value={reviewData.body} onChange={handleChange} />
+
+                <label htmlFor="reviewer">Username:</label>
+                <input placeholder="Username" type="text" name="reviewer" value={reviewData.reviewer} onChange={handleChange} />
+                <button onClick={handleSubmit}>Post Review</button>
+            </form>
         </div>
     );
 
