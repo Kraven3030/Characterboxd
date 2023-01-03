@@ -35,7 +35,7 @@ function Home() {
                     <div className="carousel-item">
                         <h2>Developer Picks</h2>
                         <h4>"Rush Hour"</h4>
-                        <p>When a Chinese diplomat's daughter is kidnapped in Los Angeles, he calls in Hong Kong Detective Inspector Lee (Jackie Chan) to assist the FBI with the case. But the FBI doesn't want anything to do with Lee, and they dump him off on the LAPD, who assign wisecracking Detective James Carter (Chris Tucker) to watch over him. Although Lee and Carter can't stand each other, they choose to work together to solve the case on their own when they figure out they've been ditched by both the FBI and police.
+                        <p>A cinematic masterpiece. Rush Hour is one of the best action-comedy films out there, that goes to the second and third movies. The characters are amazing and hilarious. Always a fun watch, Chris Tucker and Jackie Chan outdid themselves on these movies. An amazing performance that will bring you a handful of laughs.
                             <em> --Bren</em>
                         </p>
                         <img id='brenImg' className="bd-placeholder-img bd-placeholder-img-lg d-block" width="1000" height="800" src='https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/unsized/2018/02/22/5a8f25b7c6acd0360377b8e2_ezgif.com-crop%20(20).gif' alt="Rush Hour" />
