@@ -34,11 +34,7 @@ function App() {
       <header className='bg-dark'>
         <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <SearchBar className='results' />
-
       </header>
-      <body>
-        <SearchBar className='results' />
-      </body>
       <main>
         <Routes>
           {/* { Page Routes  } */}
