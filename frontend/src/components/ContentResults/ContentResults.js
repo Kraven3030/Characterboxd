@@ -147,9 +147,15 @@ function ContentResults({ mediaResults }) {
                             ))}
                         </div>
                     </div>
+                    <Link to="/NewReview/">Leave a review</Link>
                 </div>
-            ))}
-
+            
+            )
+            
+            )
+            
+            }
+        
         </div>
     )
 
