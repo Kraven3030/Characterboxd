@@ -17,17 +17,17 @@ function Home() {
                 <a id='getStarted' className='btn btn-success btn-lg' role='button' href='/signup'>GET STARTED</a>
             </button>
 
-            <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="false">
+            <div id="carouselCaptions" className="carousel slide" data-bs-ride="false">
                 <div className="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Rory slide"></button>
+                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Blake slide"></button>
+                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="1" aria-label="Bren slide"></button>
+                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="2" aria-label="Rory slide"></button>
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
                         <h2>Developer Picks</h2>
                         <h4>"Gladiator"</h4>
-                        <p>The story of a once-powerful general forced to become a common gladiator. The emperor's son is enraged when he is passed over as heir in favour of his father's favourite general. He kills his father and arranges the murder of the general's family, and the general is sold into slavery to be trained as a gladiator - but his subsequent popularity in the arena threatens the throne.
+                        <p>One of the best films of a generation, it's a bold claim, but Gladiator truly is that GOOD. Every single element is perfect, the story is phenomenal, one to absorb you for the full running time. The visuals are incredible, an epic masterpiece for the eyes as well as the soul. The acting is first rate, surely the aim of any film is to move you, this does just that and then some.
                             <em> --Blake</em>
                         </p>
                         <img id='blakeImg' className="bd-placeholder-img bd-placeholder-img-lg d-block" width="800" height="800" src='https://media0.giphy.com/media/d7mMzaGDYkz4ZBziP6/giphy.gif' alt="Gladiator" />
@@ -50,11 +50,11 @@ function Home() {
                         <img className="bd-placeholder-img bd-placeholder-img-lg d-block" width="800" height="800" src='https://media.tenor.com/Vlr5ep-dRXMAAAAd/ryan-gosling-blade-runner2049.gif' alt="Blade Runner 2049" />
                     </div>
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselCaptions" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselCaptions" data-bs-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>

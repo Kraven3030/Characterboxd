@@ -138,7 +138,7 @@ function ContentResults({ mediaResults }) {
         <div id="search-results" className="card bg-dark">
             {mediaResults.results.map(media => (
                 <div className="card-body contentCard" key={media.id}>
-                    <Link to="/MovieReviews/index">
+                    <Link to="../../Pages/MovieReviews">
                         <img className="card-img-top" src={baseUrl + media.poster_path} width="300" alt={media.title} />
                         <div>
                             <h1 className="card-title">{media.title}{media.name}</h1>
@@ -149,7 +149,7 @@ function ContentResults({ mediaResults }) {
                             <p>{media.overview}</p>
                         </div>
                     </Link>
-                    <button id="button" className="btn btn-success" onClick={handleClick}>Review This Movie</button>
+                    <button id="button" className="btn btn-success" onClick={handleClick}>Leave a review</button>
                 </div>
             )
             )}

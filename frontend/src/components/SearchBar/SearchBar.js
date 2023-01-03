@@ -84,7 +84,6 @@ function SearchBar() {
                     required>
                 </input>
                 <label htmlFor='tvShow'>TV</label>
-                <button type='submit'>Search</button>
             </form>
             <SearchResults mediaResults={mediaResults}
                 mediaType={mediaType}
