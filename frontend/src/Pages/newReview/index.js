@@ -52,20 +52,30 @@ const NewReview = () => {
     return (
         <div className="container">
             <form>
+
                 <h1>Leave A Review</h1>
                 <h2 className="mediaCard">{state.mediaName}</h2>
                 <img src={`${baseUrl + state.mediaImg}`} alt={state.mediaName} className="mediaCard"/>
                 <h3 className="mediaCard">{state.mediaRelease}</h3>
                 <p className="mediaCard">{state.mediaDescription}</p>
 
+                <div className='form-group'>
+                    <label htmlFor="title">Review Title:</label>
+                    <input className='form-control' placeholder="Review Title" type="text" name="title" value={reviewData.title} onChange={handleChange} />
+                </div>
 
-                <label htmlFor="title">Review Title:</label>
-                <input placeholder="Review Title" type="text" name="title" value={reviewData.title} onChange={handleChange} />
+                <div className='form-group'>
+                    <label htmlFor="body">Review</label>
+                    <input className='form-control' placeholder="Review" type="text" name="body" value={reviewData.body} onChange={handleChange} />
+                </div>
 
-                <label htmlFor="body">Review</label>
-                <input placeholder="Review" type="text" name="body" value={reviewData.body} onChange={handleChange} />
+                <div className='form-group'>
+                    <label htmlFor="reviewer">Username:</label>
+                    <input className='form-control' placeholder="Username" type="text" name="reviewer" value={reviewData.reviewer} onChange={handleChange} />
+                </div>
 
-                <button onClick={handleSubmit}>Post Review</button>
+                <button className='btn btn-warning' onClick={handleSubmit}>Post Review</button>
+
             </form>
         </div>
     );

@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
+
 import "./contentResults.css"
 
 function ContentResults({ mediaResults, clearSearchBar }) {
     const baseUrl = "https://image.tmdb.org/t/p/original"
 
-
+    const navigate = useNavigate()
+    function handleClick() {
+        navigate('/NewReview')
+    }
 
 
     const media_genres = [
@@ -128,7 +132,9 @@ function ContentResults({ mediaResults, clearSearchBar }) {
     }
 
 
+
     return (
+
         <div className="card">
             {mediaResults.results.map(media => (
                 <div className="card-body" key={media.id}>
@@ -141,18 +147,21 @@ function ContentResults({ mediaResults, clearSearchBar }) {
                         mediaId: media.id
                     }} >
 
-                        <img
-                            className="card-img-top"
-                            src={`${baseUrl + media.poster_path}`} alt="" />
-                    </Link>
-                    <div className="">
-                        <h3 className="card-title">{media.title || media.name}</h3>
-                        <span className="media__release">{media.release_date || media.first_air_date}</span>
-                        <div className="media__genres">
-                            {media.genre_ids.map(genre => (
-                                <span className="media__genre" key={genre}>{getGenreName(genre)}</span>
-                            ))}
+
+        <div id="search-results" className="card bg-dark">
+            {mediaResults.results.map(media => (
+                <div className="card-body contentCard" key={media.id}>
+                    <Link to="../../Pages/MovieReviews">
+                        <img className="card-img-top" src={baseUrl + media.poster_path} width="300" alt={media.title} />
+                        <div>
+                            <h1 className="card-title">{media.title || media.name}</h1>
+                            {media.genre_ids.map((genre_id) => {
+                                return (<h3>{getGenreName(genre_id)}</h3>)
+                            })}
+                            <h5 className="card-text">{media.release_date || media.first_air_date}</h5>
+                            <p>{media.overview}</p>
                         </div>
+
                     </div>
                     <Link to={"/NewReview/"} onClick={()=>{clearSearchBar()}}
                     state={{
@@ -163,17 +172,12 @@ function ContentResults({ mediaResults, clearSearchBar }) {
                         mediaId: media.id
                     }} 
                     >Leave a review</Link>
+
                 </div>
-            
             )
-            
-            )
-            
-            }
-        
+            )}
         </div>
     )
-
 
 }
 

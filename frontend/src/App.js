@@ -33,10 +33,11 @@ function App() {
 
   return (
     <>
-    <SearchBar className='results' />
-      <header>
+
+      <header className='bg-dark'>
         <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-        
+        <SearchBar className='results' />
+
       </header>
       <main>
         <Routes>

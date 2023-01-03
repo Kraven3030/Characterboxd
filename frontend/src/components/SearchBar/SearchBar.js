@@ -56,7 +56,6 @@ function SearchBar() {
     }
 
     return (
-
         <div className='search-box'>
             <form onSubmit={handleSubmit}>
                 <input

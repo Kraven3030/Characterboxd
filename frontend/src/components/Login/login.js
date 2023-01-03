@@ -36,13 +36,13 @@ function Login(props) {
 
     return (
         <section className="text-center text-lg-start">
-            <div className='card mb-3'>
+            <div className='card mb-3 allLogin'>
                 <div className='row g-0 d-flex align-items-center'>
                     <div className='col-lg-4 d-none d-lg-flex'>
                         <img src='https://images.justwatch.com/poster/152823265/s592/gangs-of-new-york' alt='Inception' className='w-100 rounded float-left' />
                     </div>
                     <div className="col-lg-8">
-                        <div className='card-body py-5 px-md-5'>
+                        <div className='card-body py-5 px-md-5 loginCard'>
 
                             <form>
 
