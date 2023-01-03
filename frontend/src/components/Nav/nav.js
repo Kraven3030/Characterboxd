@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import SearchBar from '../../components/SearchBar/SearchBar';
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -7,13 +6,13 @@ import './nav.css'
 
 
 function Nav(props) {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const initialState = [<h1 className='nav-title' key="1"><Link to="/"><ion-icon name="film-outline"></ion-icon>CharacterBoxd</Link></h1>]
 
   const handleLogOut = () => {
     localStorage.clear();
     props.setIsLoggedIn(false);
-    navigate("/", {replace: true});
+    navigate("/", { replace: true });
   }
 
   const [navItems, setNavItems] = useState(initialState)

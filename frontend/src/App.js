@@ -1,8 +1,6 @@
 import './App.css';
-import { Routes, Route, Link } from "react-router-dom";
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
 
 
 

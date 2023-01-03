@@ -2,6 +2,7 @@
     align-items: center;
     text-align: center;
     width: 40vw;
+}
 
 .card {
     display: flex;
@@ -9,7 +10,6 @@
 }
 
 .contentCard {
-
     align-items: center;
     text-align: center;
     width: 100%;
