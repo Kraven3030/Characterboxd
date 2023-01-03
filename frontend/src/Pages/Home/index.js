@@ -42,15 +42,6 @@ function Home() {
             })
     }
 
-    // async function grabMedia() {
-    //         const data = await axios.get(`http://localhost:9001/media/${media.id}`)
-    //         setMediaReview(data)
-    //         }
-
-    // async function grabUser() {
-    //     const data = await axios.get(`http://localhost:9000/user/${user._id}`)
-    //     setUser(data)
-    // }
 
     useEffect(() => {
         getMedia()

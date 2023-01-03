@@ -21,6 +21,7 @@ export async function getUserData(userId) {
 
 // Get user personal reviews if user is logged in
 export async function userReviews(userId) {
+    console.log(`http://localhost:9000/reviews/user/${userId}`);
     const { data } = await axios.get(`http://localhost:9000/reviews/user/${userId}`)
     return data
 }

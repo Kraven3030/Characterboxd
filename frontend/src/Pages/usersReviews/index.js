@@ -7,23 +7,23 @@ import './styles.css'
 function UsersReviews() {
 
     const [PersonalReviews, setPersonalReviews] = useState([])
-    const userId = localStorage.getItem('user_id')
+    const [userId, setUserId] = useState(localStorage.getItem('userId'));
+    //const userId = "63a4ef83ca1ff604e7e9235f";
+    const username = localStorage.getItem('username')
+    console.log(userId, username)
 
 
 
     useEffect(() => {
-        const fetchReviews = async () => {
-
-            const reviewData = userId
-            await userReviews(reviewData).then((res) => {
+         const fetchReviews = async () => {
+             await userReviews(userId).then((res) => {
                 setPersonalReviews(res)
-                console.log(res.reviews[0])
-            })
+             })
 
         }
+        
         fetchReviews(userId)
     }, [userId])
-
 
 
     return (

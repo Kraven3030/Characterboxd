@@ -12,7 +12,6 @@ function SearchBar() {
     const navigate = useNavigate();
 
 
-
     useEffect(() => {
         if (searchString !== '') {
             getMedia(searchString)
@@ -31,26 +30,25 @@ function SearchBar() {
     const handleChange = async (event) => {
         setSearchString(event.target.value)
     }
-    function getMedia(searchString) {
-        const url = `${queryOptions.api}${queryOptions.endpoint}?api_key=${queryOptions.api_key}&query=${searchString}`;
-        //    const url2= `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&query=${searchString}`
-        fetch(url)
-            .then((response) => response.json())
-            .then((response) => {
-                setMediaResults(response);
-            });
-    }
 
     function setMediaRadio(event) {
         setMediaType(event.target.id);
         getMedia(searchString);
     }
 
-
+    function getMedia(searchString) {
+        const url = `${queryOptions.api}${queryOptions.endpoint}?api_key=${queryOptions.api_key}&query=${searchString}`;
+        fetch(url)
+            .then((response) => response.json())
+            .then((response) => {
+                setMediaResults(response);
+            }
+            )
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        navigate(`/search-results?query=${searchString}`)
+        navigate.push(`/search-results?query=${searchString}`)
     }
 
     return (
@@ -87,12 +85,11 @@ function SearchBar() {
                     required>
                 </input>
                 <label htmlFor='tvShow'>TV</label>
+                <button type='submit'>Search</button>
             </form>
-            {
-                mediaResults ? (
-                    <SearchResults className='results' mediaResults={mediaResults} searchString={searchString} />
-                ) : (null)
-            }
+            <SearchResults mediaResults={mediaResults}
+                mediaType={mediaType}
+                searchString={searchString} />
         </div>
     )
 }

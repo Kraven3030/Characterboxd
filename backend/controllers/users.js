@@ -52,7 +52,9 @@ router.post('/signup', async (req, res) => {
                                 }
                                 const token = jwt.encode(payload, config.jwtSecret)
                                 res.json({
-                                    token: token
+                                    token: token,
+                                    username: newUser.username,
+                                    userId: newUser.id
                                 })
                                 // Send an error if the database fails to create a user
                             } else {
@@ -88,7 +90,9 @@ router.post('/login', (req, res) => {
                 const payload = { id: user._id, username: user.username }
                 const token = jwt.encode(payload, config.jwtSecret)
                 res.json({
-                    token: token
+                    token: token,
+                    username: user.username,
+                    userId: user._id
                 })
             } else {
                 res.sendStatus(401)

@@ -45,6 +45,7 @@ router.post('/create', isAuthenticated, async (req, res) => {
 //    REVIEWS BY USER ID
 //==========================
 router.get('/user/:id', (req, res) => {
+    console.log(req.params.id);
     db.User.findById(
         req.params.id,
         (err, user) => {
@@ -52,6 +53,7 @@ router.get('/user/:id', (req, res) => {
                 res.sendStatus(500)
                 console.log(err)
             } else {
+                console.log(user)
                 if (user) {
                     db.Review.find(
                         { 'reviewer': req.params.id },

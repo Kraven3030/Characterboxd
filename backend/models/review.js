@@ -28,7 +28,7 @@ const reviewSchema = new Schema(
             required: true
         },
         reviewer: {
-            type: String,
+            type: mongoose.ObjectId,
             ref: 'User',
             required: true
         }
