@@ -1,6 +1,7 @@
 // Import Dependencies
 import { useState } from 'react'
 import { createUser } from '../../utils/api'
+import { useNavigate } from 'react-router-dom';
 
 // Import Styles
 import "./signup.css"
@@ -8,6 +9,7 @@ import "./signup.css"
 
 function Signup(props) {
     // State the declarations
+    const navigate = useNavigate();
     const [signupForm, setSignupForm] = useState({
         username: '',
         password: ''
@@ -21,24 +23,28 @@ function Signup(props) {
     const handleSubmit = async (event) => {
         event.preventDefault()
         createUser(signupForm)
-            .then((data) => localStorage.token = data.token)
+            .then((data) => {localStorage.token = data.token;
+                localStorage.username = data.username;
+                localStorage.userId = data.userId;})
         props.setIsLoggedIn(true)
         setSignupForm({
             username: '',
             password: ''
         })
+
+        navigate("/", {replace: true});
     }
 
 
     return (
         <section className="text-center text-lg-start">
-            <div className='card mb-3'>
+            <div className='card mb-3 allSignup'>
                 <div className='row g-0 d-flex align-items-center'>
                     <div className='col-lg-4 d-none d-lg-flex'>
                         <img src='https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg' alt='Inception' className='w-100 rounded float-left' />
                     </div>
                     <div className="col-lg-8">
-                        <div className='card-body py-5 px-md-5'>
+                        <div className='card-body py-5 px-md-5 signupCard'>
 
                             <form>
 

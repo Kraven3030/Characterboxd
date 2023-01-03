@@ -16,64 +16,39 @@
     color: white;
     
 }
-#getStarted {
-    margin-top: 15px;
-    width: 60vh;
-    height: 9vh;
-
-}
-.carousel-item {
-    height: 35rem;
-    color: black;
-    position: relative;
-}
 
 .container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding-bottom: 30px;
-    margin-left: 1vh;
-}
-.container1{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding-bottom: 30px;
-    margin-left: 3vh;
-
-}
-.container2 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding-bottom: 30px;
-    margin-left: 3vh;
-
-
-}
-.devPicks {
-    text-align: center;
+    height: 120vh;
     margin-top: 30px;
-    color: orangered;
 }
 
-.devPickBy {
-    color: orangered;
+img {
+    width: 50%;
+    margin: auto;
+    
 }
 
-.gif {
-    margin-top: 10%;
-    display: flex;
-  justify-content: center;
-  z-index: 10;
+#brenImg {
+    width: 100%;
 }
 
-#gladiator img {
-    width: 30rem;
+h5, p, h2, h4 {
+    color: goldenrod;
 }
 
-#fifth img {
-    width: 30rem;
+em {
+    color: white;
+}
+
+.carousel-inner{
+    padding-top: 10px;
+}
+
+.carousel-item {
+    text-align: center;
+}
+
+#blakeImg {
+    width: 100%;
 }
 

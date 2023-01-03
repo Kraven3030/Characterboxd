@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { userReviews } from '../../utils/api';
 import './styles.css'
 
@@ -7,22 +7,23 @@ import './styles.css'
 function UsersReviews() {
 
     const [PersonalReviews, setPersonalReviews] = useState([])
-    const userId = localStorage.getItem('user_id')
+    const [userId, setUserId] = useState(localStorage.getItem('userId'));
+    const username = localStorage.getItem('username')
 
 
 
     useEffect(() => {
-        const fetchReviews = async () => {
 
-            const reviewData = userId
-            await userReviews(reviewData).then((res) => {
+         const fetchReviews = async () => {
+             await userReviews(userId).then((res) => {
                 setPersonalReviews(res)
-                console.log(res.reviews[0])
-            })
+             })
 
         }
+        
         fetchReviews(userId)
     }, [userId])
+
 
 
 
@@ -33,20 +34,13 @@ function UsersReviews() {
             </h2>
             <div>
                 {PersonalReviews?.reviews?.map((review) => (
-                    <div key={
-                        Math.random()
-                    }>
+
+                    <div>
                         {
                             review.map((review) => (
-                                <div
-                                    className="review"
-                                    key={
-                                        Math.random()
-
-                                    }>
-                                    <h3
-                                        className="review-title"
-                                    >
+                                
+                                <div className="review">
+                                    <h3 className="review-title">
                                         Title:
                                         {review.title}
                                     </h3>
@@ -62,6 +56,12 @@ function UsersReviews() {
                                         Review:
                                         {review.body}
                                     </p>
+
+                                    <Link to={"/EditReview/"} state={{
+                                        title: review.title,
+                                        body: review.body,
+                                        reviewId: review._id
+                                    }}>Edit Review</Link>
                                 </div>
                             ))
                         }

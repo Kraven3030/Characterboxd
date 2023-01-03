@@ -45,6 +45,7 @@ router.post('/create', isAuthenticated, async (req, res) => {
 //    REVIEWS BY USER ID
 //==========================
 router.get('/user/:id', (req, res) => {
+    console.log(req.params.id);
     db.User.findById(
         req.params.id,
         (err, user) => {
@@ -52,12 +53,13 @@ router.get('/user/:id', (req, res) => {
                 res.sendStatus(500)
                 console.log(err)
             } else {
+
+                console.log(user)
                 if (user) {
                     db.Review.find(
                         { 'reviewer': req.params.id },
-                        { movieName: true, title: true, body: true, _id: false },
+                        { movieName: true, title: true, body: true, _id: true },
                         (err, reviews) => {
-                            console.log(reviews)
                             const result = {
                                 user: user.username,
                                 reviews: [reviews]
@@ -77,7 +79,7 @@ router.get('/user/:id', (req, res) => {
 //==================
 router.put('/update', isAuthenticated, async (req, res) => {
     const updatedReview = await db.Review.findByIdAndUpdate(
-        req.body.id,
+        req.body.reviewId,
         { title: req.body.title, body: req.body.body },
         { new: true }
     );
@@ -92,7 +94,6 @@ router.put('/update', isAuthenticated, async (req, res) => {
 router.delete('/delete/:id', isAuthenticated, async (req, res) => {
     Review.findByIdAndRemove(req.params.id)
         .then(result => {
-            console.log(result)
             res.sendStatus(200)
         })
 });
@@ -101,12 +102,10 @@ router.delete('/delete/:id', isAuthenticated, async (req, res) => {
 //   REVIEWS BY MEDIA ID
 //==========================
 router.get('/:id', async (req, res) => {
-    Review.find(
-        { "mediaId": req.params.id },
-        { movieName: true, title: true, body: true, reviewer: true },
-        (err, result) => {
-            res.json(result)
-        })
+
+    const populatedReviews = await 
+    Review.find({ "mediaId": req.params.id }).populate('reviewer')
+    res.json(populatedReviews)
 })
 
 module.exports = router

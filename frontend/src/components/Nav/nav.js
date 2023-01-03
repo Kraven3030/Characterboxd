@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react'
 import SearchBar from '../../components/SearchBar/SearchBar';
-
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 import './nav.css'
 
 
 function Nav(props) {
-
-  const initialState = [<h1 className='' key="1"><Link to="/"><ion-icon name="film-outline"></ion-icon>CharacterBoxd</Link></h1>]
+  const navigate = useNavigate(); 
+  const initialState = [<h1 className='nav-title' key="1"><Link to="/"><ion-icon name="film-outline"></ion-icon>CharacterBoxd</Link></h1>]
 
   const handleLogOut = () => {
-    localStorage.clear()
-    props.setIsLoggedIn(false)
+    localStorage.clear();
+    props.setIsLoggedIn(false);
+    navigate("/", {replace: true});
   }
 
   const [navItems, setNavItems] = useState(initialState)
@@ -22,17 +22,13 @@ function Nav(props) {
     if (props.isLoggedIn) {
       setNavItems(
         initialState.concat(
-          <li className="navitem" key="5">
-            <Link to="/">Homepage</Link>
-          </li>,
-          <li className="navitem" key="6">
-            <Link to="/NewReview/">Leave a review</Link>
-          </li>,
-          <li className="navitem" key="7">
-            <Link to="/UsersReviews/">My Reviews</Link>
+
+
+          <li className="nav-item" key="7">
+            <Link className='nav-link' to="/UsersReviews/">My Reviews</Link>
           </li>,
           <li key="2">
-            <button className="logoutButton" onClick={handleLogOut}>
+            <button className="btn btn-danger" onClick={handleLogOut}>
               Logout
             </button>
           </li>
@@ -41,14 +37,12 @@ function Nav(props) {
     } else {
       setNavItems(
         initialState.concat([
-          <li className="navitem" key="5">
-            <Link to="/">Homepage</Link>
+
+          <li className="nav-item" key="3">
+            <Link className='nav-link' to="/login">Login</Link>
           </li>,
-          <li className="navitem" key="3">
-            <Link to="/login">Login</Link>
-          </li>,
-          <li className="navitem" key="4">
-            <Link to="/signup">Signup</Link>
+          <li className="nav-item" key="4">
+            <Link className='nav-link' to="/signup">Signup</Link>
           </li>,
         ])
       );
@@ -57,10 +51,11 @@ function Nav(props) {
 
   return (
     <div>
-      <header className='siteHeader'>
-        <ul className='nav-links'>
+      <header className='bg-dark' >
+        <ul className='nav justify-content-center'>
           {navItems}
         </ul>
+
       </header>
 
     </div>

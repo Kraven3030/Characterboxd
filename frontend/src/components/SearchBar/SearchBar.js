@@ -31,6 +31,17 @@ function SearchBar() {
     const handleChange = async (event) => {
         setSearchString(event.target.value)
     }
+
+
+    const clearSearchBar = async () => {
+        setSearchString("");
+    }
+
+    function setMediaRadio(event) {
+        setMediaType(event.target.id);
+        getMedia(searchString);
+    }
+
     function getMedia(searchString) {
         const url = `${queryOptions.api}${queryOptions.endpoint}?api_key=${queryOptions.api_key}&query=${searchString}`;
         //    const url2= `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&query=${searchString}`
@@ -54,7 +65,6 @@ function SearchBar() {
     }
 
     return (
-
         <div className='search-box'>
             <form onSubmit={handleSubmit}>
                 <input
@@ -88,11 +98,11 @@ function SearchBar() {
                 </input>
                 <label htmlFor='tvShow'>TV</label>
             </form>
-            {
-                mediaResults ? (
-                    <SearchResults className='results' mediaResults={mediaResults} searchString={searchString} limit={15} />
-                ) : (null)
-            }
+
+            <SearchResults mediaResults={mediaResults}
+                mediaType={mediaType}
+                searchString={searchString}
+                clearSearchBar={clearSearchBar} />
         </div>
     )
 }

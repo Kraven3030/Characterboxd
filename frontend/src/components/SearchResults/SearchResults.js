@@ -1,13 +1,25 @@
+
 import React from 'react';
 import ContentResults from '../ContentResults/ContentResults';
 
-const SearchResults = ({ mediaResults }) => {
+
+const SearchResults = ({ mediaResults, searchString, clearSearchBar }) => {
+
   // return early if there are no images
-  if (mediaResults.length === 0) {
-    return <h2 className='noImgFound'>No Images Found!</h2>
+  if (mediaResults.results) {
+    if (mediaResults.results.length > 0) {
+      return (
+
+      <ContentResults mediaResults={mediaResults}
+      clearSearchBar={clearSearchBar} />
+      )
+    } else {
+      if (searchString.length !== 0) {
+        return (
+          <h2 className="noResult">No media found!</h2>
+        )
+      }
+    }
   }
-  return (
-    <ContentResults mediaResults={mediaResults} />
-  )
 }
 export default SearchResults;

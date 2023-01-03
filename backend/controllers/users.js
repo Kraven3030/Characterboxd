@@ -52,7 +52,9 @@ router.post('/signup', async (req, res) => {
                                 }
                                 const token = jwt.encode(payload, config.jwtSecret)
                                 res.json({
-                                    token: token
+                                    token: token,
+                                    username: newUser.username,
+                                    userId: newUser.id
                                 })
                                 // Send an error if the database fails to create a user
                             } else {
@@ -74,18 +76,23 @@ router.post('/signup', async (req, res) => {
 //   LOG IN ROUTE / FIND ONE USER
 //==================================
 router.post('/login', (req, res) => {
-    // Attempt to find the user by their username in the database
+    // Attempt to find the user by their username and password in the database
     if (req.body.username && req.body.password) {
         User.findOne({ username: req.body.username }, async (err, user) => {
             if (err || user == null) {
                 res.sendStatus(404)
             }
+            // check to:
+            // 1. make sure the user was found in the database
+            // 2. make sure the user entered in the correct password
             const match = await bcrypt.compare(req.body.password, user.password)
             if (match === true) {
                 const payload = { id: user._id, username: user.username }
                 const token = jwt.encode(payload, config.jwtSecret)
                 res.json({
-                    token: token
+                    token: token,
+                    username: user.username,
+                    userId: user._id
                 })
             } else {
                 res.sendStatus(401)
@@ -99,12 +106,54 @@ router.post('/login', (req, res) => {
 //==================
 //   UPDATE ROUTE
 //==================
+router.put('/update/:id', isAuthenticated, async (req, res) => {
 
+    // Verify the request body has an username and password
+    if (req.body.username && req.body.password) {
+        const hashPassword = await bcrypt.hash(req.body.password, saltRounds)
+        // Make a new user object with the request body and password
+        let updatedUser = {
+            username: req.body.username,
+            password: hashPassword
+        }
+        // Check if a user exists with the same username and password
+        User.findOne({ username: req.body.username })
+            .then((user) => {
+                // If a user doesn't exist...
+                if (!user) {
+                    // ...Create a new one.
+                    db.User.findByIdAndUpdate(req.params.id, updatedUser)
+                        .then(user => {
+                            // If the database creates a user successfully, assign a JWT to the user and send the JWT as the response
+                            if (user) {
+                                const payload = {
+                                    id: req.params.id,
+                                    username: updatedUser.username
+                                }
+                                const token = jwt.encode(payload, config.jwtSecret)
+                                res.json({
+                                    token: token
+                                })
+                                // Send an error if the database fails to create a user
+                            } else {
+                                res.sendStatus(401)
+                            }
+                        })
+                    // Send an error if the user already exists
+                } else {
+                    res.sendStatus(401)
+                }
+            })
+        // Send an error if the request body does not have an username and password
+    } else {
+        res.sendStatus(401)
+    }
+});
 
 //==================
 //   DELETE ROUTE
 //==================
-router.delete('/:id', isAuthenticated, (req, res) => {
+router.delete('/delete/:id', isAuthenticated, (req, res) => {
     db.User.findByIdAndDelete(req.params.id, (err, user) => {
         res.redirect('/')
     })

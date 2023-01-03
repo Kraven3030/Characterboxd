@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import { createReview } from "../../utils/api"
+import { useLocation, useNavigate } from 'react-router-dom'
 
 
-
-function NewReview() {
-
+const NewReview = () => {
+    
+    const location = useLocation();
+    const { state } = location;
+    const navigate = useNavigate();
+    const baseUrl = "https://image.tmdb.org/t/p/original"
     const [reviewData, setReviewData] = useState({
+        mediaId: '',
         movieName: '',
         title: '',
         body: '',
-        reviewer: ''
+        reviewer: localStorage.getItem('userId')
     })
+
 
     function handleChange(event) {
         setReviewData({ ...reviewData, [event.target.name]: event.target.value })
@@ -18,14 +24,27 @@ function NewReview() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        createReview(reviewData)
-            .then((data) => console.log(data))
+        setReviewData({ movieId: state.mediaId, 
+            movieName: state.mediaName, 
+            reviewer: localStorage.getItem('userId')
+        })
+        const reviewInfo = {
+            mediaId: state.mediaId,
+            movieName: state.mediaName,
+            title: reviewData.title,
+            body: reviewData.body,
+            reviewer: localStorage.getItem('userId')
+        }
+        createReview(reviewInfo)
+           .then((data) => console.log(data))
         setReviewData({
+            mediaId: '',
             movieName: '',
             title: '',
             body: '',
             reviewer: ''
         })
+        navigate("/UsersReviews", {replace: true});
     }
 
 
@@ -33,8 +52,11 @@ function NewReview() {
         <div className="container">
             <form>
                 <h1>Leave A Review</h1>
-                <label htmlFor="movieName">Movie Name</label>
-                <input placeholder="Movie Name" type="text" name="movieName" value={reviewData.movieName} onChange={handleChange} />
+                <h2 className="mediaCard">{state.mediaName}</h2>
+                <img src={`${baseUrl + state.mediaImg}`} alt={state.mediaName} className="mediaCard"/>
+                <h3 className="mediaCard">{state.mediaRelease}</h3>
+                <p className="mediaCard">{state.mediaDescription}</p>
+
 
                 <label htmlFor="title">Review Title:</label>
                 <input placeholder="Review Title" type="text" name="title" value={reviewData.title} onChange={handleChange} />
@@ -42,8 +64,6 @@ function NewReview() {
                 <label htmlFor="body">Review</label>
                 <input placeholder="Review" type="text" name="body" value={reviewData.body} onChange={handleChange} />
 
-                <label htmlFor="reviewer">Username:</label>
-                <input placeholder="Username" type="text" name="reviewer" value={reviewData.reviewer} onChange={handleChange} />
                 <button onClick={handleSubmit}>Post Review</button>
             </form>
         </div>

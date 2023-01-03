@@ -1,6 +1,6 @@
 // Import dependncies
 import { useState } from 'react'
-import { redirect } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { loginToAccount } from '../../utils/api';
 
 
@@ -9,7 +9,8 @@ import "./login.css"
 
 
 function Login(props) {
-    // State the declarations 
+    // State the declarations
+    const navigate = useNavigate(); 
     const [loginForm, setLoginForm] = useState({
         username: '',
         password: ''
@@ -23,24 +24,28 @@ function Login(props) {
     const handleSubmit = async (event, loginForm) => {
         event.preventDefault()
         loginToAccount(loginForm)
-            .then((data) => localStorage.token = data.token)
+            .then((data) => {localStorage.token = data.token;
+                localStorage.username = data.username;
+                localStorage.userId = data.userId;})
         props.setIsLoggedIn(true)
         setLoginForm({
             username: '',
             password: ''
         })
+
+        navigate("/", {replace: true});
     }
 
 
     return (
         <section className="text-center text-lg-start">
-            <div className='card mb-3'>
+            <div className='card mb-3 allLogin'>
                 <div className='row g-0 d-flex align-items-center'>
                     <div className='col-lg-4 d-none d-lg-flex'>
                         <img src='https://images.justwatch.com/poster/152823265/s592/gangs-of-new-york' alt='Inception' className='w-100 rounded float-left' />
                     </div>
                     <div className="col-lg-8">
-                        <div className='card-body py-5 px-md-5'>
+                        <div className='card-body py-5 px-md-5 loginCard'>
 
                             <form>
 
