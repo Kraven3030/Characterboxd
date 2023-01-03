@@ -21,6 +21,7 @@ Tech stack used:
 
 Installation instructions:
 -Make sure you have great internet connection and use the link provided to navigate to the webpage.
+https://characterboxd.herokuapp.com/
 -The app will require authentication therefore each user will need to create an account by navigating to the signup page.
 
 Screenshots:
