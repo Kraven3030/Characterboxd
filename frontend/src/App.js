@@ -9,11 +9,11 @@ import Nav from './components/Nav/nav'
 import Home from './Pages/Home/index';
 import Login from './components/Login/login'
 import Signup from './components/Signup/signup'
-import NewReview from './Pages/NewReview/index';
-import MovieReviews from './Pages/MovieReviews/index'
-import UsersReviews from './Pages/UsersReviews/index';
+import NewReview from './Pages/newReview/index';
+import MovieReviews from './Pages/movieReviews/index'
+import UsersReviews from './Pages/usersReviews/index';
 
-import EditReview from './Pages/EditReview/index';
+import EditReview from './Pages/editReview/index';
 import SearchResults from './components/SearchResults/SearchResults';
 import SearchBar from './components/SearchBar/SearchBar';
 function App() {
