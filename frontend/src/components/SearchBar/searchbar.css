@@ -1,12 +1,17 @@
 .search-box {
     margin: auto;
     padding: 10px;
-    width: 50%;
+    width: 30%;
     text-align: center;
     z-index: 1000;
-    color: black;
+    color: white;
     top: 50%;
     position: relative;
     align-content: center;
+}
+
+input {
+    border-radius: 20px;
+    justify-content: space-evenly;
 }
 

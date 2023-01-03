@@ -3,17 +3,22 @@ import React from 'react';
 import ContentResults from '../ContentResults/ContentResults';
 
 const SearchResults = ({ mediaResults, searchString }) => {
+
+  if (!mediaResults || !mediaResults.results) {
+    return null;
+  }
+
   // return early if there are no images
   if (mediaResults.results) {
     if (mediaResults.results.length > 0) {
       return (
-      <ContentResults mediaResults={mediaResults} />
+        <ContentResults mediaResults={mediaResults} />
       )
     } else {
       if (searchString.length !== 0) {
         return (
           <h2 className="noResult">No media found!</h2>
-          )
+        )
       }
     }
   }

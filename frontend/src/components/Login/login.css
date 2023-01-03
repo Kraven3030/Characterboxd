@@ -1,3 +1,17 @@
+.loginCard {
+    align-items: center;
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+}
 
+.allLogin {
+    width: 50%;
+    margin: auto;
+}
 
-
+section {
+    padding-top: 30px;
+}
