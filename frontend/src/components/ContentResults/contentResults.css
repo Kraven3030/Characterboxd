@@ -1,3 +1,8 @@
+.card {
+    display: flex;
+    z-index: 0;
+}
+
 .card-body {
     align-items: center;
     text-align: center;
@@ -5,6 +10,10 @@
     margin: 0 auto;
     float: none;
     margin-bottom: 10px;
+}
+
+.card-img-top {
+    width: 50%;
 }
 
 
