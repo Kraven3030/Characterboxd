@@ -13,7 +13,7 @@ const reviewSchema = new Schema(
     {
         mediaId: {
             type: Number,
-            required: false
+            required: true
         },
         movieName: {
             type: String,

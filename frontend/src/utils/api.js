@@ -26,6 +26,13 @@ export async function userReviews(userId) {
     return data
 }
 
+// Get reviews by media ID
+export async function allReviews(mediaId) {
+    console.log(`http://localhost:9000/reviews/${mediaId}`);
+    const { data } = await axios.get(`http://localhost:9000/reviews/${mediaId}`)
+    return data
+}
+
 // Axios request that will allow users to create reviews once they are logged in
 export async function createReview(reviewData) {
     const config = {
@@ -34,5 +41,28 @@ export async function createReview(reviewData) {
         }
     }
     const { data } = await axios.post('http://localhost:9000/reviews/create', reviewData, config)
+    return data
+}
+
+// Axios request that will allow users to update reviews once they are logged in
+export async function updateReview(reviewData) {
+    const config = {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }
+    console.log("api update request")
+    const { data } = await axios.put('http://localhost:9000/reviews/update', reviewData, config)
+    return data
+}
+
+// Axios request that will allow users to delete reviews once they are logged in
+export async function deleteReview(reviewId) {
+    const config = {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }
+    const { data } = await axios.delete(`http://localhost:9000/reviews/delete/${reviewId}`, config)
     return data
 }

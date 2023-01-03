@@ -31,6 +31,10 @@ function SearchBar() {
         setSearchString(event.target.value)
     }
 
+    const clearSearchBar = async () => {
+        setSearchString("");
+    }
+
     function setMediaRadio(event) {
         setMediaType(event.target.id);
         getMedia(searchString);
@@ -87,7 +91,8 @@ function SearchBar() {
             </form>
             <SearchResults mediaResults={mediaResults}
                 mediaType={mediaType}
-                searchString={searchString} />
+                searchString={searchString}
+                clearSearchBar={clearSearchBar} />
         </div>
     )
 }

@@ -22,6 +22,7 @@ function Nav(props) {
     if (props.isLoggedIn) {
       setNavItems(
         initialState.concat(
+
           <li className="nav-item" key="7">
             <Link className='nav-link' to="/UsersReviews/">My Reviews</Link>
           </li>,
@@ -52,8 +53,8 @@ function Nav(props) {
         <ul className='nav justify-content-center'>
           {navItems}
         </ul>
+        
       </header>
-
     </div>
   );
 }

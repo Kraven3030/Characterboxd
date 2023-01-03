@@ -1,4 +1,11 @@
+
+.card {
+    display: flex;
+    z-index: 0;
+}
+
 .contentCard {
+
     align-items: center;
     text-align: center;
     width: 100%;
@@ -9,3 +16,7 @@
     text-shadow: 2px 2px 5px black;
 }
 
+
+.card-img-top {
+    width: 50%;
+}
