@@ -21,14 +21,12 @@ export async function getUserData(userId) {
 
 // Get user personal reviews if user is logged in
 export async function userReviews(userId) {
-    console.log(`/reviews/user/${userId}`);
     const { data } = await axios.get(`/reviews/user/${userId}`)
     return data
 }
 
 // Get reviews by media ID
 export async function allReviews(mediaId) {
-    console.log(`/reviews/${mediaId}`);
     const { data } = await axios.get(`/reviews/${mediaId}`)
     return data
 }
@@ -51,7 +49,6 @@ export async function updateReview(reviewData) {
             'Authorization': localStorage.getItem('token')
         }
     }
-    console.log("api update request")
     const { data } = await axios.put('/reviews/update', reviewData, config)
     return data
 }
