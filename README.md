@@ -36,6 +36,7 @@ We wanted to make something simple and easy for any user to use. This meant that
 
 Installation instructions:
 -Make sure you have great internet connection and use the link provided to navigate to the webpage.
+characterboxd.herokuapp.com/
 -The app will require authentication therefore each user will need to create an account by navigating to the signup page.
 
 Screenshots:
