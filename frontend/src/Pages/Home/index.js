@@ -1,44 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './styles.css'
-import Signup from '../../components/Signup/signup';
-import SearchBar from '../../components/SearchBar/SearchBar';
+
 
 function Home() {
-    const [media, setMedia] = useState([]);
-    const [blakeMovie, setBlakeMovie] = useState({});
-    const [brenMovie, setBrenMovie] = useState({});
-    const [roryMovie, setRoryMovie] = useState({});
-    const baseUrl = "https://image.tmdb.org/t/p/original"
-
-
-    const getMedia = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
-            .then((response) => {
-                setMedia(response.data)
-            })
-    }
-    const blakePick = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/98?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
-            .then((response) => {
-                setBlakeMovie(response.data)
-            })
-    }
-
-    const brenPick = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/2109?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
-            .then((response) => {
-                setBrenMovie(response.data)
-            })
-    }
-
-    const roryPick = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/335984?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
-            .then((response) => {
-                setRoryMovie(response.data)
-            })
-    }
-
 
 
 
@@ -81,7 +46,7 @@ function Home() {
                     <div className="carousel-item">
                         <h2>Developer Picks</h2>
                         <h4>"Blade Runner 2049"</h4>
-                        <p>An absolute cinematic masterpiece of the modern times, the long awaited sequel to the critically acclaimed Blade Runner is one of the best movies I have seen in many years. This movie looks gorgeous and truly lends itself to displays with High Dynamic Range due to a beautiful combination of bright vivid colors and deep black backgrounds. I highly recommend seeing the original Blade Runner as Harrison Ford reprises his role in this sequel. This movie is pure kino that will live on in internet culture for years to come. 
+                        <p>An absolute cinematic masterpiece of the modern times, the long awaited sequel to the critically acclaimed Blade Runner is one of the best movies I have seen in many years. This movie looks gorgeous and truly lends itself to displays with High Dynamic Range due to a beautiful combination of bright vivid colors and deep black backgrounds. I highly recommend seeing the original Blade Runner as Harrison Ford reprises his role in this sequel. This movie is pure kino that will live on in internet culture for years to come.
                             <em> --Rory</em>
                         </p>
                         <img className="bd-placeholder-img bd-placeholder-img-lg d-block" width="800" height="800" src='https://media.tenor.com/Vlr5ep-dRXMAAAAd/ryan-gosling-blade-runner2049.gif' alt="Blade Runner 2049" />
