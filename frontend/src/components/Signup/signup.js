@@ -31,6 +31,7 @@ function Signup(props) {
             username: '',
             password: ''
         })
+
         navigate("/", {replace: true});
     }
 

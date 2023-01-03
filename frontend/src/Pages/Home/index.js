@@ -1,13 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './styles.css'
-
+import Signup from '../../components/Signup/signup';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 function Home() {
+    const [media, setMedia] = useState([]);
+    const [blakeMovie, setBlakeMovie] = useState({});
+    const [brenMovie, setBrenMovie] = useState({});
+    const [roryMovie, setRoryMovie] = useState({});
+    const baseUrl = "https://image.tmdb.org/t/p/original"
+
+
+    const getMedia = () => {
+        axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
+            .then((response) => {
+                setMedia(response.data)
+            })
+    }
+    const blakePick = () => {
+        axios.get(`https://api.themoviedb.org/3/movie/98?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
+            .then((response) => {
+                setBlakeMovie(response.data)
+            })
+    }
+
+    const brenPick = () => {
+        axios.get(`https://api.themoviedb.org/3/movie/2109?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
+            .then((response) => {
+                setBrenMovie(response.data)
+            })
+    }
+
+    const roryPick = () => {
+        axios.get(`https://api.themoviedb.org/3/movie/335984?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
+            .then((response) => {
+                setRoryMovie(response.data)
+            })
+    }
+
 
 
 
     return (
+
         <div className='container bg-dark'>
 
             <h2 className='intro'>REVIEW FILMS YOU'VE WATCHED.</h2>
@@ -15,6 +51,7 @@ function Home() {
             <h2 className='intro'>TELL YOUR FRIENDS WHATS GOOD.</h2>
             <button className='getStarted btn btn-success btn-lg'>
                 <a id='getStarted' className='btn btn-success btn-lg' role='button' href='/signup'>GET STARTED</a>
+
             </button>
 
             <div id="carouselCaptions" className="carousel slide" data-bs-ride="false">

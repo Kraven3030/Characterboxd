@@ -1,6 +1,7 @@
 .search-box {
     margin: auto;
     padding: 10px;
+
     width: 30%;
     text-align: center;
     z-index: 1000;
@@ -26,3 +27,4 @@ label {
 .radioBtn {
     margin-right: 2px;
 }
+

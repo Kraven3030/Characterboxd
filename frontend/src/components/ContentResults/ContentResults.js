@@ -1,3 +1,4 @@
+
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
@@ -5,6 +6,7 @@ import "./contentResults.css"
 
 function ContentResults({ mediaResults, clearSearchBar }) {
     const baseUrl = "https://image.tmdb.org/t/p/original"
+
 
     const navigate = useNavigate()
     function handleClick() {
@@ -134,6 +136,7 @@ function ContentResults({ mediaResults, clearSearchBar }) {
 
 
     return (
+
 
             <div id="search-results" className="card bg-dark">
                 {mediaResults.results.map(media => (

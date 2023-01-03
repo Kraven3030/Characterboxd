@@ -32,6 +32,7 @@ function Login(props) {
             username: '',
             password: ''
         })
+
         navigate("/", {replace: true});
     }
 

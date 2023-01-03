@@ -3,8 +3,6 @@ import { createReview } from "../../utils/api"
 import { useLocation, useNavigate } from 'react-router-dom'
 
 
-
-
 const NewReview = () => {
     
     const location = useLocation();
@@ -18,6 +16,7 @@ const NewReview = () => {
         body: '',
         reviewer: localStorage.getItem('userId')
     })
+
 
     function handleChange(event) {
         setReviewData({ ...reviewData, [event.target.name]: event.target.value })

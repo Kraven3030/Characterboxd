@@ -13,6 +13,7 @@ function UsersReviews() {
 
 
     useEffect(() => {
+
          const fetchReviews = async () => {
              await userReviews(userId).then((res) => {
                 setPersonalReviews(res)
@@ -21,7 +22,6 @@ function UsersReviews() {
         }
         
         fetchReviews(userId)
-        console.log(PersonalReviews)
     }, [userId])
 
 
@@ -34,6 +34,7 @@ function UsersReviews() {
             </h2>
             <div>
                 {PersonalReviews?.reviews?.map((review) => (
+
                     <div>
                         {
                             review.map((review) => (
@@ -55,6 +56,7 @@ function UsersReviews() {
                                         Review:
                                         {review.body}
                                     </p>
+
                                     <Link to={"/EditReview/"} state={{
                                         title: review.title,
                                         body: review.body,

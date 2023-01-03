@@ -23,6 +23,7 @@ function Nav(props) {
       setNavItems(
         initialState.concat(
 
+
           <li className="nav-item" key="7">
             <Link className='nav-link' to="/UsersReviews/">My Reviews</Link>
           </li>,
@@ -36,6 +37,7 @@ function Nav(props) {
     } else {
       setNavItems(
         initialState.concat([
+
           <li className="nav-item" key="3">
             <Link className='nav-link' to="/login">Login</Link>
           </li>,
@@ -53,8 +55,9 @@ function Nav(props) {
         <ul className='nav justify-content-center'>
           {navItems}
         </ul>
-        
+
       </header>
+
     </div>
   );
 }

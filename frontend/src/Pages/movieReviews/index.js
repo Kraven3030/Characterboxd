@@ -6,6 +6,7 @@ import { allReviews } from "../../utils/api";
 
 
 function MovieReviews() {
+
     const location = useLocation();
     const { state } = location;
     const baseUrl = "https://image.tmdb.org/t/p/original"
@@ -17,7 +18,6 @@ function MovieReviews() {
     
     
         useEffect(() => {
-            console.log(state.mediaId)
              const fetchReviews = async () => {
                  await allReviews(state.mediaId).then((res) => {
                     setMediaReviews(res)
@@ -26,7 +26,6 @@ function MovieReviews() {
             }
             
             fetchReviews(state.mediaId)
-            console.log(mediaReviews)
         }, [state.mediaId])
         
     
