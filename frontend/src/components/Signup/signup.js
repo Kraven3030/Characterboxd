@@ -1,6 +1,7 @@
 // Import Dependencies
 import { useState } from 'react'
 import { createUser } from '../../utils/api'
+import { useNavigate } from 'react-router-dom';
 
 // Import Styles
 import "./signup.css"
@@ -8,6 +9,7 @@ import "./signup.css"
 
 function Signup(props) {
     // State the declarations
+    const navigate = useNavigate();
     const [signupForm, setSignupForm] = useState({
         username: '',
         password: ''
@@ -29,6 +31,7 @@ function Signup(props) {
             username: '',
             password: ''
         })
+        navigate("/", {replace: true});
     }
 
 

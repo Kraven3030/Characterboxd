@@ -1,6 +1,6 @@
 // Import dependncies
 import { useState } from 'react'
-import { redirect } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { loginToAccount } from '../../utils/api';
 
 
@@ -9,7 +9,8 @@ import "./login.css"
 
 
 function Login(props) {
-    // State the declarations 
+    // State the declarations
+    const navigate = useNavigate(); 
     const [loginForm, setLoginForm] = useState({
         username: '',
         password: ''
@@ -31,6 +32,7 @@ function Login(props) {
             username: '',
             password: ''
         })
+        navigate("/", {replace: true});
     }
 
 

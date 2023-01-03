@@ -135,46 +135,38 @@ function ContentResults({ mediaResults, clearSearchBar }) {
 
     return (
 
-        <div className="card">
-            {mediaResults.results.map(media => (
-                <div className="card-body" key={media.id}>
-                    <Link to={"/MovieReviews/"} onClick={()=>{clearSearchBar()}}
-                    state={{
+            <div id="search-results" className="card bg-dark">
+                {mediaResults.results.map(media => (
+                    <div className="card-body contentCard" key={media.id}>
+                        <Link to={"/MovieReviews/"} onClick={()=>{clearSearchBar()}} state={{
                         mediaName: media.title || media.name, 
                         mediaImg: media.poster_path,
                         mediaRelease: media.release_date || media.first_air_date,
                         mediaDescription: media.overview,
-                        mediaId: media.id
-                    }} >
+                        mediaId: media.id}}>
+                            <img className="card-img-top" src={baseUrl + media.poster_path} width="300" alt={media.title} />
+                        </Link>
+                            <div>
+                                <h1 className="card-title">{media.title || media.name}</h1>
+                                {media.genre_ids.map((genre_id) => {
+                                    return (<h3>{getGenreName(genre_id)}</h3>)
+                                })}
+                                <h5 className="card-text">{media.release_date || media.first_air_date}</h5>
+                                <p>{media.overview}</p>
+                            </div>
+                        <Link to={"/NewReview/"} onClick={()=>{clearSearchBar()}}
+                        state={{
+                            mediaName: media.title || media.name, 
+                            mediaImg: media.poster_path,
+                            mediaRelease: media.release_date || media.first_air_date,
+                            mediaDescription: media.overview,
+                            mediaId: media.id
+                        }} 
+                        >Leave a review</Link>
 
-
-        <div id="search-results" className="card bg-dark">
-            {mediaResults.results.map(media => (
-                <div className="card-body contentCard" key={media.id}>
-                    <Link to="../../Pages/MovieReviews">
-                        <img className="card-img-top" src={baseUrl + media.poster_path} width="300" alt={media.title} />
-                        <div>
-                            <h1 className="card-title">{media.title || media.name}</h1>
-                            {media.genre_ids.map((genre_id) => {
-                                return (<h3>{getGenreName(genre_id)}</h3>)
-                            })}
-                            <h5 className="card-text">{media.release_date || media.first_air_date}</h5>
-                            <p>{media.overview}</p>
-                        </div>
-
-                    </div>
-                    <Link to={"/NewReview/"} onClick={()=>{clearSearchBar()}}
-                    state={{
-                        mediaName: media.title || media.name, 
-                        mediaImg: media.poster_path,
-                        mediaRelease: media.release_date || media.first_air_date,
-                        mediaDescription: media.overview,
-                        mediaId: media.id
-                    }} 
-                    >Leave a review</Link>
-
-                </div>
+            </div>
             )
+            
             )}
         </div>
     )

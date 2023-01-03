@@ -44,7 +44,7 @@ function Home() {
                     <div className="carousel-item">
                         <h2>Developer Picks</h2>
                         <h4>"Blade Runner 2049"</h4>
-                        <p>Officer K (Ryan Gosling), a new blade runner for the Los Angeles Police Department, unearths a long-buried secret that has the potential to plunge what's left of society into chaos. His discovery leads him on a quest to find Rick Deckard (Harrison Ford), a former blade runner who's been missing for 30 years.
+                        <p>An absolute cinematic masterpiece of the modern times, the long awaited sequel to the critically acclaimed Blade Runner is one of the best movies I have seen in many years. This movie looks gorgeous and truly lends itself to displays with High Dynamic Range due to a beautiful combination of bright vivid colors and deep black backgrounds. I highly recommend seeing the original Blade Runner as Harrison Ford reprises his role in this sequel. This movie is pure kino that will live on in internet culture for years to come. 
                             <em> --Rory</em>
                         </p>
                         <img className="bd-placeholder-img bd-placeholder-img-lg d-block" width="800" height="800" src='https://media.tenor.com/Vlr5ep-dRXMAAAAd/ryan-gosling-blade-runner2049.gif' alt="Blade Runner 2049" />
