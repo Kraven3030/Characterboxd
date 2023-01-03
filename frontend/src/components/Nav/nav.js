@@ -22,12 +22,6 @@ function Nav(props) {
     if (props.isLoggedIn) {
       setNavItems(
         initialState.concat(
-          <li className="navitem" key="5">
-            <Link to="/">Homepage</Link>
-          </li>,
-          <li className="navitem" key="6">
-            <Link to="/NewReview/">Leave a review</Link>
-          </li>,
           <li className="navitem" key="7">
             <Link to="/UsersReviews/">My Reviews</Link>
           </li>,
@@ -61,8 +55,8 @@ function Nav(props) {
         <ul className='nav-links'>
           {navItems}
         </ul>
+        
       </header>
-
     </div>
   );
 }

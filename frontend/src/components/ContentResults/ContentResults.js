@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import "./contentResults.css"
 
-function ContentResults({ mediaResults }) {
+function ContentResults({ mediaResults, clearSearchBar }) {
     const baseUrl = "https://image.tmdb.org/t/p/original"
 
 
@@ -132,7 +132,14 @@ function ContentResults({ mediaResults }) {
         <div className="card">
             {mediaResults.results.map(media => (
                 <div className="card-body" key={media.id}>
-                    <Link to={`/media/${media.id}`}>
+                    <Link to={"/MovieReviews/"} onClick={()=>{clearSearchBar()}}
+                    state={{
+                        mediaName: media.title || media.name, 
+                        mediaImg: media.poster_path,
+                        mediaRelease: media.release_date || media.first_air_date,
+                        mediaDescription: media.overview,
+                        mediaId: media.id
+                    }} >
 
                         <img
                             className="card-img-top"
@@ -147,7 +154,15 @@ function ContentResults({ mediaResults }) {
                             ))}
                         </div>
                     </div>
-                    <Link to="/NewReview/">Leave a review</Link>
+                    <Link to={"/NewReview/"} onClick={()=>{clearSearchBar()}}
+                    state={{
+                        mediaName: media.title || media.name, 
+                        mediaImg: media.poster_path,
+                        mediaRelease: media.release_date || media.first_air_date,
+                        mediaDescription: media.overview,
+                        mediaId: media.id
+                    }} 
+                    >Leave a review</Link>
                 </div>
             
             )

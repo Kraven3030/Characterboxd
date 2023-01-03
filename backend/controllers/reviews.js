@@ -57,7 +57,7 @@ router.get('/user/:id', (req, res) => {
                 if (user) {
                     db.Review.find(
                         { 'reviewer': req.params.id },
-                        { movieName: true, title: true, body: true, _id: false },
+                        { movieName: true, title: true, body: true, _id: true },
                         (err, reviews) => {
                             console.log(reviews)
                             const result = {
@@ -78,8 +78,9 @@ router.get('/user/:id', (req, res) => {
 //   UPDATE ROUTE
 //==================
 router.put('/update', isAuthenticated, async (req, res) => {
+    console.log("reached database");
     const updatedReview = await db.Review.findByIdAndUpdate(
-        req.body.id,
+        req.body.reviewId,
         { title: req.body.title, body: req.body.body },
         { new: true }
     );
@@ -103,12 +104,9 @@ router.delete('/delete/:id', isAuthenticated, async (req, res) => {
 //   REVIEWS BY MEDIA ID
 //==========================
 router.get('/:id', async (req, res) => {
-    Review.find(
-        { "mediaId": req.params.id },
-        { movieName: true, title: true, body: true, reviewer: true },
-        (err, result) => {
-            res.json(result)
-        })
+    const populatedReviews = await 
+    Review.find({ "mediaId": req.params.id }).populate('reviewer')
+    res.json(populatedReviews)
 })
 
 module.exports = router

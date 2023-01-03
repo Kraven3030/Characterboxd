@@ -31,6 +31,10 @@ function SearchBar() {
         setSearchString(event.target.value)
     }
 
+    const clearSearchBar = async () => {
+        setSearchString("");
+    }
+
     function setMediaRadio(event) {
         setMediaType(event.target.id);
         getMedia(searchString);
@@ -85,11 +89,11 @@ function SearchBar() {
                     required>
                 </input>
                 <label htmlFor='tvShow'>TV</label>
-                <button type='submit'>Search</button>
             </form>
             <SearchResults mediaResults={mediaResults}
                 mediaType={mediaType}
-                searchString={searchString} />
+                searchString={searchString}
+                clearSearchBar={clearSearchBar} />
         </div>
     )
 }
