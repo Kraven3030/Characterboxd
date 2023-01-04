@@ -102,9 +102,8 @@ router.delete('/delete/:id', isAuthenticated, async (req, res) => {
 //   REVIEWS BY MEDIA ID
 //==========================
 router.get('/:id', async (req, res) => {
-
-    const populatedReviews = await 
-    Review.find({ "mediaId": req.params.id }).populate('reviewer')
+    const populatedReviews = await
+        Review.find({ "mediaId": req.params.id }).populate('reviewer')
     res.json(populatedReviews)
 })
 

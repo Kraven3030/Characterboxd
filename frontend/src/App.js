@@ -29,8 +29,6 @@ function App() {
 
   return (
     <>
-
-
       <header className='bg-dark'>
         <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <SearchBar className='results' />
@@ -45,7 +43,6 @@ function App() {
           <Route path="/MovieReviews" element={<MovieReviews />} />
           <Route path="/UsersReviews" element={<UsersReviews />} />
           <Route path="/NewReview" element={<NewReview />} />
-
           <Route path="/EditReview" element={<EditReview />} />
         </Routes>
       </main>

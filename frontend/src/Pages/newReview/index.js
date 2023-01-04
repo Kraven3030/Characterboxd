@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 
 const NewReview = () => {
-    
+
     const location = useLocation();
     const { state } = location;
     const navigate = useNavigate();
@@ -24,8 +24,9 @@ const NewReview = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        setReviewData({ movieId: state.mediaId, 
-            movieName: state.mediaName, 
+        setReviewData({
+            movieId: state.mediaId,
+            movieName: state.mediaName,
             reviewer: localStorage.getItem('userId')
         })
         const reviewInfo = {
@@ -36,7 +37,7 @@ const NewReview = () => {
             reviewer: localStorage.getItem('userId')
         }
         createReview(reviewInfo)
-           .then((data) => console.log(data))
+            .then((data) => console.log(data))
         setReviewData({
             mediaId: '',
             movieName: '',
@@ -44,29 +45,48 @@ const NewReview = () => {
             body: '',
             reviewer: ''
         })
-        navigate("/UsersReviews", {replace: true});
+        navigate("/UsersReviews", { replace: true });
     }
 
 
     return (
-        <div className="container">
-            <form>
-                <h1>Leave A Review</h1>
-                <h2 className="mediaCard">{state.mediaName}</h2>
-                <img src={`${baseUrl + state.mediaImg}`} alt={state.mediaName} className="mediaCard"/>
-                <h3 className="mediaCard">{state.mediaRelease}</h3>
-                <p className="mediaCard">{state.mediaDescription}</p>
+        <section className='container'>
+            <div className='card py-5 px-md-5 align-items-center bg-dark'>
+                <img className='card-img-top' src={`${baseUrl + state.mediaImg}`} alt="{state.mediaName}" />
+                <div className="card-body">
+                    <h2 className="card-title">{state.mediaName}</h2>
+                    <h3 className="card-text">{state.mediaRelease}</h3>
+                    <p className="card-text">{state.mediaDescription}</p>
+                    <form>
+                        <div className='col-md-9 form'>
+                            <label className="form-label" htmlFor="title">Review Title:</label>
+                            <input
+                                className="form-control"
+                                placeholder="Review Title"
+                                type="text"
+                                name="title"
+                                // value="{reviewData.title}"
+                                onChange="{handleChange}"
+                            />
 
+                            <label className="form-label" htmlFor="body">Review</label>
+                            <input
+                                className="form-control"
+                                placeholder="Review"
+                                type="text"
+                                name="body"
+                                // value="{reviewData.body}"
+                                onChange="{handleChange}"
+                            />
 
-                <label htmlFor="title">Review Title:</label>
-                <input placeholder="Review Title" type="text" name="title" value={reviewData.title} onChange={handleChange} />
-
-                <label htmlFor="body">Review</label>
-                <input placeholder="Review" type="text" name="body" value={reviewData.body} onChange={handleChange} />
-
-                <button onClick={handleSubmit}>Post Review</button>
-            </form>
-        </div>
+                            <button className="btn btn-primary" onClick={handleSubmit}>
+                                Post Review
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
     );
 
 

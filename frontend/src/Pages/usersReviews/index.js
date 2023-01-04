@@ -11,20 +11,14 @@ function UsersReviews() {
     const username = localStorage.getItem('username')
 
 
-
     useEffect(() => {
-
-         const fetchReviews = async () => {
-             await userReviews(userId).then((res) => {
+        const fetchReviews = async () => {
+            await userReviews(userId).then((res) => {
                 setPersonalReviews(res)
-             })
-
+            })
         }
-        
         fetchReviews(userId)
     }, [userId])
-
-
 
 
     return (
@@ -34,11 +28,10 @@ function UsersReviews() {
             </h2>
             <div>
                 {PersonalReviews?.reviews?.map((review) => (
-
                     <div>
                         {
                             review.map((review) => (
-                                
+
                                 <div className="review">
                                     <h3 className="review-title">
                                         Title:
