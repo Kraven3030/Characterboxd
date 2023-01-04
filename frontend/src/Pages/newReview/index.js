@@ -52,7 +52,7 @@ const NewReview = () => {
     return (
         <section className='container'>
             <div className='card py-5 px-md-5 align-items-center bg-dark'>
-                <img className='card-img-top' src={`${baseUrl + state.mediaImg}`} alt="{state.mediaName}" />
+                <img className='card-img-top' src={`${baseUrl + state.mediaImg}`} alt={state.mediaName} />
                 <div className="card-body">
                     <h2 className="card-title">{state.mediaName}</h2>
                     <h3 className="card-text">{state.mediaRelease}</h3>
@@ -65,8 +65,7 @@ const NewReview = () => {
                                 placeholder="Review Title"
                                 type="text"
                                 name="title"
-                                // value="{reviewData.title}"
-                                onChange="{handleChange}"
+                                onChange={handleChange}
                             />
 
                             <label className="form-label" htmlFor="body">Review</label>
@@ -75,8 +74,8 @@ const NewReview = () => {
                                 placeholder="Review"
                                 type="text"
                                 name="body"
-                                // value="{reviewData.body}"
-                                onChange="{handleChange}"
+
+                                onChange={handleChange}
                             />
 
                             <button className="btn btn-primary" onClick={handleSubmit}>
