@@ -7,25 +7,25 @@ import axios from 'axios';
 
 // Axios request to create new user account
 export async function createUser(formData) {
-    const { data } = await axios.post('users/signup', formData)
+    const { data } = await axios.post('/users/signup', formData)
     return data
 }
 
 // Axios request to log in to user account
 export async function loginToAccount(formData) {
-    const { data } = await axios.post('users/login', formData)
+    const { data } = await axios.post('/users/login', formData)
     return data
 }
 
 // Get user data if user is logged in
 export async function getUserData(userId) {
-    const { data } = await axios.get('users/' + userId)
+    const { data } = await axios.get('/users/' + userId)
     return data
 }
 
 // Get user personal reviews if user is logged in
 export async function userReviews(userId) {
-    const { data } = await axios.get(`reviews/user/${userId}`)
+    const { data } = await axios.get(`/reviews/user/${userId}`)
     return data
 }
 
@@ -42,7 +42,7 @@ export async function createReview(reviewData) {
             'Authorization': localStorage.getItem('token')
         }
     }
-    const { data } = await axios.post('reviews/create', reviewData, config)
+    const { data } = await axios.post('/reviews/create', reviewData, config)
     return data
 }
 
@@ -53,7 +53,7 @@ export async function updateReview(reviewData) {
             'Authorization': localStorage.getItem('token')
         }
     }
-    const { data } = await axios.put('reviews/update', reviewData, config)
+    const { data } = await axios.put('/reviews/update', reviewData, config)
     return data
 }
 
@@ -64,6 +64,6 @@ export async function deleteReview(reviewId) {
             'Authorization': localStorage.getItem('token')
         }
     }
-    const { data } = await axios.delete(`reviews/delete/${reviewId}`, config)
+    const { data } = await axios.delete(`/reviews/delete/${reviewId}`, config)
     return data
 }

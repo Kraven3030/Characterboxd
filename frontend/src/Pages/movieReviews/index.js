@@ -12,26 +12,27 @@ function MovieReviews() {
     const baseUrl = "https://image.tmdb.org/t/p/original"
 
 
-        const [mediaReviews, setMediaReviews] = useState([])
-        const [mediaId, setMediaId] = useState(state.mediaId);
-    
-    
-    
-        useEffect(() => {
-             const fetchReviews = async () => {
-                 await allReviews(state.mediaId).then((res) => {
-                    setMediaReviews(res)
-                })
-    
-            }
-            
-            fetchReviews(state.mediaId)
-        }, [state.mediaId])
-        
-    
+    const [mediaReviews, setMediaReviews] = useState([])
+    const [mediaId, setMediaId] = useState(state.mediaId);
+
+
+
+    useEffect(() => {
+        const fetchReviews = async () => {
+            await allReviews(state.mediaId).then((res) => {
+                setMediaReviews(res)
+            })
+
+        }
+
+        fetchReviews(state.mediaId)
+    }, [state.mediaId])
+
+
 
     return (
         <div className="card">
+
         {mediaReviews.map(review => (
             <div className="card-body" key={review._id}>
                 <h1 className="card-title">For: {review.movieName}</h1>
@@ -45,6 +46,7 @@ function MovieReviews() {
                     }
            
         </div>
+
     );
 
 }
