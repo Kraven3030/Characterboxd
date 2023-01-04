@@ -8,18 +8,18 @@ Blake Reed, Rory Van Blaricom, and Brendon Cowell
 
 
     ABOUT
-
+============
 Characterboxd is a web application that allows users who have a passion for films & tv to read or create reviews for their favorite shows and movies.
 
 
 
     APPROACH
-
+===============
 We wanted to make something simple and easy for any user to use. This meant that the site needed to be sleek and modern with links or buttons perfectly placed and visible to make the site easy to navigate. To this we utilized Bootstrap which in turn made the application responsive for the users using any device.
 
 
    TECH STACK
-
+===============
 -Javascript
 -React.js
 -Node.js
@@ -35,12 +35,19 @@ We wanted to make something simple and easy for any user to use. This meant that
 -Express
 
    INSTALLATION
-
+==================
 -Make sure you have great internet connection and use the link provided to navigate to the webpage.
 characterboxd.herokuapp.com/
 -The app will require authentication therefore each user will need to create an account by navigating to the signup page.
 
-   SCREENSHOTS
+   LINK TO FINISHED PRODUCT
+===============================
+Please leave us some reviews for your favorite movies or TV shows!
 
+https://characterboxd.herokuapp.com/
+
+
+   SCREENSHOTS
+=================
 ![Screenshot 2023-01-03 at 12 29 26 AM (3)](https://user-images.githubusercontent.com/114965290/210322670-35c26122-f83f-4480-8da9-da1894b05709.png)
 ![Screenshot 2023-01-03 at 12 37 35 AM (3)](https://user-images.githubusercontent.com/114965290/210323567-9eee80dd-acec-4990-8be4-bbf92e08476a.png)
