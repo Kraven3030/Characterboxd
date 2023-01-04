@@ -34,20 +34,17 @@ function UsersReviews() {
 
                                 <div className="review">
                                     <h3 className="review-title">
-                                        Title:
-                                        {review.title}
+                                        Title: {review.title}
                                     </h3>
                                     <h4
                                         className="review-movie"
                                     >
-                                        Movie:
-                                        {review.movieName}
+                                        Media: {review.movieName}
                                     </h4>
                                     <p
                                         className="review-body"
                                     >
-                                        Review:
-                                        {review.body}
+                                        Review: {review.body}
                                     </p>
 
                                     <Link to={"/EditReview/"} state={{

@@ -32,18 +32,21 @@ function MovieReviews() {
 
     return (
         <div className="card">
-            {mediaReviews.map(review => (
-                <div className="card-body" key={review._id}>
-                    <h1 className="card-title">{review.title}</h1>
-                    <h2 className="card-subtitle mb-2 text-muted"> {review.body}</h2>
-                    <h3 className="card-text">{review.reviewer.username}</h3>
-                </div>
-            ))
 
+        {mediaReviews.map(review => (
+            <div className="card-body" key={review._id}>
+                <h1 className="card-title">For: {review.movieName}</h1>
+                <h1 className="card-title">{review.title}</h1>
+                <h2 className="card-subtitle mb-2 text-muted">{review.body}</h2>
+                <h3 className="card-text">By: {review.reviewer.username}</h3>
+            </div>
+                ) )
+             
+                
+                    }
+           
+        </div>
 
-            }
-
-        </div >
     );
 
 }
