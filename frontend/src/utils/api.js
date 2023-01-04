@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 // For testing purposes
- axios.defaults.baseURL = 'http://localhost:9000/';
+// axios.defaults.baseURL = 'http://localhost:9000/';
 
 
 // Axios request to create new user account
