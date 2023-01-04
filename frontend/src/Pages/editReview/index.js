@@ -42,25 +42,28 @@ function EditReview() {
     return (
         <div>
             <form>
-                <label htmlFor="title">Title:</label>
-                <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    value={review.title}
-                    onChange={handleChange}
-                />
-                <br />
-                <label htmlFor="body">Review:</label>
-                <input
-                    type="text"
-                    id="body"
-                    name="body"
-                    value={review.body}
-                    onChange={handleChange}
-                />
-                <br />
-                <button type="submit" className="btn btn-info" onClick={(event) => handleSubmit(event)}>Save Changes</button>
+                <div className="form-group">
+                    <label htmlFor="title">Title:</label>
+                    <input
+                        className="form-control"
+                        type="text"
+                        id="title"
+                        name="title"
+                        value={review.title}
+                        onChange={handleChange} />
+                </div>
+
+                <div>
+                    <label htmlFor="body">Review:</label>
+                    <input
+                        className="form-control"
+                        type="text"
+                        id="body"
+                        name="body"
+                        value={review.body}
+                        onChange={handleChange} />
+                </div>
+                <button type="submit" className="btn btn-primary" onClick={(event) => handleSubmit(event)}>Save Changes</button>
                 <button type="submit" className="btn btn-danger" onClick={(event) => handleDelete(event)}>Delete</button>
             </form>
         </div>
