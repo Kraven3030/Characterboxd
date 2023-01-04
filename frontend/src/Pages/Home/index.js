@@ -8,7 +8,7 @@ function Home() {
 
     return (
 
-        <div className='container bg-dark'>
+       <div className='container bg-dark'>
 
             <h2 className='intro'>REVIEW FILMS YOU'VE WATCHED.</h2>
             <h2 className='intro'>TRACK THOSE YOU WANT TO SEE.</h2>
