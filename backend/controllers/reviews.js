@@ -4,7 +4,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const Review = db.Review
+const Review = db.Review;
 const jwt = require('jwt-simple')
 const passport = require('../config/passport')
 const config = require('../config/config')
@@ -45,7 +45,7 @@ router.post('/create', isAuthenticated, async (req, res) => {
 //    REVIEWS BY USER ID
 //==========================
 router.get('/user/:id', (req, res) => {
-    console.log(req.params.id);
+    console.log("User reviws for user " + req.params.id);
     db.User.findById(
         req.params.id,
         (err, user) => {
@@ -102,7 +102,7 @@ router.delete('/delete/:id', isAuthenticated, async (req, res) => {
 //   REVIEWS BY MEDIA ID
 //==========================
 router.get('/:id', async (req, res) => {
-
+    console.log("Reviews by media ID");
     const populatedReviews = await 
     Review.find({ "mediaId": req.params.id }).populate('reviewer')
     res.json(populatedReviews)

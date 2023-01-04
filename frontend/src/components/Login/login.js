@@ -24,16 +24,22 @@ function Login(props) {
     const handleSubmit = async (event, loginForm) => {
         event.preventDefault()
         loginToAccount(loginForm)
-            .then((data) => {localStorage.token = data.token;
-                localStorage.username = data.username;
-                localStorage.userId = data.userId;})
-        props.setIsLoggedIn(true)
-        setLoginForm({
-            username: '',
-            password: ''
-        })
-
-        navigate("/", {replace: true});
+            .then((data) => {
+                if (data.token) {
+                    localStorage.token = data.token;
+                    localStorage.username = data.username;
+                    localStorage.userId = data.userId;
+                    props.setIsLoggedIn(true)
+                    setLoginForm({
+                        username: '',
+                        password: ''
+                    })
+                    navigate("/", {replace: true})
+                } else {
+                        window.alert("Login error! Username/password do not match!");
+                }
+            })
+        
     }
 
 

@@ -44,7 +44,6 @@ function SearchBar() {
 
     function getMedia(searchString) {
         const url = `${queryOptions.api}${queryOptions.endpoint}?api_key=${queryOptions.api_key}&query=${searchString}`;
-        //    const url2= `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&query=${searchString}`
         fetch(url)
             .then((response) => response.json())
             .then((response) => {

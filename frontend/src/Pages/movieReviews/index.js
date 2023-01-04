@@ -31,13 +31,13 @@ function MovieReviews() {
     
 
     return (
-        <div className="container">
-                {mediaReviews.map( review => (
-                    <div className="reviewCard" key={review._id}>
-                        <h1>{review.title}</h1>
-                        <h2>{review.body}</h2>
-                        <h3>{review.reviewer.username}</h3>
-                    </div>
+        <div className="card">
+        {mediaReviews.map(review => (
+            <div className="card-body" key={review._id}>
+                <h1 className="card-title">{review.title}</h1>
+                <h2 className="card-subtitle mb-2 text-muted"> {review.body}</h2>
+                <h3 className="card-text">{review.reviewer.username}</h3>
+            </div>
                 ) )
              
                 
