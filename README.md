@@ -1,7 +1,7 @@
 # Characterboxd
 
   DEV TEAM
-
+=============
 Blake Reed, Rory Van Blaricom, and Brendon Cowell
 
 <img width="1440" alt="Screenshot 2023-01-02 at 11 52 43 PM" src="https://user-images.githubusercontent.com/114965290/210318102-6dca1736-3e4f-4a80-aefb-5681f65e870c.png">
