@@ -1,0 +1,6 @@
+.card-body {
+    width: 75vw;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}

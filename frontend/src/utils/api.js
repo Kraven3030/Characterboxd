@@ -1,6 +1,10 @@
 import axios from 'axios';
 
 
+// For testing purposes
+// axios.defaults.baseURL = 'http://localhost:9000';
+
+
 // Axios request to create new user account
 export async function createUser(formData) {
     const { data } = await axios.post('/users/signup', formData)

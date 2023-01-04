@@ -47,14 +47,14 @@ router.post('/signup', async (req, res) => {
                             // If the database creates a user successfully, assign a JWT to the user and send the JWT as the response
                             if (user) {
                                 const payload = {
-                                    id: newUser.id,
-                                    username: newUser.username
+                                    id: user._id,
+                                    username: user.username
                                 }
                                 const token = jwt.encode(payload, config.jwtSecret)
                                 res.json({
                                     token: token,
-                                    username: newUser.username,
-                                    userId: newUser.id
+                                    username: user.username,
+                                    userId: user._id
                                 })
                                 // Send an error if the database fails to create a user
                             } else {
