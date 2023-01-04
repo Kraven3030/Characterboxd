@@ -12,10 +12,11 @@ import Signup from './components/Signup/signup'
 import NewReview from './Pages/newReview/index';
 import MovieReviews from './Pages/movieReviews/index'
 import UsersReviews from './Pages/usersReviews/index';
-
 import EditReview from './Pages/editReview/index';
 import SearchResults from './components/SearchResults/SearchResults';
 import SearchBar from './components/SearchBar/SearchBar';
+
+
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -29,8 +30,6 @@ function App() {
 
   return (
     <>
-
-
       <header className='bg-dark'>
         <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <SearchBar className='results' />
@@ -45,7 +44,6 @@ function App() {
           <Route path="/MovieReviews" element={<MovieReviews />} />
           <Route path="/UsersReviews" element={<UsersReviews />} />
           <Route path="/NewReview" element={<NewReview />} />
-
           <Route path="/EditReview" element={<EditReview />} />
         </Routes>
       </main>

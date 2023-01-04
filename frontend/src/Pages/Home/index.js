@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
 import './styles.css'
 
 
 function Home() {
 
-
-
     return (
 
-        <div className='container bg-dark'>
+       <div className='container bg-dark'>
 
             <h2 className='intro'>REVIEW FILMS YOU'VE WATCHED.</h2>
             <h2 className='intro'>TRACK THOSE YOU WANT TO SEE.</h2>
@@ -62,9 +59,7 @@ function Home() {
                 </button>
             </div>
         </div>
-
     );
-
 }
 
 export default Home

@@ -14,7 +14,6 @@
     justify-content: center;
     text-align: center;
     color: white;
-    
 }
 
 .container {
@@ -33,7 +32,7 @@ img {
 }
 
 h5, p, h2, h4 {
-    color: goldenrod;
+    color: goldenrod !important;
 }
 
 em {
@@ -51,4 +50,3 @@ em {
 #blakeImg {
     width: 100%;
 }
-
