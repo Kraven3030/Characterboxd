@@ -39,12 +39,9 @@ router.post('/signup', async (req, res) => {
         // Check if a user exists with the same username and password
         User.findOne({ username: req.body.username })
             .then((user) => {
-                // If a user doesn't exist...
                 if (!user) {
-                    // ...Create a new one.
                     User.create(newUser)
                         .then(user => {
-                            // If the database creates a user successfully, assign a JWT to the user and send the JWT as the response
                             if (user) {
                                 const payload = {
                                     id: user._id,
@@ -56,7 +53,6 @@ router.post('/signup', async (req, res) => {
                                     username: user.username,
                                     userId: user._id
                                 })
-                                // Send an error if the database fails to create a user
                             } else {
                                 res.sendStatus(401)
                             }
